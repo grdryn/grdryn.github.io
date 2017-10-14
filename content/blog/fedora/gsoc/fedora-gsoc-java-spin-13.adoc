@@ -1,0 +1,106 @@
+= Fedora Java Spin - GSOC 2012 update 13 (Final)
+Gerard Ryan
+2012-08-20
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+This is the thirteenth weekly instalment of my GSOC blog series. More info on
+the progress of the Fedora Java Spin/Remix can be found on the
+https://fedoraproject.org/wiki/Fedora-JBoss-Spin[Fedora wiki].
+
+Today is the GSOC Firm ‘pencils down’ date, as opposed to last weeks ‘Soft’
+pencils down date. More info on the hardness of pencils can be found
+https://en.wikipedia.org/wiki/Pencil#Grading_and_classification[here].
+
+This week, being the last, there are new Live images available. I got a lot of
+help from Dan Allen this week, and we focused mainly on making the live
+distribution as great as it can be. We’ve decided to name these as a Remix
+rather than a Spin, since it’s still not an official Fedora Spin. I think it’s
+pretty great, but there’s always room for improvement, so if you think something
+would be better done differently, please let us know!
+
+The ISO image files can be found at
++++<del>http://ryan.lt/fedora-java-remix/</del>+++
+(lost due to disk failure - 2013/03/25)
+
+Here’s what you can expect:
+
+====
+* Standard Fedora GNOME desktop experience, with some minor customizations
+aimed at developers, including:
+
+** GPaste extension for GNOME Shell.
+** Caps Lock key is an additional control key.
+** Custom Firefox homepage with relevant search feature, and additional useful
+bookmarks for Java developers.
+** Custom .gitconfig with some useful shortcuts.
+
+* Additional Java and related packages from the Fedora repositories, including:
+
+** OpenJDK
+** JBoss AS7
+** Groovy
+** Scala
+** Maven
+** Apache Ivy
+** Thermostat
+** Tomcat
+** and more.
+
+* Useful tools for developers (Java or otherwise):
+
+** Git & Gitg,
+** SVN & RapidSVN,
+** Mercurial & TortoiseHg,
+** Meld,
+** vim,
+** emacs,
+** source-highlight,
+** and more.
+
+* Eclipse IDE with some useful plugins and customizations, including:
+
+** Eclipse Webtools (those that are available in Fedora repositories).
+** JBoss Tools (those that are available in Fedora repositories).
+** EclEmma
+** Eclipse plugin for FindBugs
+** Eclipse Mercurial plugin
+** Eclipse Git Integration
+** Eclipse Subversion plugin
+** JBoss AS user instance pre-configured to be managed by JBoss Tools in
+Eclipse.
+====
+
+So that’s it. GSOC is over. I’d like to give special thanks to my mentor
+http://goldmann.pl/[Marek Goldmann]; and also to
+http://mojavelinux.com/[Dan Allen] who were both extremely helpful and
+supportive the whole way through. Huge thanks also to all of the people from
+the https://fedoraproject.org/wiki/SIGs/Java[Fedora Java SIG] who were always
+able to advise me as to what the best course of action would be in all of the
+stumbling blocks that we ran into; and to the
+http://www.jboss.org/tools.html[JBoss Tools] team for their helpfulness and
+expertise where and when it was needed. I look forward to continue working with
+everyone into the future, as we make Fedora the first choice for Java
+developers.
+
+My current goals coming out of GSOC are to continue what I’ve started, including
+getting more JBoss Tools built (which again, still requires m2e-core, which I
+still haven’t figured out why it doesn’t work…grumble).
+
+Once the Java Remix gets accepted as an official Fedora Spin, I hope to get more
+involved with the Spins SIG. I think spins tailored to specific audiences often
+makes more sense for people than one catch-all distribution. I’m surprised that
+there aren’t far more Spins, since the tools and documentation available are
+pretty great, and make the process a whole lot easier than it could be. I’d like
+to find out what the best way to include custom browser profiles in a Spin would
+be. A browser is an essential tool for any modern user, and I feel that since
+Spins are often targeted to a specific audience, their browser experience could
+be better customized also.
+
+That’s all for now. Thanks again to everyone who has been involved or supported/
+motivated me along the way! I hope I pass the final evaluations…the tee shirts
+that are given to successful students are usually great and I really want one
+(oh, the financial stipend would also be nice)! :)

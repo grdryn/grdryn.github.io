@@ -1,0 +1,10 @@
+= What ARE YOU looking for?
+Gerard Ryan
+2012-03-27
+:jbake-type: post
+:jbake-tags: grammar
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+image::nuig-ruler.jpg[]

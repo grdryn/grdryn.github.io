@@ -1,0 +1,112 @@
+= Fedora JBoss Spin - GSOC 2012 update 2
+Gerard Ryan
+2012-06-03
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+This is the second weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+https://fedoraproject.org/wiki/Fedora-JBoss-Spin[Fedora wiki].
+
+This week was quite productive I think! There were of course points at which I
+was tearing my hair out, but the Fedora Java SIG were always able to shed a
+light on my problems. Here’s a day-to-day breakdown of what I’ve been doing
+since the last update.
+
+.Monday
+On Monday, I drew up spec files for my first two packages!
+https://bugzilla.redhat.com/show_bug.cgi?id=825890[uddi4j] and
+https://bugzilla.redhat.com/show_bug.cgi?id=826014[wsil4j], are both relatively
+small packages, but they are required for eclipse-wtp-webservices. Marek
+Goldmann, my mentor, reviewed the first one, and by Wednesday we had a package
+of sufficient quality for Fedora! wsil4j depends on uddi4j, so it was necessary
+to wait a while before getting a review for it. I actually thought that uddi4j
+would need to be in fedora stable repos before a review could be done on a
+package that depends on it, but apparently not always! I filed a
+https://fedorahosted.org/rel-eng/ticket/5205[buildroot request] with rel-eng
+today, so hopefully I can get it reviewed soon.
+
+.Tuesday
+I installed the packages that I made on Monday, locally through yum, and tried
+again to build eclipse-wtp-webservices. I found another dependency that
+seemingly wasn’t being satisfied, javax.activation. I found a library called
++geronimo-activation+ and drew up a quick spec file, and sent it in for review.
+I later found out that that was in vain, as javax.activation is now provided by
+the jvm. After that, I was getting some quite strange problems (this was one of
+the moments that I was tearing my hair out!), and I had no idea what was going
+wrong. I spoke with some of the experts in #fedora-java on freenode, and it got
+me thinking that it’s possible that some other packages in fedora might provide
+what I’m looking for, but have problems. I found one of those problems, fixed
+and made patches for it, and submitted the patch to bugzilla,
+https://bugzilla.redhat.com/show_bug.cgi?id=826147[here].
+
+.Wednesday
+On Wednesday, I found another stumbling block with an already-packaged-in-fedora
+software that I needed, so I patched that, and submitted the patch
+https://bugzilla.redhat.com/show_bug.cgi?id=826776[here]. Then I finally got
++eclipse-wtp-webservices+ to a stage where it got to the compilation stage of
+the build. I was far from out of the woods here though, as there were many
+compilation errors. I started looking into these, and creating patches for them.
+The reason for most of the compilation problems, was that some of the libraries
+that the plugins were depending on, were old versions, and we’ve only got the
+‘latest-and-greatest’ in Fedora, which have lots of additional abstract methods
+that need to be implemented, but weren’t being, in the plugins in question.
+
+.Thursday
+The aforementioned uddi4j package from  Monday was now in a condition that it
+could be submitted to the fedora repositories, so Marek helped me with all of
+the stages in getting it there. After that, I continued patching up the
++eclipse-wtp-webservices+ stuff. As this was different from just patching a spec
+file, or OSGi manifest for a fedora package, I decided to ask the fedora-devel
+mailing list for advice. I wasn’t really sure what to do, since after I would
+fix a number of errors, and try to rebuild, an even higher number of errors
+would appear this time (another one of the hair-tearing-out-of moments), and the
+number of patches was growing steadily. Having heavily patched stuff doesn’t
+seem to align very well with the Fedora way, of sticking closely to upstream. As
+it’s really my first time patching anything to this degree, I was unsure as to
+what to do. Maybe upstream were sticking to older versions of dependencies for
+good reasons? Maybe I was causing a lot of additional problems with my patches?
+The fact that I’m doing this as part of GSOC, where I’ve got some time
+constraints, I was also unsure whether I could wait for upstream to implement my
+patches so that I could make a fedora rpm. Thanks to Aleksandar Kurtakov (who is
+always very helpful), who replied quickly and put my mind at ease.
+
+.Friday
+I found a bug in the OSGi manifest of the uddi4j package, so I fixed that and
+submitted it as an update. This again was a first, updating a package, and not
+having to submit it for review! I also eventually got to the end of the
+compilation errors in +eclipse-wtp-webservices+. I was quite surprised, I didn’t
+expect it to build. When I saw BUILD SUCCESSFUL, my first reaction was “This
+error message is different to the others”; then I thought that I must have done
+something wrong (which I guess is still entirely possible!
+
+.Saturday
+I spent most of Saturday drawing up the spec file for eclipse-wtp-webservices.
+It was the largest one that I’ve done to date, with the most patches, so it took
+a while. I found it very useful to get ideas from the other eclipse-wtp-*
+packages that we already have in Fedora. By the end of the day, I had one that I
+was happy with. It was quite late though, so I thought it best to sleep, and
+have a quick look over it in the morning with fresher eyes.
+
+.Sunday
+Today I fixed a couple of tidbits in the spec file from yesterday that I got
+from rpmlint. I submitted it for review, and I also installed it locally, so I
+could get on to the next step. I started looking at eclipse-wtp-jeetools, which
+is the reason I needed webservices in the first place. I’ve made a couple of
+changes, and I’m at the stage of compilation errors already (we seem to have all
+of the dependencies here in this case I think). I got a little panicky the first
+time it failed at compilation stage, because there were just shy of 3000 errors.
+I’ve managed to play around with the feature.xml, and now there are only 100
+errors. Of course, it’s possible that once the 100 errors that are sitting on
+top of the previous 3000, and are just preventing them from happening yet. I
+wouldn’t be surprised if I saw those again, but I may cry.
+
+Wow, this wasn’t supposed to be this long, but I guess it was a productive week,
+and I learned a lot. Next week’s report will be significantly shorter, I
+imagine, as I will be away for some of the week. I do hope to get an alpha
+kickstart file for the Fedora JBoss Spin though, to stick to the schedule! I’m
+aiming to have +jboss-as+ and +eclipse+ in the alpha release, I’m not sure how
+much else yet though!

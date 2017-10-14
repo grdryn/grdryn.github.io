@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' standalone='yes' ?>
+<opml version="1.0">
+  <head>
+    <title>PodcastAddict registration feeds</title>
+    <dateCreated>8 Jul 2016 23:42:46</dateCreated>
+    <dateModified>8 Jul 2016 23:42:46</dateModified>
+  </head>
+  <body>
+    <outline text="Bad Voltage" type="rss" xmlUrl="http://www.badvoltage.org/feed/mp3/" htmlUrl="http://www.badvoltage.org" />
+    <outline text="DevOps Cafe Podcast" type="rss" xmlUrl="http://devopscafe.libsyn.com/rss" htmlUrl="http://devopscafe.org" />
+    <outline text="FLOSS Weekly (MP3)" type="rss" xmlUrl="http://feeds.twit.tv/floss.xml" htmlUrl="https://twit.tv/floss" />
+    <outline text="Freakonomics Radio" type="rss" xmlUrl="http://feeds.feedburner.com/freakonomicsradio" htmlUrl="http://www.wnyc.org/articles/freakonomics-podcast" />
+    <outline text="Free as in Freedom" type="rss" xmlUrl="http://faif.us/feeds/cast-ogg/" htmlUrl="http://faif.us/cast/" />
+    <outline text="Hacker Public Radio" type="rss" xmlUrl="http://hackerpublicradio.org/hpr_rss.php" htmlUrl="http://hackerpublicradio.org/about.php" />
+    <outline text="JavaScript Jabber" type="rss" xmlUrl="https://feeds.feedwrench.com/JavaScriptJabber.rss" htmlUrl="http://javascriptjabber.com" />
+    <outline text="Linux Voice Podcast" type="rss" xmlUrl="https://www.linuxvoice.com/podcast_mp3.rss" htmlUrl="http://www.linuxvoice.com/podcast_mp3.rss" />
+    <outline text="Mostly Node" type="rss" xmlUrl="http://mostlynode.podbean.com/feed" htmlUrl="http://mostlynode.podbean.com" />
+    <outline text="NodeUp" type="rss" xmlUrl="http://feeds.feedburner.com/NodeUp" htmlUrl="http://nodeup.com" />
+    <outline text="Podcast.__init__ - Python and the people who make it great" type="rss" xmlUrl="http://podcastinit.podbean.com/feed" htmlUrl="http://pythonpodcast.com" />
+    <outline text="Software Engineering Radio - The Podcast for Professional Software Developers" type="rss" xmlUrl="http://feeds.feedburner.com/se-radio" htmlUrl="http://www.se-radio.net" />
+    <outline text="StarTalk Radio" type="rss" xmlUrl="http://feeds.soundcloud.com/users/soundcloud:users:38128127/sounds.rss" htmlUrl="http://startalkradio.net" />
+    <outline text="Still Untitled: The Adam Savage Project" type="rss" xmlUrl="http://www.tested.com/podcast-xml/still-untitled-the-adam-savage-project/" htmlUrl="http://www.tested.com/still-untitled-the-adam-savage-project/" />
+    <outline text="Stuff You Should Know" type="rss" xmlUrl="http://www.howstuffworks.com/podcasts/stuff-you-should-know.rss" htmlUrl="http://www.howstuffworks.com/" />
+    <outline text="TEDTalks (audio)" type="rss" xmlUrl="http://feeds.feedburner.com/tedtalks_audio" htmlUrl="http://www.ted.com/talks/list" />
+    <outline text="The Changelog" type="rss" xmlUrl="http://feeds.feedburner.com/changelogshow" htmlUrl="http://5by5.tv/changelog" />
+    <outline text="The Dave and Gunnar Show" type="rss" xmlUrl="https://dgshow.org/feed/podcast" htmlUrl="https://dgshow.org" />
+    <outline text="The InfoQ Podcast" type="rss" xmlUrl="http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss" htmlUrl="http://www.infoq.com/" />
+    <outline text="The Nerdist" type="rss" xmlUrl="http://nerdist.libsyn.com/rss" htmlUrl="http://nerdist.com" />
+    <outline text="The Ruby Rogues" type="rss" xmlUrl="https://feeds.feedwrench.com/RubyRogues.rss" htmlUrl="http://rubyrogues.com" />
+    <outline text="ThoughtWorks" type="rss" xmlUrl="http://feeds.soundcloud.com/users/soundcloud:users:94605026/sounds.rss" htmlUrl="https://www.thoughtworks.com" />
+  </body>
+</opml>

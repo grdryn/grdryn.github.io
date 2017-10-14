@@ -1,0 +1,70 @@
+= Fedora JBoss Spin - GSOC 2012 update 3
+Gerard Ryan
+2012-06-11
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+This is the third weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+https://fedoraproject.org/wiki/Fedora-JBoss-Spin[Fedora wiki].
+
+As I mentioned last week, this week would see me inactive until later in the
+week. Unfortunately, I didn’t get back to normal until Friday morning, so here’s
+a short summary of what I’ve been doing since then.
+
+.Friday
+When catching up with my emails, I got a message from rel-eng on the ticket I
+had submitted last week regarding the buildroot override: it’s now a self
+service procedure, so obviously wherever I read about it on the wiki is a little
+out of date! I created it, and then Mikolaj Izdebski helped me out a lot by
+reviewing the wsil4j package that I was waiting on. Again, this took a few
+iterations before it was in an acceptable state to be pass the review stage, and
+I learned more each time.
+
+After that, I got started on making an initial version of the kickstart file for
+the spin, as this weekend is what was set for the alpha release. My first few
+attempts at this were unsuccessful, and I was getting not-altogether-helpful
+error messages.Everything would work fine, until I would add the Fedora Eclipse
+yum group. I had no real idea why it was failing here, as package groups are
+widely used in kickstart files. I didn’t get very far with this on Friday, as
+each try takes a significant amount of time and data!
+
+.Saturday
+I continued with trying to get the eclipse group to work with the kickstart
+file, and eventually I made a breakthrough: I was referring to the package group
+the wrong way.With yum, there are two ways to install a package group. In the
+case of the Fedora Eclipse group, the most explicit way would be yum groups
+install Fedora\ Eclipse; with the alternative way being +yum install @eclipse+.
+In the kickstart file, I was trying a horrendous mix of the two: @Fedora
+Eclipse. I’m not exactly sure how to get the @name for package groups, usually I
+install by getting a list of all groups with yum groups list, but that doesn’t
+provide the short name. I’m not sure how I figured out @eclipse, it may have
+been a guess.
+
+Since none of the JBoss Tools are ready yet, they obviously can’t be included in
+the spin, so for now it’s similar to the default Fedora live desktop spin with
+GNOME 3. The most notable differences are that it includes the Eclipse IDE, with
+the webtools packages that are packaged for Fedora thus far; and also JBoss AS
+7. These are sizeable additions, so at around 1.3GB, the spin is already too
+large for a CD. The other changes that I’ve included are just to include some
+tools that I think could be helpful for a JBoss developer: `git`, `svn`, `cvs`,
+and `mercurial`, and `xchat`. I also modified the favourites menu, as can be
+seen in the screenshot below. I’ve put the kickstart file online here.
+
+image::jboss-spin.png[]
+
+.Sunday
+Today I got back to trying to package the +eclipse-wtp-jeetools+ that I had
+started. Thankfully, there are not as many patches needed for this as there were
+with +eclipse-wtp-webservices+! It mostly just needed some shuffling of the
+feature.xml file. There’s one plugin that is still proving problematic, so for
+the moment, it’s commented out, and not being built. I eventually got it to
+build anyway, and created a working spec file for the package. I won’t submit it
+for review yet until I communicate with some of the wise people of the Java SIG,
+and see if they have an solution to the issue regarding the plugin that refuses
+to build.
+
+That’s all for this week, I’m sure the coming week will be a busy one!

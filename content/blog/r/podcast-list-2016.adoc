@@ -1,0 +1,247 @@
+= My Podcast list in 2016 🎧
+Gerard Ryan
+2016-07-09
+:jbake-type: post
+:jbake-tags: podcast
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+:toc:
+:toc-placement!:
+:toc-title: TL;DR Navigation
+
+I've started listening to podcasts again, as I've had a commute of
+  around 40 minutes in the last few months.
+Unsurprisingly, the majority of the podcasts that I listen to
+  frequently are focused on free software or software development in
+  general.
+So here's a list of some of the shows that I listen to regularly now.
+For my full podcast list (including ones not listed here that I
+  haven't really gotten around to listening to yet), feel free to
+  download link:../../podcasts-2016.opml[my OPML file here].
+I'd love to hear about what's missing from the list, so feel free to
+  suggest a new one to me!
+
+toc::[]
+
+== Software development
+
+=== The Changelog
+
+https://changelog.com/[Homepage] |
+http://feeds.5by5.tv/changelog[RSS] |
+https://itunes.apple.com/podcast/the-changelog/id341623264[iTunes]
+
+The Changelog is a show about usually open source software projects
+  and communities that are interesting to developers / engineers.
+The format is usually an interview with a community or project leader,
+  and they get some great guests.
+The high quality interviews make it a popular show, which in turn
+  attracts these high profile guests, so the quality and popularity
+  keep rising!
+I listen to this show a lot, but I sometimes skip episodes that are on
+  some specific topic that I'm not currently interested in.
+Instead, I often end up scrolling back to older episodes from before I
+  started following (there are over 200 now!).
+
+=== Ruby Rogues
+
+https://devchat.tv/ruby-rogues[Homepage] |
+http://feeds.feedwrench.com/RubyRogues.rss[RSS] |
+https://itunes.apple.com/us/podcast/ruby-rogues/id705335155[iTunes]
+
+Despite the name, and the description on their site, my experience
+  with this podcast is that it's not all that ruby-specific -- which
+  is great, because I really like it, but I'm not a Ruby developer!
+It's more of a panel discussion show with a cast of hosts and an
+  expert guest on a particular topic; where many of the topics are
+  cross-cutting aspects of software engineering, rather than a
+  specific project or ecosystem, making it applicable to all types of
+  engineers involved in software production.
+This is definitely a favourite of mine at the moment, and when I run
+  out of things to listen to, I go back and find older episodes in the
+  archive that I haven't heard yet.
+
+=== Software Engineering Radio
+
+http://www.se-radio.net/[Homepage] |
+http://feeds.feedburner.com/se-radio[RSS] |
+https://itunes.apple.com/us/podcast/software-engineering-radio/id120906714[iTunes]
+
+SE-Radio is similar in ways to The Changelog.
+I haven't been listening to it for very long, but in that time it has
+  risen high in my list of favourites.
+It seems to be usually a 1:1 interview with a guest from a given
+  project or community or company or research field or somewhere.
+To give you an idea, some of the topics recent topics have been Ruby
+on Rails, Alluxio, OpenStack, recruiting, and Clojure.
+
+=== NodeUp
+
+http://nodeup.com/[Homepage] |
+http://feeds.feedburner.com/NodeUp[RSS] |
+https://itunes.apple.com/us/podcast/nodeup/id447667314[iTunes]
+
+At my current job  at Red Hat, we use NodeJS heavily.
+The NodeUp podcast is a great show for anyone interested in hearing
+  about what's going on in the NodeJS community!
+It tends to be a conversation between a host or two (rotated) and two
+or three guests, around some aspect of the NodeJS ecosystem that the
+guests are involved with.
+
+=== FLOSS Weekly
+
+https://twit.tv/shows/floss-weekly[Homepage] |
+http://feeds.twit.tv/floss.xml[RSS] |
+https://itunes.apple.com/us/podcast/floss-weekly-mp3/id140847216[iTunes]
+
+This was one of the first to get added to my current list, as I used
+  to listen to it before.
+It's a weekly show with the format being two hosts (usually Randal
+  Schwartz and another rotating host) interviewing the community
+  lead(s) of a given free software project/product.
+It's also streamed live (and recorded I believe) as a video cast, but
+  I have to admit to never having viewed it.
+As a show that has been going for over 10 years now (!), they've got a
+  back-catalog of almost 400 shows now, so there are many gems to be
+  found in the archive.
+
+=== The InfoQ Podcast
+
+https://www.infoq.com/the-infoq-podcast[Homepage] |
+http://feeds.soundcloud.com/users/soundcloud:users:215740450/sounds.rss[RSS]
+
+This is a relatively new podcast, with only 7 episodes at the time of
+  writing.
+It comes from the people behind the InfoQ site and QCon conferences.
+If you are familiar with the InfoQ site, you might have an idea of the
+  breadth of topics that it covers -- not all are interesting to
+  everyone, but at least some will be relevant to some engineers.
+The podcast isn't as busy as the website, but I imagine that the
+  episode topics will vary to the same degree.
+Definitely worth following so that you don't miss the episodes that
+  interest you, even if not all do.
+
+=== Thoughtworks Beacon Podcast
+
+https://www.thoughtworks.com/insights[Homepage]
+http://feeds.soundcloud.com/users/soundcloud:users:94605026/sounds.rss[RSS]
+
+You may have heard of Thoughtworks, the software consulting company
+  who publish the Thoughtworks Technology Radar every few months, with
+  their thoughts on trends in the industry.
+The podcast is an interesting one, as it doesn't try to stick to a
+  defined format or length.
+Many of the episodes are shorter thoughts on a particular topic, and
+  others are longer interviews or discussions.
+Some episodes sounds like they may be scripted, which (if so) is
+  interestingly different, and makes these episodes more like recorded
+  blog posts.
+I don't find that to be an issue at all though: it doesn't detract
+  from the quality; and after all, there aren't any hard format rules
+  that podcasts have to stick by, are there? :)
+
+== Free software / Free culture
+
+=== Linux Voice
+
+https://www.linuxvoice.com/[Homepage] |
+http://www.linuxvoice.com/podcast_mp3.rss[RSS (mp3)] |
+http://www.linuxvoice.com/podcast_ogg.rss[RSS (Ogg)]
+
+Yes, it's those people that make the magazine!
+I used to listen to the TuxRadar podcast, which is the predecessor to
+  this (it's just rebranded after the move to the new magazine), so this
+  was an early addition to the new list.
+It's structured into different sections, which is a nice break from
+  the common interview format of many of the podcasts that I listen
+  to:
+
+* _News_ - what has happened in the world of GNU/Linux and free software
+  since the previous episode
+* _Finds of the fortnight_ - each of the hosts talks about something
+  interesting that they've learned about recently.
+* _Vocalise your neurons_ - Listeners can send a rant or rave about
+  something and email it to Mike to read, and the hosts discuss.
+* _Voice of the masses_ - A question is asked for the community to
+  give their opinions on through the comments on the website.
+  A sampling of the opinions is provided on the show and discussed.
+
+=== Bad Voltage
+
+http://www.badvoltage.org/[Homepage] |
+http://www.badvoltage.org/feed/mp3/[RSS (mp3)] |
+http://www.badvoltage.org/feed/ogg/[RSS (Ogg)] |
+http://www.itunes.com/podcast?id=732017066[iTunes]
+
+Similar to Linux Voice, in that it's a constant panel of hosts talking
+  about what's new in this crazy world since the last episode.
+The hosts are pretty high profile individually, so there's always
+  lively debate.
+Sometimes there are guest cameos for particular segments, and often a
+  gadget review.
+
+=== Hacker Public Radio
+
+http://hackerpublicradio.org/[Homepage] |
+http://hackerpublicradio.org/syndication.php[Feeds (many options!)]
+
+HPR is a feed that I follow and listen selectively rather than trying
+  to consume every episode, as there's a lot (notice how they've got
+  split feeds for 'latest' and 'all', with warnings attached to the
+  'all' feeds due to the size)!
+Episodes are submitted by community members, and can be any length.
+The only guideline is that topics should be of interest to hackers.
+
+=== Free as in Freedom
+
+http://faif.us/[Homepage] |
+http://faif.us/feeds/cast-mp3/[RSS (mp3)] |
+http://faif.us/feeds/cast-ogg/[RSS (Ogg)]
+
+I follow this show, but it currently appears dormant.
+It's usually a discussion amont the esteemed hosts, Karen Sandler and
+  Bradley Kuhn, about free software licensing and other concerns; with
+  the occasional guest.
+
+== General Interest
+
+=== Freakonomics Radio
+
+http://freakonomics.com/[Homepage] |
+http://feeds.feedburner.com/freakonomicsradio[RSS] |
+https://itunes.apple.com/us/podcast/freakonomics-radio/id354668519[iTunes]
+
+This is a very professionally prepared podcast compared to most that I
+  listen to -- it's clear that a lot of work from more people than
+  just the host goes into each episode.
+I'm sure the fact that it airs on public radio in the US helps to fund
+  that.
+The topics here are taken from a very broad spectrum, such as
+  Leicester City football club winning the English Premier League, or
+  religion, or suicide, or sleep, or anything else.
+
+=== Star Talk
+
+http://startalkradio.net/[Homepage] |
+http://feeds.soundcloud.com/users/soundcloud:users:38128127/sounds.rss[RSS] |
+http://itunes.apple.com/us/podcast/startalk/id325404506[iTunes]
+
+This is another one that's also a radio show (and now a TV show?).
+I'm not going to bother describing this one, since it's probably one
+o f the most popular podcasts around.
+
+=== Ted Talks (audio)
+
+http://blog.ted.com/audio_podcasts/[Homepage] |
+http://feeds.feedburner.com/tedtalks_audio[RSS] |
+https://itunes.apple.com/us/podcast/tedtalks-audio/id160904630[iTunes]
+
+Yes, there's a curated list of Ted talks that's edited for audio-only
+  consumption, and this is it!
+The episodes are usually shorter than a lot of other podcasts, as it's
+  just one person giving a live talk.
+The shorter length is nice in my experience; as although topics aren't
+  explored in a huge amount of depth, they're more digestable than a
+  longer show (maybe it's just that they fit more easily into my
+  commute).

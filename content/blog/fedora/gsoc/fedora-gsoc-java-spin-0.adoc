@@ -1,0 +1,23 @@
+= Google Summer of Code 2012 - Fedora JBoss Spin
+Gerard Ryan
+2012-04-24
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+So yesterday I found out that I got accepted into the
+http://www.google-melange.com/gsoc/homepage/google/gsoc2012[Google Summer of
+Code] program. It’s really exciting news for me, being enthusiastic about free
+software and open source, and also because I’ll be getting money to contribute
+to a project that I’ve been hoping to get more involved with anyway.  I’ll be
+working with the https://fedoraproject.org/[Fedora project], to help with the
+packaging of JBoss software, and eventually I’ll create a JBoss spin, which will
+include JBoss Application Server 7, JBoss Tools for Eclipse, and JBoss Forge.
+I’m currently doing exams in university, so my activity on this will be limited
+until they’re finished. Then the hard work begins! I look forward to learning
+from all of the talented people who are already involved in the Fedora
+community. For more info on what I’ll be doing, the proposal is
+https://fedoraproject.org/wiki/GSOC_2012/Student_Application_grdryn_JBoss_Spin[
+available on the wiki]. I’ll update here with any interesting progress!

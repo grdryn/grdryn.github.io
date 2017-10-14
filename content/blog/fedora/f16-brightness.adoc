@@ -1,0 +1,31 @@
+= Adjust screen brightness on fedora 16 - try this if it’s not working
+Gerard Ryan
+2011-11-28
+:jbake-type: post
+:jbake-tags: gnome, linux
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+_Just in case this can help anyone on the fedora planet or other, who doesn’t
+visit fedoraforum.org or ask.fedoraproject.org very often. Admittedly I don’t
+visit there very often myself. A quick search in bugzilla shows some possibly
+related bugs._
+
+If you don’t seem to be able to alter the screen brightness in fedora, either
+with the Fn keys, or through the gnome-control-center, try reinstalling bash. I
+rarely have the screen brightness on full on my laptop, so when I couldn’t
+change it on f16, it was ever so slightly annoying! I honestly wouldn’t know
+what to file a bug report against, so I started searching. First stop was that
+shiny new http://ask.fedoraproject.org[ask.fedoraproject.org] instance, which
+led me to this post on http://forums.fedoraforum.org/showthread.php?t=272500[
+forums.fedoraforum.org]
+
+So with the Fn keys not working, which had always worked previously; and the
+slider in the screen settings in gnome-control-center having no effect, doing a
+simple +sudo yum reinstall bash+ was the answer.
+
+Update:
+It’s listed in the ‘Common F16 Bugs’ here:
+
+https://fedoraproject.org/wiki/Common_F16_bugs#Bash_entry_in_.2Fetc.2Fshells_disappears_after_update[]

@@ -1,0 +1,119 @@
+= Fedora JBoss Spin - GSOC 2012 update 7
+Gerard Ryan
+2012-07-09
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+This is the seventh weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on
+the https://fedoraproject.org/wiki/Fedora-JBoss-Spin[Fedora wiki].
+
+Today is the ‘mid-term’ in the
+http://www.google-melange.com/gsoc/events/google/gsoc2012[GSOC 2012 calendar],
+and as I mentioned last week, I’ve got the next iteration of the the spin ready.
+There are a few caveats to it, but I think it’s pretty cool so far! :) Not all
+of the packages are in the Fedora repositories yet, so I created a local yum
+repo that I could include the missing packages through.
+https://plus.google.com/114112334290393746697[+Dan Allen] added
+https://fedoraproject.org/wiki/Fedora-JBoss-Spin#Proposed_Desktop_Customization[
+some ideas to the wiki for customizations] that will make the spin awesome.
+Although these are only ‘proposed’ so far, I’ve included some of them into this
+release to see how well they work. A lot of them are not possible yet, and some
+of them I just can’t figure out yet; but the remaining ones should be in there!
+Here’s a vague list of stuff that the spin has over the vanilla fedora desktop
+image:
+
+[NOTE]
+====
+* JBoss AS7
+* Eclipse, with all of the available webtools from Fedora, and lots of other
+features.
+* A subset of JBoss Tools (this isn’t in Fedora yet)
+* Some SCM tools, such as gitg, TortoisHg, and RapidSVN.
+* Various other Eclipse customizations, including keybindings and JBoss
+perspective by default
+* Gnome-Terminal opens maximized by default, and has some custom keybindings
+(see Dan’s recommendations)
+* JAVA_HOME is set in ~/.bash_profile (I think, I forgot to check if this
+worked!)
+* Caps Lock key functions as an additional Ctrl. No more cruise control.
+* The proposed Gedit customizations, apart from the custom keybind
+* Attached modal dialogs are disabled by default.
+====
+
+The current set of JBoss Tools includes the following components:common, usage,
+archives, jmx, as, and jst. There are a few more that are close to being ready
+to include, and hopefully it won’t be too long until all of them are included!
+My main disappointment is that we don’t yet have m2eclipse to provide maven
+integration in Fedora, so the quickstart examples from jboss.org/jdf can’t be
+added in the recommended way. I’ll look to package m2e soon, so hopefully this
+situation will change soon!
+
+Here are some steps provided by Dan Allen, to connect to the Fedora packaged
++jboss-as+, which works with the included JBoss Tools:
+
+====
+*+++<u>User instance, managed by JBoss Tools</u>+++*
+
+. Create a new user instance:
+`jboss-as-cp -l $HOME/applications/jboss-as-user-instance`
+
+. New > Server
+
+. Server name: JBoss AS 7.1 Runtime (managed instance)
+
+. Server runtime environment: Add… (if necessary)
+
+. Name: JBoss AS 7.1 Runtime (system), Home directory: +/usr/share/jboss-as+,
+Configuration file: +standalone-web.xml+
+
+. Click Finish (three times)
+
+. Double click on “JBoss AS 7.1 Server (managed instance)” in Server tab
+
+. Click the Open launch configuration link
+
+. [ ] Always update arguments related to the runtime.
+
+. Modify VM arguments:
+
+* Remove:
++
+```
+“-Dorg.jboss.boot.log.file=/usr/share/jboss-as/standalone/log/boot.log”
+“-Dlogging.configuration=file:/usr/share/jboss-as/standalone/configuration/logging.properties”
+“-Djboss.home.dir=/usr/share/jboss-as”
+```
+* Append:
++
+```
+“-Dorg.jboss.boot.log.file=${env_var:HOME}/applications/jboss-as-user-instance/log/boot.log”
+“-Dlogging.configuration=file:${env_var:HOME}/applications/jboss-as-user-instance/configuration/logging.properties”
+“-Djboss.home.dir=/usr/share/jboss-as”
+“-Djboss.server.base.dir=${env_var:HOME}/applications/jboss-as-user-instance”
+```
+
+. Click OK
+
+. Select the Deployment tab
+
+. (*) Use workspace metadata
+
+. Save
+
+. Drag application to “JBoss AS 7.1 Server (managed instance)” in Server tab
+
+. Click the play button in the toolbar of the Server tab
+====
+
+Finally, the image files for this version of the custom spin are ready. That
+took quite a while to upload!
+
+i686: _outdated link removed_
+
+x86_64: _outdated link removed_
+
+kickstart file: _outdated link removed_

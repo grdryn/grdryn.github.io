@@ -1,0 +1,51 @@
+= Creating the Fedora JBoss Spin (GSOC 2012)
+Gerard Ryan
+2012-06-14
+:jbake-type: post
+:jbake-tags: gsoc
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+In my last post, I mentioned that I had created a
+http://galileo.fedorapeople.org/fedora-livedvd-jboss/[kickstart file] to build
+what will become the Fedora JBoss Spin. Noting that this is still very much in
+development, and hasn’t been submitted to the
+http://fedoraproject.org/wiki/SIGs/Spins[Spins SIG] yet, I even hesitate to call
+it a ‘Spin’ yet. Anyway, in this post I will briefly explain how to create an
+ISO disk image from that file. Once the ISO image is ready, it can be installed
+as a live media onto a USB stick or a DVD; or it can be run in a virtual
+setting.
+
+.Install spin related packages
+The livecd-creator tool is provided by the +livecd-tools+ package, and we also
+need some of the standard kickstart files from fedora-kickstarts:
+
+`sudo yum install livecd-tools fedora-kickstarts`
+
+.Prepare for build
+Next we need to get the custom kickstart file for the Fedora JBoss Spin:
+
+`curl -o fedora-livedvd-jboss.ks
+http://galileo.fedorapeople.org/fedora-livedvd-jboss/fedora-livedvd-jboss.ks`
+
+Before we can build it, we must make the standard kickstart files that we need,
+available in the same directory that we’ve got the custom one in, so in that
+directory:
+
+```
+ln -s /usr/share/spin-kickstarts/fedora-live-base.ks
+ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks
+```
+
+.Build!
+Now the image can be created. Note that this step may take a while. It will also
+download a lot of packages, so the your internet connection will play a part in
+how long it will take:
+
+`sudo livecd-creator -v --config=fedora-livedvd-jboss.ks --releasever=17`
+
+.What’s next?
+Now that you have a freshly squeezed live ISO image, you can do what you want
+with it. You can use it in your favourite virtual environment, or you can put it
+on a USB stick and live boot from that!

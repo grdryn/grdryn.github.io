@@ -1,0 +1,8 @@
+= Fedora Feed
+Gerard Ryan
+2014-11-07
+:jbake-type: fedorafeed
+:jbake-status: published
+
+This file is created just to trigger the rendering of a file using the template
+file customfeed.ftl which wouldn't use any of the content in this file.

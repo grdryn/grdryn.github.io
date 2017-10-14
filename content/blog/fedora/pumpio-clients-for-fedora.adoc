@@ -1,0 +1,75 @@
+= Two Pump.io client apps for Fedora (COPRs)
+Gerard Ryan
+2015-01-26
+:jbake-type: post
+:jbake-tags: fedora, linux, pump.io
+:jbake-status: published
+:disqus: true
+:imagesdir: /images
+
+http://pump.io/[Pump.io] is a "social server with an ActivityStreams API". It's
+from the same people that originally created StatusNet, which has now become
+http://gnu.io/[GNU social]. Pump.io servers are nodes in a federated social
+network: when you have an account on one, you can interact with others on that
+server, but also others with accounts on other pump.io servers. It's free
+software, so you can host your own instance and connect to others, wherever
+their servers may be.
+
+See the https://github.com/e14n/pump.io/wiki/User-Guide[Pump.io User Guide] for
+more information and links.
+
+The default method of using Pump.io is through a web interface that comes as
+part of the core software. This is good, but there are a few rough edges here
+and there. There are a few android applications, such as
+https://play.google.com/store/apps/details?id=eu.e43.impeller[Impeller],
+https://f-droid.org/repository/browse/?fdfilter=pump&fdid=org.macno.puma[Puma],
+and https://play.google.com/store/apps/details?id=org.andstatus.app[AndStatus].
+
+More importantly for this post, there are a couple of nice desktop applications,
+two of which are packaged in COPRs for Fedora, made by
+http://sylke.altervista.org/repo/[HowCanUHaveMyUsername]!
+
+== Dianara
+Dianara is a Qt-based application and is quite customizable. To add
+https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Dianara/[the COPR],
+run:
+
+ sudo dnf copr enable howcanuhavemyusername/Dianara
+
+then to install:
+
+ sudo dnf install dianara
+
+image::dianara_screenshot.png[Dianara]
+
+== Pumpa
+Pumpa is also Qt-based, but has a more minimal default interface than Dianara.
+More information on Pumpa is available https://pumpa.branchable.com/[here]. To
+add https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Pumpa/[the COPR],
+run:
+
+ sudo dnf copr enable howcanuhavemyusername/Pumpa
+
+then to install:
+
+ sudo dnf install pumpa
+
+image::pumpa_screenshot.png[Pumpa]
+
+If you want to connect to some interesting people on pump.io here are some
+good starting points directly related to this post:
+
+* https://identi.ca/jankusanagi[Jan Kusanagi] made Dianara
+
+* https://pump.saz.im/sazius[Sazius] made Pumpa
+
+* https://e14n.com/evan[Evan Prodromou] made Pump.io
+
+* https://microca.st/howcanuhavemyusername[Howcanuhavemyusername (Metal Biker)]
+made the COPRs
+
+* https://pumpdog.me/zykotick9[George Standish] is in the screenshots
+
+* https://fmrl.me/lostson[lostson] is also in the screenshots
+
+* https://fmrl.me/grdryn[Gerard Ryan] (that's me!) made this blog post

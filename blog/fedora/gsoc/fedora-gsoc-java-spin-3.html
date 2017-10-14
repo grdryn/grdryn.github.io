@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fedora JBoss Spin - GSOC 2012 update 3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Fedora JBoss Spin - GSOC 2012 update 3</h1>
+	</div>
+
+	<p><em>11 June 2012</em></p>
+
+	<p><div class="paragraph">
+<p>This is the third weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>As I mentioned last week, this week would see me inactive until later in the
+week. Unfortunately, I didn’t get back to normal until Friday morning, so here’s
+a short summary of what I’ve been doing since then.</p>
+</div>
+<div class="paragraph">
+<div class="title">Friday</div>
+<p>When catching up with my emails, I got a message from rel-eng on the ticket I
+had submitted last week regarding the buildroot override: it’s now a self
+service procedure, so obviously wherever I read about it on the wiki is a little
+out of date! I created it, and then Mikolaj Izdebski helped me out a lot by
+reviewing the wsil4j package that I was waiting on. Again, this took a few
+iterations before it was in an acceptable state to be pass the review stage, and
+I learned more each time.</p>
+</div>
+<div class="paragraph">
+<p>After that, I got started on making an initial version of the kickstart file for
+the spin, as this weekend is what was set for the alpha release. My first few
+attempts at this were unsuccessful, and I was getting not-altogether-helpful
+error messages.Everything would work fine, until I would add the Fedora Eclipse
+yum group. I had no real idea why it was failing here, as package groups are
+widely used in kickstart files. I didn’t get very far with this on Friday, as
+each try takes a significant amount of time and data!</p>
+</div>
+<div class="paragraph">
+<div class="title">Saturday</div>
+<p>I continued with trying to get the eclipse group to work with the kickstart
+file, and eventually I made a breakthrough: I was referring to the package group
+the wrong way.With yum, there are two ways to install a package group. In the
+case of the Fedora Eclipse group, the most explicit way would be yum groups
+install Fedora\ Eclipse; with the alternative way being yum install @eclipse.
+In the kickstart file, I was trying a horrendous mix of the two: @Fedora
+Eclipse. I’m not exactly sure how to get the @name for package groups, usually I
+install by getting a list of all groups with yum groups list, but that doesn’t
+provide the short name. I’m not sure how I figured out @eclipse, it may have
+been a guess.</p>
+</div>
+<div class="paragraph">
+<p>Since none of the JBoss Tools are ready yet, they obviously can’t be included in
+the spin, so for now it’s similar to the default Fedora live desktop spin with
+GNOME 3. The most notable differences are that it includes the Eclipse IDE, with
+the webtools packages that are packaged for Fedora thus far; and also JBoss AS
+7. These are sizeable additions, so at around 1.3GB, the spin is already too
+large for a CD. The other changes that I’ve included are just to include some
+tools that I think could be helpful for a JBoss developer: <code>git</code>, <code>svn</code>, <code>cvs</code>,
+and <code>mercurial</code>, and <code>xchat</code>. I also modified the favourites menu, as can be
+seen in the screenshot below. I’ve put the kickstart file online here.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/jboss-spin.png" alt="jboss spin">
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Sunday</div>
+<p>Today I got back to trying to package the eclipse-wtp-jeetools that I had
+started. Thankfully, there are not as many patches needed for this as there were
+with eclipse-wtp-webservices! It mostly just needed some shuffling of the
+feature.xml file. There’s one plugin that is still proving problematic, so for
+the moment, it’s commented out, and not being built. I eventually got it to
+build anyway, and created a working spec file for the package. I won’t submit it
+for review yet until I communicate with some of the wise people of the Java SIG,
+and see if they have an solution to the issue regarding the plugin that refuses
+to build.</p>
+</div>
+<div class="paragraph">
+<p>That’s all for this week, I’m sure the coming week will be a busy one!</p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Creating the Fedora JBoss Spin (GSOC 2012)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Creating the Fedora JBoss Spin (GSOC 2012)</h1>
+	</div>
+
+	<p><em>14 June 2012</em></p>
+
+	<p><div class="paragraph">
+<p>In my last post, I mentioned that I had created a
+<a href="http://galileo.fedorapeople.org/fedora-livedvd-jboss/">kickstart file</a> to build
+what will become the Fedora JBoss Spin. Noting that this is still very much in
+development, and hasn’t been submitted to the
+<a href="http://fedoraproject.org/wiki/SIGs/Spins">Spins SIG</a> yet, I even hesitate to call
+it a ‘Spin’ yet. Anyway, in this post I will briefly explain how to create an
+ISO disk image from that file. Once the ISO image is ready, it can be installed
+as a live media onto a USB stick or a DVD; or it can be run in a virtual
+setting.</p>
+</div>
+<div class="paragraph">
+<div class="title">Install spin related packages</div>
+<p>The livecd-creator tool is provided by the livecd-tools package, and we also
+need some of the standard kickstart files from fedora-kickstarts:</p>
+</div>
+<div class="paragraph">
+<p><code>sudo yum install livecd-tools fedora-kickstarts</code></p>
+</div>
+<div class="paragraph">
+<div class="title">Prepare for build</div>
+<p>Next we need to get the custom kickstart file for the Fedora JBoss Spin:</p>
+</div>
+<div class="paragraph">
+<p><code>curl -o fedora-livedvd-jboss.ks
+<a href="http://galileo.fedorapeople.org/fedora-livedvd-jboss/fedora-livedvd-jboss.ks" class="bare">http://galileo.fedorapeople.org/fedora-livedvd-jboss/fedora-livedvd-jboss.ks</a></code></p>
+</div>
+<div class="paragraph">
+<p>Before we can build it, we must make the standard kickstart files that we need,
+available in the same directory that we’ve got the custom one in, so in that
+directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>ln -s /usr/share/spin-kickstarts/fedora-live-base.ks
+ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Build!</div>
+<p>Now the image can be created. Note that this step may take a while. It will also
+download a lot of packages, so the your internet connection will play a part in
+how long it will take:</p>
+</div>
+<div class="paragraph">
+<p><code>sudo livecd-creator -v --config=fedora-livedvd-jboss.ks --releasever=17</code></p>
+</div>
+<div class="paragraph">
+<div class="title">What’s next?</div>
+<p>Now that you have a freshly squeezed live ISO image, you can do what you want
+with it. You can use it in your favourite virtual environment, or you can put it
+on a USB stick and live boot from that!</p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

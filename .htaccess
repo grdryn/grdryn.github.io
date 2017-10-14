@@ -1,0 +1,31 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^blog.grdryn.me$
+
+RewriteRule 2011/05/14/add-applications-to-autostart-on-login-in-gnome-3/ http://blog.grdryn.me/blog/fedora/gnome3-add-apps-to-startup.html [R=301,L]
+RewriteRule 2011/11/28/adjust-screen-brightness-on-fedora-16-try-this-if-its-not-working/ http://blog.grdryn.me/blog/fedora/f16-brightness.html [R=301,L]
+RewriteRule 2012/03/27/what-are-you-looking-for/ http://blog.grdryn.me/blog/r/nuig-grammar.html [R=301,L]
+
+RewriteRule 2012/04/24/google-summer-of-code-2012-fedora-jboss-spin/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-0.html [R=301,L]
+RewriteRule 2012/05/27/fedora-jboss-spin-gsoc-2012-update-1/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-1.html [R=301,L]
+RewriteRule 2012/06/03/fedora-jboss-spin-gsoc-2012-update-2/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-2.html [R=301,L]
+RewriteRule 2012/06/11/fedora-jboss-spin-gsoc-2012-update-3/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.html [R=301,L]
+RewriteRule 2012/06/14/creating-the-fedora-jboss-spin-gsoc-2012/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html [R=301,L]
+RewriteRule 2012/06/18/fedora-jboss-spin-gsoc-2012-update-4/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-4.html [R=301,L]
+RewriteRule 2012/06/25/fedora-jboss-spin-gsoc-2012-update-5/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-5.html [R=301,L]
+RewriteRule 2012/07/02/fedora-jboss-spin-gsoc-2012-update-6/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-6.html [R=301,L]
+RewriteRule 2012/07/09/fedora-jboss-spin-gsoc-update-7/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-7.html [R=301,L]
+RewriteRule 2012/07/16/fedora-jboss-spin-gsoc-update-8/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-8.html [R=301,L]
+RewriteRule 2012/07/23/fedora-jboss-spin-gsoc-update-9/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-9.html [R=301,L]
+RewriteRule 2012/07/30/fedora-jboss-spin-gsoc-update-10/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-10.html [R=301,L]
+RewriteRule 2012/08/06/fedora-java-spin-gsoc-update-10/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-11.html [R=301,L]
+RewriteRule 2012/08/13/fedora-java-spin-gsoc-update-12/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-12.html [R=301,L]
+RewriteRule 2012/08/20/fedora-java-remix-gsoc-update-13-final/ http://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-13.html [R=301,L]
+
+
+# Redirect category/slug to http://blog.grdryn.me/tags/slug.html
+RewriteRule category/technology/linux/fedora/gsoc/ http://blog.grdryn.me/blog/tags/gsoc.html [R=301,L]
+RewriteRule category/technology/linux/fedora/ http://blog.grdryn.me/blog/tags/fedora.html [R=301,L]
+RewriteRule category/technology/linux/ http://blog.grdryn.me/blog/tags/linux.html [R=301,L]
+
+# Old feed redirected
+RewriteRule feed/ http://blog.grdryn.me/feed.xml [R=301,L]

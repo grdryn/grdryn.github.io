@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fedora JBoss Spin - GSOC 2012 update 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Fedora JBoss Spin - GSOC 2012 update 2</h1>
+	</div>
+
+	<p><em>03 June 2012</em></p>
+
+	<p><div class="paragraph">
+<p>This is the second weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>This week was quite productive I think! There were of course points at which I
+was tearing my hair out, but the Fedora Java SIG were always able to shed a
+light on my problems. Here’s a day-to-day breakdown of what I’ve been doing
+since the last update.</p>
+</div>
+<div class="paragraph">
+<div class="title">Monday</div>
+<p>On Monday, I drew up spec files for my first two packages!
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=825890">uddi4j</a> and
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=826014">wsil4j</a>, are both relatively
+small packages, but they are required for eclipse-wtp-webservices. Marek
+Goldmann, my mentor, reviewed the first one, and by Wednesday we had a package
+of sufficient quality for Fedora! wsil4j depends on uddi4j, so it was necessary
+to wait a while before getting a review for it. I actually thought that uddi4j
+would need to be in fedora stable repos before a review could be done on a
+package that depends on it, but apparently not always! I filed a
+<a href="https://fedorahosted.org/rel-eng/ticket/5205">buildroot request</a> with rel-eng
+today, so hopefully I can get it reviewed soon.</p>
+</div>
+<div class="paragraph">
+<div class="title">Tuesday</div>
+<p>I installed the packages that I made on Monday, locally through yum, and tried
+again to build eclipse-wtp-webservices. I found another dependency that
+seemingly wasn’t being satisfied, javax.activation. I found a library called
+geronimo-activation and drew up a quick spec file, and sent it in for review.
+I later found out that that was in vain, as javax.activation is now provided by
+the jvm. After that, I was getting some quite strange problems (this was one of
+the moments that I was tearing my hair out!), and I had no idea what was going
+wrong. I spoke with some of the experts in #fedora-java on freenode, and it got
+me thinking that it’s possible that some other packages in fedora might provide
+what I’m looking for, but have problems. I found one of those problems, fixed
+and made patches for it, and submitted the patch to bugzilla,
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=826147">here</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Wednesday</div>
+<p>On Wednesday, I found another stumbling block with an already-packaged-in-fedora
+software that I needed, so I patched that, and submitted the patch
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=826776">here</a>. Then I finally got
+eclipse-wtp-webservices to a stage where it got to the compilation stage of
+the build. I was far from out of the woods here though, as there were many
+compilation errors. I started looking into these, and creating patches for them.
+The reason for most of the compilation problems, was that some of the libraries
+that the plugins were depending on, were old versions, and we’ve only got the
+‘latest-and-greatest’ in Fedora, which have lots of additional abstract methods
+that need to be implemented, but weren’t being, in the plugins in question.</p>
+</div>
+<div class="paragraph">
+<div class="title">Thursday</div>
+<p>The aforementioned uddi4j package from  Monday was now in a condition that it
+could be submitted to the fedora repositories, so Marek helped me with all of
+the stages in getting it there. After that, I continued patching up the
+eclipse-wtp-webservices stuff. As this was different from just patching a spec
+file, or OSGi manifest for a fedora package, I decided to ask the fedora-devel
+mailing list for advice. I wasn’t really sure what to do, since after I would
+fix a number of errors, and try to rebuild, an even higher number of errors
+would appear this time (another one of the hair-tearing-out-of moments), and the
+number of patches was growing steadily. Having heavily patched stuff doesn’t
+seem to align very well with the Fedora way, of sticking closely to upstream. As
+it’s really my first time patching anything to this degree, I was unsure as to
+what to do. Maybe upstream were sticking to older versions of dependencies for
+good reasons? Maybe I was causing a lot of additional problems with my patches?
+The fact that I’m doing this as part of GSOC, where I’ve got some time
+constraints, I was also unsure whether I could wait for upstream to implement my
+patches so that I could make a fedora rpm. Thanks to Aleksandar Kurtakov (who is
+always very helpful), who replied quickly and put my mind at ease.</p>
+</div>
+<div class="paragraph">
+<div class="title">Friday</div>
+<p>I found a bug in the OSGi manifest of the uddi4j package, so I fixed that and
+submitted it as an update. This again was a first, updating a package, and not
+having to submit it for review! I also eventually got to the end of the
+compilation errors in eclipse-wtp-webservices. I was quite surprised, I didn’t
+expect it to build. When I saw BUILD SUCCESSFUL, my first reaction was “This
+error message is different to the others”; then I thought that I must have done
+something wrong (which I guess is still entirely possible!</p>
+</div>
+<div class="paragraph">
+<div class="title">Saturday</div>
+<p>I spent most of Saturday drawing up the spec file for eclipse-wtp-webservices.
+It was the largest one that I’ve done to date, with the most patches, so it took
+a while. I found it very useful to get ideas from the other eclipse-wtp-*
+packages that we already have in Fedora. By the end of the day, I had one that I
+was happy with. It was quite late though, so I thought it best to sleep, and
+have a quick look over it in the morning with fresher eyes.</p>
+</div>
+<div class="paragraph">
+<div class="title">Sunday</div>
+<p>Today I fixed a couple of tidbits in the spec file from yesterday that I got
+from rpmlint. I submitted it for review, and I also installed it locally, so I
+could get on to the next step. I started looking at eclipse-wtp-jeetools, which
+is the reason I needed webservices in the first place. I’ve made a couple of
+changes, and I’m at the stage of compilation errors already (we seem to have all
+of the dependencies here in this case I think). I got a little panicky the first
+time it failed at compilation stage, because there were just shy of 3000 errors.
+I’ve managed to play around with the feature.xml, and now there are only 100
+errors. Of course, it’s possible that once the 100 errors that are sitting on
+top of the previous 3000, and are just preventing them from happening yet. I
+wouldn’t be surprised if I saw those again, but I may cry.</p>
+</div>
+<div class="paragraph">
+<p>Wow, this wasn’t supposed to be this long, but I guess it was a productive week,
+and I learned a lot. Next week’s report will be significantly shorter, I
+imagine, as I will be away for some of the week. I do hope to get an alpha
+kickstart file for the Fedora JBoss Spin though, to stick to the schedule! I’m
+aiming to have jboss-as and eclipse in the alpha release, I’m not sure how
+much else yet though!</p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

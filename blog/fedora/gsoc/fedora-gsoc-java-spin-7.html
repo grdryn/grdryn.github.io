@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fedora JBoss Spin - GSOC 2012 update 7</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Fedora JBoss Spin - GSOC 2012 update 7</h1>
+	</div>
+
+	<p><em>09 July 2012</em></p>
+
+	<p><div class="paragraph">
+<p>This is the seventh weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on
+the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>Today is the ‘mid-term’ in the
+<a href="http://www.google-melange.com/gsoc/events/google/gsoc2012">GSOC 2012 calendar</a>,
+and as I mentioned last week, I’ve got the next iteration of the the spin ready.
+There are a few caveats to it, but I think it’s pretty cool so far! :) Not all
+of the packages are in the Fedora repositories yet, so I created a local yum
+repo that I could include the missing packages through.
+<a href="https://plus.google.com/114112334290393746697">+Dan Allen</a> added
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin#Proposed_Desktop_Customization">
+some ideas to the wiki for customizations</a> that will make the spin awesome.
+Although these are only ‘proposed’ so far, I’ve included some of them into this
+release to see how well they work. A lot of them are not possible yet, and some
+of them I just can’t figure out yet; but the remaining ones should be in there!
+Here’s a vague list of stuff that the spin has over the vanilla fedora desktop
+image:</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>JBoss AS7</p>
+</li>
+<li>
+<p>Eclipse, with all of the available webtools from Fedora, and lots of other
+features.</p>
+</li>
+<li>
+<p>A subset of JBoss Tools (this isn’t in Fedora yet)</p>
+</li>
+<li>
+<p>Some SCM tools, such as gitg, TortoisHg, and RapidSVN.</p>
+</li>
+<li>
+<p>Various other Eclipse customizations, including keybindings and JBoss
+perspective by default</p>
+</li>
+<li>
+<p>Gnome-Terminal opens maximized by default, and has some custom keybindings
+(see Dan’s recommendations)</p>
+</li>
+<li>
+<p>JAVA_HOME is set in ~/.bash_profile (I think, I forgot to check if this
+worked!)</p>
+</li>
+<li>
+<p>Caps Lock key functions as an additional Ctrl. No more cruise control.</p>
+</li>
+<li>
+<p>The proposed Gedit customizations, apart from the custom keybind</p>
+</li>
+<li>
+<p>Attached modal dialogs are disabled by default.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The current set of JBoss Tools includes the following components:common, usage,
+archives, jmx, as, and jst. There are a few more that are close to being ready
+to include, and hopefully it won’t be too long until all of them are included!
+My main disappointment is that we don’t yet have m2eclipse to provide maven
+integration in Fedora, so the quickstart examples from jboss.org/jdf can’t be
+added in the recommended way. I’ll look to package m2e soon, so hopefully this
+situation will change soon!</p>
+</div>
+<div class="paragraph">
+<p>Here are some steps provided by Dan Allen, to connect to the Fedora packaged
+jboss-as, which works with the included JBoss Tools:</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong><u>User instance, managed by JBoss Tools</u></strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a new user instance:
+<code>jboss-as-cp -l $HOME/applications/jboss-as-user-instance</code></p>
+</li>
+<li>
+<p>New &gt; Server</p>
+</li>
+<li>
+<p>Server name: JBoss AS 7.1 Runtime (managed instance)</p>
+</li>
+<li>
+<p>Server runtime environment: Add… (if necessary)</p>
+</li>
+<li>
+<p>Name: JBoss AS 7.1 Runtime (system), Home directory: /usr/share/jboss-as,
+Configuration file: standalone-web.xml</p>
+</li>
+<li>
+<p>Click Finish (three times)</p>
+</li>
+<li>
+<p>Double click on “JBoss AS 7.1 Server (managed instance)” in Server tab</p>
+</li>
+<li>
+<p>Click the Open launch configuration link</p>
+</li>
+<li>
+<p>[ ] Always update arguments related to the runtime.</p>
+</li>
+<li>
+<p>Modify VM arguments:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>“-Dorg.jboss.boot.log.file=/usr/share/jboss-as/standalone/log/boot.log”
+“-Dlogging.configuration=file:/usr/share/jboss-as/standalone/configuration/logging.properties”
+“-Djboss.home.dir=/usr/share/jboss-as”</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Append:</p>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code>“-Dorg.jboss.boot.log.file=${env_var:HOME}/applications/jboss-as-user-instance/log/boot.log”
+“-Dlogging.configuration=file:${env_var:HOME}/applications/jboss-as-user-instance/configuration/logging.properties”
+“-Djboss.home.dir=/usr/share/jboss-as”
+“-Djboss.server.base.dir=${env_var:HOME}/applications/jboss-as-user-instance”</code></pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Click OK</p>
+</li>
+<li>
+<p>Select the Deployment tab</p>
+</li>
+<li>
+<p>(*) Use workspace metadata</p>
+</li>
+<li>
+<p>Save</p>
+</li>
+<li>
+<p>Drag application to “JBoss AS 7.1 Server (managed instance)” in Server tab</p>
+</li>
+<li>
+<p>Click the play button in the toolbar of the Server tab</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, the image files for this version of the custom spin are ready. That
+took quite a while to upload!</p>
+</div>
+<div class="paragraph">
+<p>i686: <em>outdated link removed</em></p>
+</div>
+<div class="paragraph">
+<p>x86_64: <em>outdated link removed</em></p>
+</div>
+<div class="paragraph">
+<p>kickstart file: <em>outdated link removed</em></p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

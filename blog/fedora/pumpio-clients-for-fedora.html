@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Two Pump.io client apps for Fedora (COPRs)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Two Pump.io client apps for Fedora (COPRs)</h1>
+	</div>
+
+	<p><em>26 January 2015</em></p>
+
+	<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://pump.io/">Pump.io</a> is a "social server with an ActivityStreams API". It&#8217;s
+from the same people that originally created StatusNet, which has now become
+<a href="http://gnu.io/">GNU social</a>. Pump.io servers are nodes in a federated social
+network: when you have an account on one, you can interact with others on that
+server, but also others with accounts on other pump.io servers. It&#8217;s free
+software, so you can host your own instance and connect to others, wherever
+their servers may be.</p>
+</div>
+<div class="paragraph">
+<p>See the <a href="https://github.com/e14n/pump.io/wiki/User-Guide">Pump.io User Guide</a> for
+more information and links.</p>
+</div>
+<div class="paragraph">
+<p>The default method of using Pump.io is through a web interface that comes as
+part of the core software. This is good, but there are a few rough edges here
+and there. There are a few android applications, such as
+<a href="https://play.google.com/store/apps/details?id=eu.e43.impeller">Impeller</a>,
+<a href="https://f-droid.org/repository/browse/?fdfilter=pump&amp;fdid=org.macno.puma">Puma</a>,
+and <a href="https://play.google.com/store/apps/details?id=org.andstatus.app">AndStatus</a>.</p>
+</div>
+<div class="paragraph">
+<p>More importantly for this post, there are a couple of nice desktop applications,
+two of which are packaged in COPRs for Fedora, made by
+<a href="http://sylke.altervista.org/repo/">HowCanUHaveMyUsername</a>!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_dianara">Dianara</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Dianara is a Qt-based application and is quite customizable. To add
+<a href="https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Dianara/">the COPR</a>,
+run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dnf copr enable howcanuhavemyusername/Dianara</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then to install:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dnf install dianara</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/dianara_screenshot.png" alt="Dianara">
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pumpa">Pumpa</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Pumpa is also Qt-based, but has a more minimal default interface than Dianara.
+More information on Pumpa is available <a href="https://pumpa.branchable.com/">here</a>. To
+add <a href="https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Pumpa/">the COPR</a>,
+run:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dnf copr enable howcanuhavemyusername/Pumpa</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>then to install:</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>sudo dnf install pumpa</pre>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/pumpa_screenshot.png" alt="Pumpa">
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to connect to some interesting people on pump.io here are some
+good starting points directly related to this post:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://identi.ca/jankusanagi">Jan Kusanagi</a> made Dianara</p>
+</li>
+<li>
+<p><a href="https://pump.saz.im/sazius">Sazius</a> made Pumpa</p>
+</li>
+<li>
+<p><a href="https://e14n.com/evan">Evan Prodromou</a> made Pump.io</p>
+</li>
+<li>
+<p><a href="https://microca.st/howcanuhavemyusername">Howcanuhavemyusername (Metal Biker)</a>
+made the COPRs</p>
+</li>
+<li>
+<p><a href="https://pumpdog.me/zykotick9">George Standish</a> is in the screenshots</p>
+</li>
+<li>
+<p><a href="https://fmrl.me/lostson">lostson</a> is also in the screenshots</p>
+</li>
+<li>
+<p><a href="https://fmrl.me/grdryn">Gerard Ryan</a> (that&#8217;s me!) made this blog post</p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

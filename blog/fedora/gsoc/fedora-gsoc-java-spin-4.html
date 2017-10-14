@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fedora JBoss Spin - GSOC 2012 update 4</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Fedora JBoss Spin - GSOC 2012 update 4</h1>
+	</div>
+
+	<p><em>18 June 2012</em></p>
+
+	<p><div class="paragraph">
+<p>This is the fourth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>This week I don’t have a detailed day-by-day breakdown of when I did everything,
+mainly because I can’t remember all of that!</p>
+</div>
+<div class="paragraph">
+<p>As I mentioned last week, I finished by getting a subset of eclipse-wtp-jeetools
+working, but I was having trouble with one plugin of the
+org.eclipse.jst.enterprise_core.feature. At the time I wasn’t sure if I would
+need it immediately, but I didn’t want to submit for review until checking to
+see if it could be fixed. I sent a message to the java-devel mailing list to see
+if anyone could explain the problem. As I dug deeper back into jbosstools, I
+realised that I would need a lot more from both eclipse-wtp-webservices and
+eclipse-wtp-jeetools! Even though all of this webtools stuff may not be needed
+by Eclipse for the AS tools subset of jbosstools; to build the AS tools, other
+parts of jbosstools need to be built. It’s a similar process for almost all of
+the jbosstools: first build the target platform and the parent, the build the
+common component, then build any other components that your component depends
+upon (such as archives, tests, jmx, and usage; in the case of the AS component).
+This means that all of the heavier dependencies that are being packaged now,
+although they aren’t all necessarily going to be used by the AS component
+directly, they will hopefully pay of in the end, allowing us to package more of
+the other components more easily after.</p>
+</div>
+<div class="paragraph">
+<p>Although I’d had a review request ready for eclipse-wtp-webservices for a while
+at this stage, it still relied on a few other bugs that I’ve mentioned before,
+being fixed. I had submitted patches for those, but then I forgot to follow up
+and make sure they were looked at. With the help of Stanislav Ochotnicky,
+Aleksandar Kurtakov and Mikolaj Izdebski, these got sorted out, and Mikolaj then
+helped me again by doing the review request. Thanks guys!</p>
+</div>
+<div class="paragraph">
+<p>After I got eclipse-wtp-webservices into rawhide, I started looking back at that
+problematic eclipse-wtp-jeetools plugin that I mentioned above. It drove me to
+despair for quite a while, as there were no obvious tell-tale signs like before.
+It turns out that it was a problem with the OSGI manifest again! Even though
+eclipse-pdebuild seemed satisfied with the versions of the particular versions
+of the bundles that were being provided by the eclipse-wtp-webservices, they
+were failing silently, until the compiler couldn’t import them.</p>
+</div>
+<div class="paragraph">
+<p>Once I figured that out, I tried to see if I could get more of the other
+features to build, starting with org.eclipse.jst.enterprise_ui.feature, since I
+would need it for the jbosstools common ui feature. This however would require
+the org.eclipse.wst.ws_ui.feature from webservices, so I got working on that
+first. At the moment, that’s now in the eclipse-wtp-webservices that’s in
+rawhide, and eclipse-wtp-jeetools will be ready for review tomorrow! :)</p>
+</div>
+<div class="paragraph">
+<p>Next will be eclipse-wtp-dali, which I’ve also got a draft specfile for, but it
+needs some work yet!</p>
+</div>
+<div class="paragraph">
+<p>Also, I wrote an additional blog post during the week, on <a href="http://blog.grdryn.me">
+how to create the Fedora JBoss Spin</a> from the kickstart file that I created last
+week. I probably should have created the disk image and hosted it online
+somewhere, but unfortunately I don’t always have access to an internet
+connection where I can upload such a large file and still do other stuff at the
+same time! For the next milestone release, I’ll aim to get an image up!</p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

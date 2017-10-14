@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Fedora JBoss Spin - GSOC 2012 update 8</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="keywords" content="">
+    <meta name="generator" content"JBake">
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/asciidoctor.css" rel="stylesheet">
+    <link href="/css/base.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico">
+
+  </head>
+  <body>
+    <div id="wrap">
+
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">JBake</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/about.html">About</a></li>
+                <li><a href="/feed.xml">Subscribe</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider"></li>
+                    <li class="nav-header">Nav header</li>
+                    <li><a href="#">Separated link</a></li>
+                    <li><a href="#">One more separated link</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">	
+	<div class="page-header">
+		<h1>Fedora JBoss Spin - GSOC 2012 update 8</h1>
+	</div>
+
+	<p><em>16 July 2012</em></p>
+
+	<p><div class="paragraph">
+<p>This is the eighth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>. The fact that
+there is a blog post this week is good news, because it means that I passed the
+midterm evaluation, so I get to keep doing this for the second half of the GSOC
+period! :D</p>
+</div>
+<div class="paragraph">
+<div class="title">Progress</div>
+<p>I started off this week looking into packaging m2e-core, which is a necessary
+requirement for some parts of JBoss Tools, including the examples from
+<a href="http://www.jboss.org/jdf/">jboss.org/jdf</a> and openshift integration; both of
+which would be great additions to the spin I think. After spending a while
+working with this, it became apparent that lots of patches would be needed for
+existing packages, mainly to add OSGI information. I started making some of
+these patches, but I decided not to start submitting them until I got a working
+spec file for m2e-core. This did not happen this week, because other accidental
+stuff (below) became a higher priority. I did manage to get two dependencies for
+it packaged, reviewed, and included in rawhide and f17:
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=838722">port-allocator-maven-plugin</a>
+and <a href="https://bugzilla.redhat.com/show_bug.cgi?id=839117">maven-wagon-ahc</a>; and a
+third packaged, which is awaiting review:
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=838756">maven-indexer</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">Two steps forward, one step back</div>
+<p>Going back to what I had done last week, Mikolaj Izdebski began to review some
+of the stuff that I had waiting for review. A significant issue was found with
+<a href="https://bugzilla.redhat.com/show_bug.cgi?id=836404">jboss-reflect</a> (which is a
+dependency of jbossxb, which is a dependency of
+org.jboss.ide.eclipse.archives.core): it contains a forked objectweb-asm,
+something that I had completely overlooked. As this is not allowed in Fedora, it
+would have to be removed. I first tried just deleting the relevant files, but
+needless to say that didn’t work! I then spent a while looking to see if the
+stuff that isn’t in the upstream objectweb-asm could be added directly to where
+it’s needed in jboss-reflect, but I didn’t get very far with that, and I believe
+it would be a horrible solution anyway! Looking at jboss-reflect, it seems that
+it may no longer be actively maintained, as the only place I could find source
+code for it was as
+<a href="http://anonsvn.jboss.org/repos/jbossas/projects/jboss-reflect/">a subproject of
+JBoss AS6</a>. If this is the case, I think the optimal solution would be to not
+package jboss-reflect, if at all possible. To this end, I have
+<a href="http://lists.jboss.org/pipermail/jbosstools-dev/2012-July/005548.html">sent an
+email to the jbosstools-dev mailing list</a> to see if there is any possible
+workaround for using jbossxb (as it would also be good not to have to package
+that!), or to try to elicit other possible solutions that those guys might be
+able to think of!</p>
+</div>
+<div class="paragraph">
+<div class="title">A little rant about github</div>
+<p>I also had my first real experience using github this week, when I sent pull
+requests to sonatype to include license files for both
+port-allocator-maven-plugin and maven-wagon-ahc. I don’t fully understand why it
+is so popular amongst so many free and open source developers, when it is a
+non-free platform compared to alternatives such as
+<a href="https://gitorious.org/">gitorious</a>, which is 100% free software under the AGPL.
+Seriously, what is the must-have killer feature of github? I mean I get that
+it’s shiny and social and stuff, but it seems odd and a little disturbing that
+such a large part of the greater open source community is not defaulting to the
+more open alternatives. That’s the main reason that I decided to put the
+<a href="https://gitorious.org/fedora-jboss-spin/kickstart">repository for the Fedora
+JBoss Spin kickstart</a> onto gitorious instead.</p>
+</div>
+<div class="paragraph">
+<div class="title">eval(GSOC)</div>
+<p>As I mentioned at the very beginning of this post, I passed the midterm
+evaluation for Google Summer of Code 2012. The evaluation period ran for most of
+the past week, finishing on Friday, when all of the evaluations had to be
+submitted. As part of the evaluation process, I had to submit an evaluation of
+my experiences over the first half of the program. Marek also had to submit an
+evaluation on his experience as my mentor: he must have said at least some good
+things since we passed…thanks Marek! :D</p>
+</div>
+<div class="paragraph">
+<div class="title">Eclipse Webtools updates</div>
+<p>I eventually got around to updating the Eclipse WTP packages that I maintain, to
+their stable 4.2.0 versions. Of course, not without running into a few little
+snags! This was the first time that I had updated a package to a new version, so
+I got to learn how that works. It took me a while to figure out why the newly
+created sources tarball that I had created wouldn’t upload with the fedpkg
+new-sources &lt;tarball&gt; command, until I realised that the user I was issuing the
+command with, didn’t own the file that I was trying to upload. I’m not sure why
+that doesn’t work, but it’s probably for very good reasons! I also had to create
+proper scripts to download the relevant stuff from the eclipse webtools map
+file. I may have mentioned before that I find it hard to follow the
+organizational structure of the webtools project. When I remember that they
+produce a map file for each stable or development milestone release, then I
+don’t feel so bad. Most of the plugins and features here are hosted in CVS
+repositories, but there are some on SVN and some on git also I think. OF COURSE
+this caused me problems! :) There is one bundle foe org.eclipse.jpa that needs
+to be grabbed from SVN, whereas all the rest come from CVS, so this one had to
+be handled differently. Originally I just checked out the development trunk,
+which made everything fail spectacularly. I didn’t realise why immediately, but
+I eventually realised that I needed to get the revision information from the map
+file manually for that one.</p>
+</div>
+<div class="paragraph">
+<p>Thats all for this week folks, tune in next week for more Fedora JBoss Spin fun
+and frolicks…same bat time, same bat channel!</p>
+</div></p>
+
+	<hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'blog-grdryn-me'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

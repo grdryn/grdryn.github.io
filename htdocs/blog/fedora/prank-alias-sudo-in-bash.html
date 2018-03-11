@@ -71,41 +71,26 @@
 
 	<p><em>11 January 2015</em></p>
 
-	<p><div class="paragraph">
-<p>A little while ago, a friend and I had an idea for a prank to play on someone
-who leaves their Linux-based workstation unlocked and unattended (I guess this
-would work for OS X also, but I don&#8217;t have enough experience with that to say
-for sure).</p>
-</div>
-<div class="paragraph">
-<p>The goal was to write a line to the target&#8217;s <code>/etc/hosts</code> file. For this, we
-would need privileged access. Now, we know the target well enough to know that
-they use the familiar <code>sudo</code> command for various tasks, such as installing new
-packages. We pondered a while on how we could make it work, and came up with a
-possibility: what if we could set an alias for <code>sudo</code> in the users BASH
-configuration file, that would executed our desired command?</p>
-</div>
-<div class="paragraph">
-<p>We figured out this part quite quickly, but then pondered on how we could
-improve it: what if we could delete the evidence after executing? The perfect
-crime.</p>
-</div>
-<div class="paragraph">
-<p>The following was our final incantation in <code>~/.bashrc</code>:</p>
-</div>
-<div class="paragraph">
-<p><code>alias sudo='/usr/bin/sudo sh -c "echo \"127.0.0.1 twitter.com\" &gt;&gt; /etc/hosts" &amp;&amp; unalias sudo &amp;&amp; sed -i -e "s/alias sudo.*//" ~/.bashrc &amp;&amp; sudo'</code></p>
-</div>
-<div class="paragraph">
-<p>One way to defend against being fooled by this humourous prank (or malicious
-attack?) is to prepend a backslash before sensitive commands such as this (so
-<code>sudo</code> becomes <code>\sudo</code>). This tells BASH to ignore aliases, and use the command
-directly from the PATH. The question comes to me though, should certain commands
-be restricted from aliasing?</p>
-</div>
-<div class="paragraph">
-<p>Our intentions were innocent and light-hearted (and our results were glorious!),
-but one can see how malice could easily be introduced.</p>
+	<p><div class="paragraph"> 
+ <p>A little while ago, a friend and I had an idea for a prank to play on someone who leaves their Linux-based workstation unlocked and unattended (I guess this would work for OS X also, but I don’t have enough experience with that to say for sure).</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The goal was to write a line to the target’s <code>/etc/hosts</code> file. For this, we would need privileged access. Now, we know the target well enough to know that they use the familiar <code>sudo</code> command for various tasks, such as installing new packages. We pondered a while on how we could make it work, and came up with a possibility: what if we could set an alias for <code>sudo</code> in the users BASH configuration file, that would executed our desired command?</p> 
+</div> 
+<div class="paragraph"> 
+ <p>We figured out this part quite quickly, but then pondered on how we could improve it: what if we could delete the evidence after executing? The perfect crime.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The following was our final incantation in <code>~/.bashrc</code>:</p> 
+</div> 
+<div class="paragraph"> 
+ <p><code>alias sudo='/usr/bin/sudo sh -c "echo \"127.0.0.1 twitter.com\" &gt;&gt; /etc/hosts" &amp;&amp; unalias sudo &amp;&amp; sed -i -e "s/alias sudo.*//" ~/.bashrc &amp;&amp; sudo'</code></p> 
+</div> 
+<div class="paragraph"> 
+ <p>One way to defend against being fooled by this humourous prank (or malicious attack?) is to prepend a backslash before sensitive commands such as this (so <code>sudo</code> becomes <code>\sudo</code>). This tells BASH to ignore aliases, and use the command directly from the PATH. The question comes to me though, should certain commands be restricted from aliasing?</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Our intentions were innocent and light-hearted (and our results were glorious!), but one can see how malice could easily be introduced.</p> 
 </div></p>
 
 	<hr>
@@ -131,7 +116,7 @@ but one can see how malice could easily be introduced.</p>
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
     

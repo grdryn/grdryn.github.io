@@ -2,179 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts by grdryn related to Fedora</title>
-    <link>http://blog.grdryn.me</link>
-    <atom:link href="http://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
+    <link>https://blog.grdryn.me</link>
+    <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Sat, 9 Jul 2016 23:21:03 +0100</pubDate>
-    <lastBuildDate>Sat, 9 Jul 2016 23:21:03 +0100</lastBuildDate>
+    <pubDate>Sun, 11 Mar 2018 16:18:15 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Mar 2018 16:18:15 +0000</lastBuildDate>
 
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>
-      <link>http://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>
       <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/pumpio-clients-for-fedora.html</guid>
       <description>
-          &lt;div id=&quot;preamble&quot;&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;http://pump.io/&quot;&gt;Pump.io&lt;/a&gt; is a &quot;social server with an ActivityStreams API&quot;. It&amp;#8217;s
-from the same people that originally created StatusNet, which has now become
-&lt;a href=&quot;http://gnu.io/&quot;&gt;GNU social&lt;/a&gt;. Pump.io servers are nodes in a federated social
-network: when you have an account on one, you can interact with others on that
-server, but also others with accounts on other pump.io servers. It&amp;#8217;s free
-software, so you can host your own instance and connect to others, wherever
-their servers may be.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;See the &lt;a href=&quot;https://github.com/e14n/pump.io/wiki/User-Guide&quot;&gt;Pump.io User Guide&lt;/a&gt; for
-more information and links.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The default method of using Pump.io is through a web interface that comes as
-part of the core software. This is good, but there are a few rough edges here
-and there. There are a few android applications, such as
-&lt;a href=&quot;https://play.google.com/store/apps/details?id=eu.e43.impeller&quot;&gt;Impeller&lt;/a&gt;,
-&lt;a href=&quot;https://f-droid.org/repository/browse/?fdfilter=pump&amp;amp;fdid=org.macno.puma&quot;&gt;Puma&lt;/a&gt;,
-and &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.andstatus.app&quot;&gt;AndStatus&lt;/a&gt;.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;More importantly for this post, there are a couple of nice desktop applications,
-two of which are packaged in COPRs for Fedora, made by
-&lt;a href=&quot;http://sylke.altervista.org/repo/&quot;&gt;HowCanUHaveMyUsername&lt;/a&gt;!&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;_dianara&quot;&gt;Dianara&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Dianara is a Qt-based application and is quite customizable. To add
-&lt;a href=&quot;https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Dianara/&quot;&gt;the COPR&lt;/a&gt;,
-run:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;sudo dnf copr enable howcanuhavemyusername/Dianara&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;then to install:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;sudo dnf install dianara&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/images/dianara_screenshot.png&quot; alt=&quot;Dianara&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;_pumpa&quot;&gt;Pumpa&lt;/h2&gt;
-&lt;div class=&quot;sectionbody&quot;&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Pumpa is also Qt-based, but has a more minimal default interface than Dianara.
-More information on Pumpa is available &lt;a href=&quot;https://pumpa.branchable.com/&quot;&gt;here&lt;/a&gt;. To
-add &lt;a href=&quot;https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Pumpa/&quot;&gt;the COPR&lt;/a&gt;,
-run:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;sudo dnf copr enable howcanuhavemyusername/Pumpa&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;then to install:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;literalblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre&gt;sudo dnf install pumpa&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;imageblock&quot;&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;img src=&quot;/images/pumpa_screenshot.png&quot; alt=&quot;Pumpa&quot;&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;If you want to connect to some interesting people on pump.io here are some
-good starting points directly related to this post:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;ulist&quot;&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://identi.ca/jankusanagi&quot;&gt;Jan Kusanagi&lt;/a&gt; made Dianara&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://pump.saz.im/sazius&quot;&gt;Sazius&lt;/a&gt; made Pumpa&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://e14n.com/evan&quot;&gt;Evan Prodromou&lt;/a&gt; made Pump.io&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://microca.st/howcanuhavemyusername&quot;&gt;Howcanuhavemyusername (Metal Biker)&lt;/a&gt;
-made the COPRs&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://pumpdog.me/zykotick9&quot;&gt;George Standish&lt;/a&gt; is in the screenshots&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://fmrl.me/lostson&quot;&gt;lostson&lt;/a&gt; is also in the screenshots&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https://fmrl.me/grdryn&quot;&gt;Gerard Ryan&lt;/a&gt; (that&amp;#8217;s me!) made this blog post&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;
+          &lt;div id=&quot;preamble&quot;&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;&lt;a href=&quot;http://pump.io/&quot;&gt;Pump.io&lt;/a&gt; is a &quot;social server with an ActivityStreams API&quot;. It’s from the same people that originally created StatusNet, which has now become &lt;a href=&quot;http://gnu.io/&quot;&gt;GNU social&lt;/a&gt;. Pump.io servers are nodes in a federated social network: when you have an account on one, you can interact with others on that server, but also others with accounts on other pump.io servers. It’s free software, so you can host your own instance and connect to others, wherever their servers may be.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;See the &lt;a href=&quot;https://github.com/e14n/pump.io/wiki/User-Guide&quot;&gt;Pump.io User Guide&lt;/a&gt; for more information and links.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;The default method of using Pump.io is through a web interface that comes as part of the core software. This is good, but there are a few rough edges here and there. There are a few android applications, such as &lt;a href=&quot;https://play.google.com/store/apps/details?id=eu.e43.impeller&quot;&gt;Impeller&lt;/a&gt;, &lt;a href=&quot;https://f-droid.org/repository/browse/?fdfilter=pump&amp;amp;fdid=org.macno.puma&quot;&gt;Puma&lt;/a&gt;, and &lt;a href=&quot;https://play.google.com/store/apps/details?id=org.andstatus.app&quot;&gt;AndStatus&lt;/a&gt;.&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;More importantly for this post, there are a couple of nice desktop applications, two of which are packaged in COPRs for Fedora, made by &lt;a href=&quot;http://sylke.altervista.org/repo/&quot;&gt;HowCanUHaveMyUsername&lt;/a&gt;!&lt;/p&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;_dianara&quot;&gt;Dianara&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Dianara is a Qt-based application and is quite customizable. To add &lt;a href=&quot;https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Dianara/&quot;&gt;the COPR&lt;/a&gt;, run:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;literalblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre&gt;sudo dnf copr enable howcanuhavemyusername/Dianara&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;then to install:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;literalblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre&gt;sudo dnf install dianara&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;imageblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;img src=&quot;https://blog.grdryn.me/images/dianara_screenshot.png&quot; alt=&quot;Dianara&quot;&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;sect1&quot;&gt; 
+ &lt;h2 id=&quot;_pumpa&quot;&gt;Pumpa&lt;/h2&gt; 
+ &lt;div class=&quot;sectionbody&quot;&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;Pumpa is also Qt-based, but has a more minimal default interface than Dianara. More information on Pumpa is available &lt;a href=&quot;https://pumpa.branchable.com/&quot;&gt;here&lt;/a&gt;. To add &lt;a href=&quot;https://copr.fedoraproject.org/coprs/howcanuhavemyusername/Pumpa/&quot;&gt;the COPR&lt;/a&gt;, run:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;literalblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre&gt;sudo dnf copr enable howcanuhavemyusername/Pumpa&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;then to install:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;literalblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;pre&gt;sudo dnf install pumpa&lt;/pre&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;imageblock&quot;&gt; 
+   &lt;div class=&quot;content&quot;&gt; 
+    &lt;img src=&quot;https://blog.grdryn.me/images/pumpa_screenshot.png&quot; alt=&quot;Pumpa&quot;&gt; 
+   &lt;/div&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;paragraph&quot;&gt; 
+   &lt;p&gt;If you want to connect to some interesting people on pump.io here are some good starting points directly related to this post:&lt;/p&gt; 
+  &lt;/div&gt; 
+  &lt;div class=&quot;ulist&quot;&gt; 
+   &lt;ul&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://identi.ca/jankusanagi&quot;&gt;Jan Kusanagi&lt;/a&gt; made Dianara&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://pump.saz.im/sazius&quot;&gt;Sazius&lt;/a&gt; made Pumpa&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://e14n.com/evan&quot;&gt;Evan Prodromou&lt;/a&gt; made Pump.io&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://microca.st/howcanuhavemyusername&quot;&gt;Howcanuhavemyusername (Metal Biker)&lt;/a&gt; made the COPRs&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://pumpdog.me/zykotick9&quot;&gt;George Standish&lt;/a&gt; is in the screenshots&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://fmrl.me/lostson&quot;&gt;lostson&lt;/a&gt; is also in the screenshots&lt;/p&gt; &lt;/li&gt; 
+    &lt;li&gt; &lt;p&gt;&lt;a href=&quot;https://fmrl.me/grdryn&quot;&gt;Gerard Ryan&lt;/a&gt; (that’s me!) made this blog post&lt;/p&gt; &lt;/li&gt; 
+   &lt;/ul&gt; 
+  &lt;/div&gt; 
+ &lt;/div&gt; 
 &lt;/div&gt;
       </description>
     </item>
     <item>
       <title>Prank - alias sudo in BASH (or why you should start escaping privilege-escalating commands)</title>
-      <link>http://blog.grdryn.me/blog/fedora/prank-alias-sudo-in-bash.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/prank-alias-sudo-in-bash.html</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/prank-alias-sudo-in-bash.html</guid>
       <description>
-          &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;A little while ago, a friend and I had an idea for a prank to play on someone
-who leaves their Linux-based workstation unlocked and unattended (I guess this
-would work for OS X also, but I don&amp;#8217;t have enough experience with that to say
-for sure).&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The goal was to write a line to the target&amp;#8217;s &lt;code&gt;/etc/hosts&lt;/code&gt; file. For this, we
-would need privileged access. Now, we know the target well enough to know that
-they use the familiar &lt;code&gt;sudo&lt;/code&gt; command for various tasks, such as installing new
-packages. We pondered a while on how we could make it work, and came up with a
-possibility: what if we could set an alias for &lt;code&gt;sudo&lt;/code&gt; in the users BASH
-configuration file, that would executed our desired command?&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;We figured out this part quite quickly, but then pondered on how we could
-improve it: what if we could delete the evidence after executing? The perfect
-crime.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;The following was our final incantation in &lt;code&gt;~/.bashrc&lt;/code&gt;:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;&lt;code&gt;alias sudo=&apos;/usr/bin/sudo sh -c &quot;echo \&quot;127.0.0.1 twitter.com\&quot; &amp;gt;&amp;gt; /etc/hosts&quot; &amp;amp;&amp;amp; unalias sudo &amp;amp;&amp;amp; sed -i -e &quot;s/alias sudo.*//&quot; ~/.bashrc &amp;amp;&amp;amp; sudo&apos;&lt;/code&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;One way to defend against being fooled by this humourous prank (or malicious
-attack?) is to prepend a backslash before sensitive commands such as this (so
-&lt;code&gt;sudo&lt;/code&gt; becomes &lt;code&gt;\sudo&lt;/code&gt;). This tells BASH to ignore aliases, and use the command
-directly from the PATH. The question comes to me though, should certain commands
-be restricted from aliasing?&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Our intentions were innocent and light-hearted (and our results were glorious!),
-but one can see how malice could easily be introduced.&lt;/p&gt;
+          &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;A little while ago, a friend and I had an idea for a prank to play on someone who leaves their Linux-based workstation unlocked and unattended (I guess this would work for OS X also, but I don’t have enough experience with that to say for sure).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The goal was to write a line to the target’s &lt;code&gt;/etc/hosts&lt;/code&gt; file. For this, we would need privileged access. Now, we know the target well enough to know that they use the familiar &lt;code&gt;sudo&lt;/code&gt; command for various tasks, such as installing new packages. We pondered a while on how we could make it work, and came up with a possibility: what if we could set an alias for &lt;code&gt;sudo&lt;/code&gt; in the users BASH configuration file, that would executed our desired command?&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;We figured out this part quite quickly, but then pondered on how we could improve it: what if we could delete the evidence after executing? The perfect crime.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The following was our final incantation in &lt;code&gt;~/.bashrc&lt;/code&gt;:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;&lt;code&gt;alias sudo=&apos;/usr/bin/sudo sh -c &quot;echo \&quot;127.0.0.1 twitter.com\&quot; &amp;gt;&amp;gt; /etc/hosts&quot; &amp;amp;&amp;amp; unalias sudo &amp;amp;&amp;amp; sed -i -e &quot;s/alias sudo.*//&quot; ~/.bashrc &amp;amp;&amp;amp; sudo&apos;&lt;/code&gt;&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;One way to defend against being fooled by this humourous prank (or malicious attack?) is to prepend a backslash before sensitive commands such as this (so &lt;code&gt;sudo&lt;/code&gt; becomes &lt;code&gt;\sudo&lt;/code&gt;). This tells BASH to ignore aliases, and use the command directly from the PATH. The question comes to me though, should certain commands be restricted from aliasing?&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Our intentions were innocent and light-hearted (and our results were glorious!), but one can see how malice could easily be introduced.&lt;/p&gt; 
 &lt;/div&gt;
       </description>
     </item>

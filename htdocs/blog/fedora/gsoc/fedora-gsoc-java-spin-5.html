@@ -71,77 +71,29 @@
 
 	<p><em>25 June 2012</em></p>
 
-	<p><div class="paragraph">
-<p>This is the fifth weekly installment of my GSOC blog series. More info on the
-progress of the Fedora JBoss Spin can be found on the
-<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
-</div>
-<div class="paragraph">
-<p>As I mentioned last week, first on the agenda this week was getting
-eclipse-wtp-jeetools in for review. I got that done, and it’s currently being
-reviewed.</p>
-</div>
-<div class="paragraph">
-<p>Next was eclipse-wtp-jpa (dali). I had started a spec for this last week, but
-then I realised that I would need more features from it, so I tried building
-those. I eventually got that done, and the package is now ready for review also
-(although it depends on eclipse-wtp-jeetools, so it will have to wait until that
-is approved.</p>
-</div>
-<div class="paragraph">
-<p>After those two packages were ready for review, I had to think about what the
-next step was, since those were the main focus of my attention for a while now.
-I went back to jbosstools, to see how far I could get with that, with the new
-packages. I tried building a few times, and with each error, I added in the
-missing stuff (pre-built) to the local repository, just to see how much more
-would be needed. After a few tries, I had enough to build the
-parent,common,usage,archives,jmx, and as components. Then something silly
-happened: my focus shifted away from this task, to other things (while I was
-waiting for the 3.3.0.Final release of JBoss Tools to download). When I got back
-to it, I forgot that I had included some prebuilt plugins in the local
-repository, remembered that the AS component was building, and I thought “Oh
-great! Now I can go and make a spec for that”. When I finally got the spec made,
-it took me a while to realise why the package wouldn’t build, and needless to
-say, I was a little  annoyed when I figured it out!</p>
-</div>
-<div class="paragraph">
-<p>Luckily, all the stuff that I was then missing was missing features from
-eclipse-wtp-sourceediting. That sounded fairly straightforward, just add the
-missing stuff, submit a patch, Bob’s you’re uncle, right? Wrong! The packages
-eclipse-wtp-webservices and eclipse-wtp-jeetools depend on the current
-feature that’s being built by eclipse-wtp-sourceediting, and the new features
-that would be added, depend on those packages! I was almost finished adding
-these features when I realised the potential problem. I asked in #fedora-devel
-to see if it was possible to have a situation where packages depend on each
-other, and I was told that it was ok, once it’s documented. To be honest, I’m
-not fully convinced though, it seems like a terrible idea!</p>
-</div>
-<div class="paragraph">
-<p>Getting these features to build required quite a few patches to other existing
-packages, that didn’t have the right OSGI Manifest information. This seems to be
-a recurring theme. It might be just me, but it seems that the there is usually a
-huge gap between what OSGI information a package contains, and what
-eclipse/eclipse-pdebuild expects. This is quite frustrating, as it’s not always
-apparent why things aren’t building or working the way one expects them to. It’s
-not always apparent to me at least. All of these patches will delay things a
-bit, hopefully not too long.</p>
-</div>
-<div class="paragraph">
-<p>After getting that all done, I went back to jbosstools again to see how much
-further I could get,with mixed results. It was working if I built it manually,
-but there were strange compilation errors from the spec, even though everything
-I was doing manually, was pasted from the spec file. It took me quite a while,
-but I eventually figured out that there are prebuilt jars in some of the
-components that I wasn’t removing when building manually. These of course were
-being removed in the spec file, so that’s what was causing the problem. Some of
-the prebuilt jars have equivalents provided in Fedora packages already, but of
-course, some of them don’t. That would be too easy! The new packages that need
-to be built have now been added to the list on the wiki page.</p>
-</div>
-<div class="paragraph">
-<p>I was going to rant more here about the structure of eclipse webtools…the
-differing locations of plugins from the features that build/provide them; but
-it’s late, and I’ve already wasted enough energy today thinking about them!</p>
+	<p><div class="paragraph"> 
+ <p>This is the fifth weekly installment of my GSOC blog series. More info on the progress of the Fedora JBoss Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>As I mentioned last week, first on the agenda this week was getting eclipse-wtp-jeetools in for review. I got that done, and it’s currently being reviewed.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Next was eclipse-wtp-jpa (dali). I had started a spec for this last week, but then I realised that I would need more features from it, so I tried building those. I eventually got that done, and the package is now ready for review also (although it depends on eclipse-wtp-jeetools, so it will have to wait until that is approved.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>After those two packages were ready for review, I had to think about what the next step was, since those were the main focus of my attention for a while now. I went back to jbosstools, to see how far I could get with that, with the new packages. I tried building a few times, and with each error, I added in the missing stuff (pre-built) to the local repository, just to see how much more would be needed. After a few tries, I had enough to build the parent,common,usage,archives,jmx, and as components. Then something silly happened: my focus shifted away from this task, to other things (while I was waiting for the 3.3.0.Final release of JBoss Tools to download). When I got back to it, I forgot that I had included some prebuilt plugins in the local repository, remembered that the AS component was building, and I thought “Oh great! Now I can go and make a spec for that”. When I finally got the spec made, it took me a while to realise why the package wouldn’t build, and needless to say, I was a little annoyed when I figured it out!</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Luckily, all the stuff that I was then missing was missing features from eclipse-wtp-sourceediting. That sounded fairly straightforward, just add the missing stuff, submit a patch, Bob’s you’re uncle, right? Wrong! The packages eclipse-wtp-webservices and eclipse-wtp-jeetools depend on the current feature that’s being built by eclipse-wtp-sourceediting, and the new features that would be added, depend on those packages! I was almost finished adding these features when I realised the potential problem. I asked in #fedora-devel to see if it was possible to have a situation where packages depend on each other, and I was told that it was ok, once it’s documented. To be honest, I’m not fully convinced though, it seems like a terrible idea!</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Getting these features to build required quite a few patches to other existing packages, that didn’t have the right OSGI Manifest information. This seems to be a recurring theme. It might be just me, but it seems that the there is usually a huge gap between what OSGI information a package contains, and what eclipse/eclipse-pdebuild expects. This is quite frustrating, as it’s not always apparent why things aren’t building or working the way one expects them to. It’s not always apparent to me at least. All of these patches will delay things a bit, hopefully not too long.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>After getting that all done, I went back to jbosstools again to see how much further I could get,with mixed results. It was working if I built it manually, but there were strange compilation errors from the spec, even though everything I was doing manually, was pasted from the spec file. It took me quite a while, but I eventually figured out that there are prebuilt jars in some of the components that I wasn’t removing when building manually. These of course were being removed in the spec file, so that’s what was causing the problem. Some of the prebuilt jars have equivalents provided in Fedora packages already, but of course, some of them don’t. That would be too easy! The new packages that need to be built have now been added to the list on the wiki page.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>I was going to rant more here about the structure of eclipse webtools…the differing locations of plugins from the features that build/provide them; but it’s late, and I’ve already wasted enough energy today thinking about them!</p> 
 </div></p>
 
 	<hr>
@@ -167,7 +119,7 @@ it’s late, and I’ve already wasted enough energy today thinking about them!<
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
     

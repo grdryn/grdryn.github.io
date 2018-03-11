@@ -71,65 +71,26 @@
 
 	<p><em>13 August 2012</em></p>
 
-	<p><div class="paragraph">
-<p>This is the twelfth weekly instalment of my GSOC blog series. More info on the
-progress of the Fedora Java Spin can be found on the
-<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
-</div>
-<div class="paragraph">
-<p>Holey moley, it’s the 13th of August! That means that it’s the ‘Suggested
-pencils down’ date for GSOC 2012, with August 20th being the ‘Firm pencils
-down’.The complete timeline can be seen
-<a href="http://www.google-melange.com/gsoc/events/google/gsoc2012">here</a>. On that note, I
-expect this is the penultimate entry in this blog series, after that I’ll go
-back to posting stuff of little importance! I’ll admit, writing the blog posts
-haven’t been my favourite part of the process, but they have been quite
-beneficial to keep me focused.</p>
-</div>
-<div class="paragraph">
-<p>A nice surprise this week, with someone else packaging one of the dependencies
-on the list: Alexander Kurtakov (Eclipse Guy!) prepared eclipse-swtbot which
-is needed for JBoss Tools tests. Thanks Alexander! Unfortunately tests still
-aren’t working, but I think it’s a problem with tycho version in Rawhide rather
-than failing tests. The eclipse-swtbot isn’t in Fedora 17 yet, so I’m unable to
-test with a stable tycho release yet.</p>
-</div>
-<div class="paragraph">
-<p>Next on the list was eclipse-m2e-core, which I’ve mentioned a few times
-previously. I spent quite a while talking about it in last weeks post so I’ll
-keep it brief this week. I thought I would have this ready for review very
-quickly this week, but it somehow dragged into Wednesday or Thursday. A review
-request is in, but there are issues. I don’t know if the issues exist in the
-spec that will be reviewed for Rawhide as I can’t currently test it. I got it to
-build in F17 with about twice as many patches; but after all that and getting it
-to build, guess what, it didn’t work! Eclipse just decided to ignore most of it
-for some reason. I’m hoping that it’s some small issue that I’m just
-overlooking, or maybe something in those extra patches that’s causing a problem.
-I spent hours looking at it to no avail. Akurtakov said he would take a look at
-it on Monday, so I’m hopeful of that. No better man for the job!</p>
-</div>
-<div class="paragraph">
-<p>The reason I was packaging m2e (apart from it being a totally useful and cool
-thing to have anyway), was for JBoss Openshift Tools. Even though I’m not sure
-if m2e works, I’m sure that it builds; so I decided to try to build
-eclipse-jbosstools-openshift, now that I could use it as a dependency.
-Success! After a patch or two, it built. I’m really excited about this, because
-I use Openshift (this blog is hosted on it, for example), so I’ll be able to use
-these tools! I’ve never actually used any of the other JBoss Tools stuff (shh,
-don’t tell anyone), but I’m looking forward to learning to use them once I have
-time!</p>
-</div>
-<div class="paragraph">
-<p>I also cleaned up the specfile for eclipse-jbosstools quite a bit. Now it’s a
-leaner, meaner, package building machine spec file. It used to take more than
-minutes to do a build on my computer, now it takes a little over 5. I think
-that’s a pretty drastic improvement. I also cut the number of patches almost in
-half. Using the new POM macros makes it far more maintainable I think!</p>
-</div>
-<div class="paragraph">
-<p>Oh crud, I meant to make a list of JBoss Tools modules that are in Fedora, ones
-that build but are waiting, and ones that don’t currently build. Oh well,
-tomorrow is another day!</p>
+	<p><div class="paragraph"> 
+ <p>This is the twelfth weekly instalment of my GSOC blog series. More info on the progress of the Fedora Java Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Holey moley, it’s the 13th of August! That means that it’s the ‘Suggested pencils down’ date for GSOC 2012, with August 20th being the ‘Firm pencils down’.The complete timeline can be seen <a href="http://www.google-melange.com/gsoc/events/google/gsoc2012">here</a>. On that note, I expect this is the penultimate entry in this blog series, after that I’ll go back to posting stuff of little importance! I’ll admit, writing the blog posts haven’t been my favourite part of the process, but they have been quite beneficial to keep me focused.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>A nice surprise this week, with someone else packaging one of the dependencies on the list: Alexander Kurtakov (Eclipse Guy!) prepared eclipse-swtbot which is needed for JBoss Tools tests. Thanks Alexander! Unfortunately tests still aren’t working, but I think it’s a problem with tycho version in Rawhide rather than failing tests. The eclipse-swtbot isn’t in Fedora 17 yet, so I’m unable to test with a stable tycho release yet.</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Next on the list was eclipse-m2e-core, which I’ve mentioned a few times previously. I spent quite a while talking about it in last weeks post so I’ll keep it brief this week. I thought I would have this ready for review very quickly this week, but it somehow dragged into Wednesday or Thursday. A review request is in, but there are issues. I don’t know if the issues exist in the spec that will be reviewed for Rawhide as I can’t currently test it. I got it to build in F17 with about twice as many patches; but after all that and getting it to build, guess what, it didn’t work! Eclipse just decided to ignore most of it for some reason. I’m hoping that it’s some small issue that I’m just overlooking, or maybe something in those extra patches that’s causing a problem. I spent hours looking at it to no avail. Akurtakov said he would take a look at it on Monday, so I’m hopeful of that. No better man for the job!</p> 
+</div> 
+<div class="paragraph"> 
+ <p>The reason I was packaging m2e (apart from it being a totally useful and cool thing to have anyway), was for JBoss Openshift Tools. Even though I’m not sure if m2e works, I’m sure that it builds; so I decided to try to build eclipse-jbosstools-openshift, now that I could use it as a dependency. Success! After a patch or two, it built. I’m really excited about this, because I use Openshift (this blog is hosted on it, for example), so I’ll be able to use these tools! I’ve never actually used any of the other JBoss Tools stuff (shh, don’t tell anyone), but I’m looking forward to learning to use them once I have time!</p> 
+</div> 
+<div class="paragraph"> 
+ <p>I also cleaned up the specfile for eclipse-jbosstools quite a bit. Now it’s a leaner, meaner, package building machine spec file. It used to take more than minutes to do a build on my computer, now it takes a little over 5. I think that’s a pretty drastic improvement. I also cut the number of patches almost in half. Using the new POM macros makes it far more maintainable I think!</p> 
+</div> 
+<div class="paragraph"> 
+ <p>Oh crud, I meant to make a list of JBoss Tools modules that are in Fedora, ones that build but are waiting, and ones that don’t currently build. Oh well, tomorrow is another day!</p> 
 </div></p>
 
 	<hr>
@@ -155,7 +116,7 @@ tomorrow is another day!</p>
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.4.0</a></p>
+        <p class="muted credit">&copy; 2013 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
       </div>
     </div>
     

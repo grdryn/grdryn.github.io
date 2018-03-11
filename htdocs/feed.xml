@@ -6,9 +6,80 @@
     <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 11 Mar 2018 16:18:15 +0000</pubDate>
-    <lastBuildDate>Sun, 11 Mar 2018 16:18:15 +0000</lastBuildDate>
+    <pubDate>Sun, 11 Mar 2018 16:28:04 +0000</pubDate>
+    <lastBuildDate>Sun, 11 Mar 2018 16:28:04 +0000</lastBuildDate>
 
+    <item>
+      <title>Trusting Jenkins Pipelines in public repositories</title>
+      <link>https://blog.grdryn.me/blog/jenkins-pipeline-trust.html</link>
+      <pubDate>Sun, 11 Mar 2018 16:26:57 +0000</pubDate>
+      <guid isPermaLink="false">blog/jenkins-pipeline-trust.html</guid>
+      <description>
+          &lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;We use Jenkins for a lot of things in the projects that I work on. One of those things is CI jobs for open source projects that we maintain on GitHub, which run automatically on pull requests for these repositories. Previously we used &lt;a href=&quot;https://docs.openstack.org/infra/jenkins-job-builder/&quot;&gt;Jenkins Job Builder&lt;/a&gt; to manage the jobs, and the &lt;a href=&quot;https://plugins.jenkins.io/ghprb&quot;&gt;GitHub Pull Request Builder&lt;/a&gt; plugin to trigger them on different events in the pull request. Now however, we prefer the expressiveness of &lt;a href=&quot;https://jenkins.io/doc/book/pipeline/&quot;&gt;Jenkins Pipeline&lt;/a&gt;, and the ability to define the job in a Jenkinsfile in the target repository, managed in Jenkins by the &lt;a href=&quot;https://plugins.jenkins.io/github-branch-source&quot;&gt;GitHub Branch Source&lt;/a&gt; plugin. In this post I’ll describe how we get a similar trust model (run builds for &apos;trusted&apos; users, but not for others without approval from a trusted user) in our new configuration.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;One great thing about the GitHub Pull Request Builder plugin is that it determined whether or not to automatically trigger a job, based on the trust of the user who created the pull request, using white and/or black lists. If you’re maintaining your own Jenkins instance, there’s a good chance you don’t just want it to execute code on behalf of untrusted people! The event of a &lt;em&gt;not-yet-trusted&lt;/em&gt; user creating a pull request would result in a comment on the PR from Jenkins, asking for someone trusted to verify that it was okay to run the build; as opposed to the build getting run immediately for someone who was considered trusted.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The GitHub Branch Source plugin does things differently: it will automatically trigger builds for all pull requests or none (actually, you can choose to build pull requests from the origin repo, and not from forks; but we generally prefer to have all pull requests from forks).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;If a pull request comes from an untrusted user, it will automatically trigger the same as from a trusted user (your choice of trusted can be &apos;Everybody&apos;, &apos;Nobody&apos;, &apos;Contributors&apos;, or &apos;users with Admin or Write permission&apos;), but it will protect from malicious changes to the Jenkinsfile by using the version of that file from the trusted branch (e.g. target branch of the pull request).&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;In the untrusted case (we choose to trust &apos;Contributors&apos;), you’ll see a line such as the following at the top of the console output of the run:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;literalblock&quot;&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre&gt;Loading trusted files from base branch master at 72204ebf115acfd9a3582b708939c1353d3eae75 rather than 7382ebd0b32cdceb95c7afb27d8a325f17953536&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;For some use cases this is enough, but if you execute other scripts or tools from the build, couldn’t Mallory just get their wicked way through those? Yes, you could do a &lt;a href=&quot;https://jenkins.io/doc/pipeline/steps/workflow-multibranch/#code-readtrusted-code-read-trusted-file-from-scm&quot;&gt;readTrusted&lt;/a&gt; on each potential file that could be used to execute arbitrary code, but I imagine that would get inconvenient quickly, and it might be easy to miss one.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;For these cases, we’ve got an initial &apos;Trust&apos; stage, which runs before anything else in our public pipelines. It just checks to see if the person who submitted the changes is a member of the GitHub org. If they are, it will continue; but if not, it will wait for someone who &lt;em&gt;is&lt;/em&gt; trusted to log in and hit the &apos;Proceed&apos; button on the input step. As mentioned, because the Jenkinsfile will be loaded from the trusted branch if the author is untrusted; malicious authors can’t just remove or modify this stage!&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;To keep our Jenkinsfiles clean, we’ve got the logic for this in a shared library, so this &apos;Trust&apos; stage just contains one line:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;listingblock&quot;&gt; 
+ &lt;div class=&quot;title&quot;&gt;
+  Example Jenkinsfile
+ &lt;/div&gt; 
+ &lt;div class=&quot;content&quot;&gt; 
+  &lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-groovy&quot; data-lang=&quot;groovy&quot;&gt;#!groovy
+
+// https://github.com/feedhenry/fh-pipeline-library
+@Library(&apos;fh-pipeline-library&apos;) _
+
+stage(&apos;Trust&apos;) {
+    enforceTrustedApproval(&apos;aerogear&apos;)
+}
+
+stage(&apos;Actual stuff&apos;) {
+    node(&apos;probably&apos;) {}
+}&lt;/code&gt;&lt;/pre&gt; 
+ &lt;/div&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;The actual logic in the shared library can be found &lt;a href=&quot;https://github.com/feedhenry/fh-pipeline-library/blob/master/vars/enforceTrustedApproval.groovy&quot;&gt;here&lt;/a&gt;.&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Two things to note:&lt;/p&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;ulist&quot;&gt; 
+ &lt;ul&gt; 
+  &lt;li&gt; &lt;p&gt;Since it will be executed against regular branches on the origin repository, just as it is for pull request projects; it automatically trusts those branches: it will only query for GitHub org membership if the &lt;code&gt;CHANGE_AUTHOR&lt;/code&gt; environment variable is set (it is for pull request projects, not for normal branch projects).&lt;/p&gt; &lt;/li&gt; 
+  &lt;li&gt; &lt;p&gt;If your shared library project is also a public repository with a Jenkinsfile that similarly runs on pull requests, and if you load the library version from the pull request commit; either do a &lt;code&gt;readTrusted&lt;/code&gt; on this file, or duplicate the function into the Jenkinsfile.&lt;/p&gt; &lt;/li&gt; 
+ &lt;/ul&gt; 
+&lt;/div&gt; 
+&lt;div class=&quot;paragraph&quot;&gt; 
+ &lt;p&gt;Our &lt;a href=&quot;https://github.com/feedhenry/fh-pipeline-library&quot;&gt;shared library&lt;/a&gt; is available under the Apache-2.0 license, so feel free to copy the relevant file (or any others) to your own shared library (this is probably a better idea than depending on ours). Additionally, if you find any issues or have any improvements, &lt;a href=&quot;https://github.com/feedhenry/fh-pipeline-library/issues/new&quot;&gt;we would love to hear about them&lt;/a&gt;!&lt;/p&gt; 
+&lt;/div&gt;
+      </description>
+    </item>
     <item>
       <title>My Podcast list in 2016 🎧</title>
       <link>https://blog.grdryn.me/blog/r/podcast-list-2016.html</link>

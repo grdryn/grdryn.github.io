@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>JBake</title>
-    <link>https://blog.grdryn.me</link>
-    <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:8820</link>
+    <atom:link href="http://localhost:8820/feed.xml" rel="self" type="application/rss+xml" />
     <description>JBake Bootstrap Template</description>
     <language>en-gb</language>
-    <pubDate>Sun, 11 Mar 2018 16:28:04 +0000</pubDate>
-    <lastBuildDate>Sun, 11 Mar 2018 16:28:04 +0000</lastBuildDate>
+    <pubDate>Tue, 13 Mar 2018 19:35:49 +0000</pubDate>
+    <lastBuildDate>Tue, 13 Mar 2018 19:35:49 +0000</lastBuildDate>
 
     <item>
       <title>Trusting Jenkins Pipelines in public repositories</title>
-      <link>https://blog.grdryn.me/blog/jenkins-pipeline-trust.html</link>
+      <link>http://localhost:8820/blog/jenkins-pipeline-trust.html</link>
       <pubDate>Sun, 11 Mar 2018 16:26:57 +0000</pubDate>
       <guid isPermaLink="false">blog/jenkins-pipeline-trust.html</guid>
       <description>
@@ -82,7 +82,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>My Podcast list in 2016 🎧</title>
-      <link>https://blog.grdryn.me/blog/r/podcast-list-2016.html</link>
+      <link>http://localhost:8820/blog/r/podcast-list-2016.html</link>
       <pubDate>Sat, 9 Jul 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/podcast-list-2016.html</guid>
       <description>
@@ -276,7 +276,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>
-      <link>https://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>
+      <link>http://localhost:8820/blog/fedora/pumpio-clients-for-fedora.html</link>
       <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/pumpio-clients-for-fedora.html</guid>
       <description>
@@ -317,7 +317,7 @@ stage(&apos;Actual stuff&apos;) {
   &lt;/div&gt; 
   &lt;div class=&quot;imageblock&quot;&gt; 
    &lt;div class=&quot;content&quot;&gt; 
-    &lt;img src=&quot;https://blog.grdryn.me/images/dianara_screenshot.png&quot; alt=&quot;Dianara&quot;&gt; 
+    &lt;img src=&quot;http://localhost:8820/images/dianara_screenshot.png&quot; alt=&quot;Dianara&quot;&gt; 
    &lt;/div&gt; 
   &lt;/div&gt; 
  &lt;/div&gt; 
@@ -343,7 +343,7 @@ stage(&apos;Actual stuff&apos;) {
   &lt;/div&gt; 
   &lt;div class=&quot;imageblock&quot;&gt; 
    &lt;div class=&quot;content&quot;&gt; 
-    &lt;img src=&quot;https://blog.grdryn.me/images/pumpa_screenshot.png&quot; alt=&quot;Pumpa&quot;&gt; 
+    &lt;img src=&quot;http://localhost:8820/images/pumpa_screenshot.png&quot; alt=&quot;Pumpa&quot;&gt; 
    &lt;/div&gt; 
   &lt;/div&gt; 
   &lt;div class=&quot;paragraph&quot;&gt; 
@@ -366,7 +366,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Prank - alias sudo in BASH (or why you should start escaping privilege-escalating commands)</title>
-      <link>https://blog.grdryn.me/blog/fedora/prank-alias-sudo-in-bash.html</link>
+      <link>http://localhost:8820/blog/fedora/prank-alias-sudo-in-bash.html</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/prank-alias-sudo-in-bash.html</guid>
       <description>
@@ -395,7 +395,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 13 (Final)</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</guid>
       <description>
@@ -487,7 +487,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 12</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</link>
       <pubDate>Mon, 13 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</guid>
       <description>
@@ -516,7 +516,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 11</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</link>
       <pubDate>Mon, 6 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</guid>
       <description>
@@ -542,7 +542,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss(?) Spin - GSOC 2012 update 10</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</link>
       <pubDate>Mon, 30 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</guid>
       <description>
@@ -568,7 +568,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 9</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</link>
       <pubDate>Mon, 23 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</guid>
       <description>
@@ -606,7 +606,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 8</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</link>
       <pubDate>Mon, 16 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</guid>
       <description>
@@ -650,7 +650,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 7</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</link>
       <pubDate>Mon, 9 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</guid>
       <description>
@@ -757,7 +757,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 6</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</link>
       <pubDate>Mon, 2 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</guid>
       <description>
@@ -792,7 +792,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 5</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</guid>
       <description>
@@ -824,7 +824,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 4</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</link>
       <pubDate>Mon, 18 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</guid>
       <description>
@@ -856,7 +856,7 @@ stage(&apos;Actual stuff&apos;) {
     </item>
     <item>
       <title>Creating the Fedora JBoss Spin (GSOC 2012)</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</link>
       <pubDate>Thu, 14 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</guid>
       <description>
@@ -909,7 +909,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 3</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</link>
       <pubDate>Mon, 11 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</guid>
       <description>
@@ -939,7 +939,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
-  &lt;img src=&quot;https://blog.grdryn.me/images/jboss-spin.png&quot; alt=&quot;jboss spin&quot;&gt; 
+  &lt;img src=&quot;http://localhost:8820/images/jboss-spin.png&quot; alt=&quot;jboss spin&quot;&gt; 
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 
@@ -955,7 +955,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 2</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</link>
       <pubDate>Sun, 3 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</guid>
       <description>
@@ -1014,7 +1014,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 1</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</link>
       <pubDate>Sun, 27 May 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</guid>
       <description>
@@ -1040,7 +1040,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>Google Summer of Code 2012 - Fedora JBoss Spin</title>
-      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</link>
+      <link>http://localhost:8820/blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</link>
       <pubDate>Tue, 24 Apr 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</guid>
       <description>
@@ -1051,20 +1051,20 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>What ARE YOU looking for?</title>
-      <link>https://blog.grdryn.me/blog/r/nuig-grammar.html</link>
+      <link>http://localhost:8820/blog/r/nuig-grammar.html</link>
       <pubDate>Tue, 27 Mar 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/nuig-grammar.html</guid>
       <description>
           &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
-  &lt;img src=&quot;https://blog.grdryn.me/images/nuig-ruler.jpg&quot; alt=&quot;nuig ruler&quot;&gt; 
+  &lt;img src=&quot;http://localhost:8820/images/nuig-ruler.jpg&quot; alt=&quot;nuig ruler&quot;&gt; 
  &lt;/div&gt; 
 &lt;/div&gt;
       </description>
     </item>
     <item>
       <title>Adjust screen brightness on fedora 16 - try this if it’s not working</title>
-      <link>https://blog.grdryn.me/blog/fedora/f16-brightness.html</link>
+      <link>http://localhost:8820/blog/fedora/f16-brightness.html</link>
       <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/f16-brightness.html</guid>
       <description>
@@ -1087,7 +1087,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
     </item>
     <item>
       <title>Add applications to autostart on login, in GNOME 3</title>
-      <link>https://blog.grdryn.me/blog/fedora/gnome3-add-apps-to-startup.html</link>
+      <link>http://localhost:8820/blog/fedora/gnome3-add-apps-to-startup.html</link>
       <pubDate>Sat, 14 May 2011 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gnome3-add-apps-to-startup.html</guid>
       <description>
@@ -1096,7 +1096,7 @@ ln -s /usr/share/spin-kickstarts/fedora-live-minimization.ks&lt;/code&gt;&lt;/pr
 &lt;/div&gt; 
 &lt;div class=&quot;imageblock&quot;&gt; 
  &lt;div class=&quot;content&quot;&gt; 
-  &lt;img src=&quot;https://blog.grdryn.me/images/startup_applications_preferences.png&quot; alt=&quot;startup applications preferences&quot;&gt; 
+  &lt;img src=&quot;http://localhost:8820/images/startup_applications_preferences.png&quot; alt=&quot;startup applications preferences&quot;&gt; 
  &lt;/div&gt; 
 &lt;/div&gt; 
 &lt;div class=&quot;paragraph&quot;&gt; 

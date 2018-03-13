@@ -12,8 +12,4 @@
 
 	<hr>
 
-	<#if (content)?? && (content.disqus)??>
-		<#include "disqus.ftl">
-	</#if>
-	
 <#include "footer.ftl">

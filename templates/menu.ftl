@@ -10,9 +10,9 @@
             <a class="brand" href="/">blog.grdryn.me</a>
             <div class="nav-collapse collapse">
               <ul class="nav">
-                <li><a href="/index.html">Home</a></li>
                 <li><a href="/about.html">About</a></li>
-                <li><a href="/${config.feed_file}">Subscribe</a></li>
+                <li><a href="https://twitter.com/grdryn" rel="me">Twitter</a></li>
+                <li><a href="https://github.com/grdryn" rel="me">Github</a></li>
               </ul>
             </div><!--/.nav-collapse -->
           </div>

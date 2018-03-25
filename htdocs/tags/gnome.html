@@ -26,8 +26,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
     <link rel="shortcut icon" href="favicon.ico" />
+
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/feed.xml" title="Gerard Ryan's blog (All)" />
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/customfeeds/fedora.xml" title="Gerard Ryan's blog (Fedora-related)" />
+
+    <link rel="pingback" href="https://webmention.io/blog.grdryn.me/xmlrpc" />
+    <link rel="webmention" href="https://webmention.io/blog.grdryn.me/webmention" />
   </head>
   <body>
     <div id="wrap">

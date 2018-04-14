@@ -30,8 +30,7 @@
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/feed.xml" title="Gerard Ryan's blog (All)" />
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/customfeeds/fedora.xml" title="Gerard Ryan's blog (Fedora-related)" />
 
-    <link rel="pingback" href="https://webmention.io/blog.grdryn.me/xmlrpc" />
-    <link rel="webmention" href="https://webmention.io/blog.grdryn.me/webmention" />
+    <link rel="webmention" href="https://webmention.herokuapp.com/api/webmention" />
   </head>
   <body>
     <div id="wrap">

@@ -30,8 +30,7 @@
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/feed.xml" title="Gerard Ryan's blog (All)" />
     <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/customfeeds/fedora.xml" title="Gerard Ryan's blog (Fedora-related)" />
 
-    <link rel="pingback" href="https://webmention.io/blog.grdryn.me/xmlrpc" />
-    <link rel="webmention" href="https://webmention.io/blog.grdryn.me/webmention" />
+    <link rel="webmention" href="https://webmention.herokuapp.com/api/webmention" />
   </head>
   <body>
     <div id="wrap">
@@ -93,6 +92,20 @@
 </div></p>
 
 	<hr>
+
+        <div class="responses">
+                <h3>Webmentions</h3>
+                <script id="webmention-hosted">
+                        (function () {
+                                var sn = document.createElement("script"), s = document.getElementsByTagName("script")[0], url;
+                                url = document.querySelectorAll ? document.querySelectorAll("link[rel~=canonical]") : false;
+                                url = url && url[0] ? url[0].href : false;
+                                sn.type = "text/javascript"; sn.async = true;
+                                sn.src = "//webmention.herokuapp.com/api/embed?url=" + encodeURIComponent(url || window.location);
+                                s.parentNode.insertBefore(sn, s);
+                        }());
+                </script>
+        </div>
 
 		</div>
 		<div id="push"></div>

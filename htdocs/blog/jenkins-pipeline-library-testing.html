@@ -61,56 +61,101 @@
 		<h1>Testing Jenkins Pipeline shared libraries</h1>
 	</div>
 
-	<p><em>25 March 2018</em></p>
+	<p><em>03 July 2019</em></p>
 
-	<p><div id="preamble"> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>In this post I’ll talk about how to configure shared libraries so that they can be easily tested using with their own Jenkinsfile, and the traditional GitHub pull-request process. I won’t be talking about using <a href="https://github.com/jenkinsci/JenkinsPipelineUnit">JenkinsPipelineUnit</a> since I’m not hugely familiar with that yet. Maybe I’ll write another post about that <a href="https://search.maven.org/#artifactdetails%7Cio.jenkins.archetypes%7Cglobal-shared-library%7C1.4%7Cmaven-archetype">now that it’s included in a new maven archetype for shared libraries</a>!</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>First a little bit about Jenkins Pipeline shared libraries. These are collections of reusable classes, and DSL scripts which act similar to steps provided by plugins. Unlike steps from plugins, they won’t show up in the 'Pipeline Syntax' page which is a really helpful tool for generating snippets when creating pipelines (although if you go to 'Global Variables Reference' from there, you’ll see them (assuming Jenkins has loaded your library at least once as part of a pipeline). They do offer advantages over plugin steps though: they’re easier to make changes to, and as this post will highlight, you can use different versions easily.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>More info: <a href="https://jenkins.io/doc/book/pipeline/shared-libraries" class="bare">https://jenkins.io/doc/book/pipeline/shared-libraries</a></p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Putting shared logic for pipelines into a shared library allows us to keep our pipeline Jenkinsfile contents clean and easy to read, and also we only have to update in one place when we want to change that logic for all jobs. One problem is that the phrase <em>making changes that affect many pipelines</em> can also be written as <em>making changes that break many pipelines</em>. Why can’t we use the same development flow to make changes to our Pipeline shared library as we use in all of our other projects? It turns out we can!</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="_the_library_definition_in_the_global_jenkins_configuration">The library definition in the global Jenkins configuration</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>In the Jenkinsfile for the shared library, we’ll want to be able to use the 'library' step, rather than the '@Library' annotation, and we’ll want to be able to specify a Git branch or GitHub pull request. This will require making some changes to the definition in the global configuration. Specifically, we’ll want the following:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Uncheck 'Load Implicitly' (beware that this could affect existing jobs)</p> </li> 
-    <li> <p>Check 'Allow default version to be overridden'</p> </li> 
-    <li> <p>In the GitHub configuration, add behaviours like in the image below ('Discover Branches', 'Discover pull requests from origin', 'Discover pull requests from forks'):</p> </li> 
-   </ul> 
-  </div> 
-  <div class="imageblock"> 
-   <div class="content"> 
-    <img src="https://blog.grdryn.me/images/jenkins-config-library.png" alt="Configuring a GitHub-hosted shared library in Jenkins"> 
-   </div> 
-   <div class="title">
-    Figure 1. Configuring a GitHub-hosted shared library in Jenkins
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>The first two choices here ('Load Implicitly' and 'Allow default version to be overridden') will allow us to use the library step to choose a different version of this library than the default. In this case, we’ll have a CI job for the shared library defined in a Jenkinsfile in the repo, which will get triggered on a GitHub pull request. The version of the shared library we want to use in the CI job, is the version from that same pull request — this is what the additional behaviours in the GitHub section allow us to specify!</p> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="_the_jenkinsfile_in_the_library_repository">The Jenkinsfile in the library repository</h2> 
- <div class="sectionbody"> 
-  <div class="literalblock"> 
-   <div class="content"> 
-    <pre>node {
+	<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>In this post I&#8217;ll talk about how to configure shared libraries so that
+ they can be easily tested using with their own Jenkinsfile, and the
+ traditional GitHub pull-request process.
+I won&#8217;t be talking about using
+ <a href="https://github.com/jenkinsci/JenkinsPipelineUnit">JenkinsPipelineUnit</a>
+ since I&#8217;m not hugely familiar with that yet.
+Maybe I&#8217;ll write another post about that
+ <a href="https://search.maven.org/#artifactdetails%7Cio.jenkins.archetypes%7Cglobal-shared-library%7C1.4%7Cmaven-archetype">now
+ that it&#8217;s included in a new maven archetype for shared libraries</a>!</p>
+</div>
+<div class="paragraph">
+<p>First a little bit about Jenkins Pipeline shared libraries.
+These are collections of reusable classes, and DSL scripts which act
+ similar to steps provided by plugins.
+Unlike steps from plugins, they won&#8217;t show up in the 'Pipeline Syntax'
+ page which is a really helpful tool for generating snippets when
+ creating pipelines (although if you go to 'Global Variables
+ Reference' from there, you&#8217;ll see them (assuming Jenkins has loaded
+ your library at least once as part of a pipeline).
+They do offer advantages over plugin steps though: they&#8217;re easier to
+ make changes to, and as this post will highlight, you can use
+ different versions easily.</p>
+</div>
+<div class="paragraph">
+<p>More info: <a href="https://jenkins.io/doc/book/pipeline/shared-libraries" class="bare">https://jenkins.io/doc/book/pipeline/shared-libraries</a></p>
+</div>
+<div class="paragraph">
+<p>Putting shared logic for pipelines into a shared library allows us to
+ keep our pipeline Jenkinsfile contents clean and easy to read, and
+ also we only have to update in one place when we want to change that
+ logic for all jobs.
+One problem is that the phrase <em>making changes that affect many
+ pipelines</em> can also be written as <em>making changes that break many
+ pipelines</em>.
+Why can&#8217;t we use the same development flow to make changes to our
+ Pipeline shared library as we use in all of our other projects?  It
+ turns out we can!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_library_definition_in_the_global_jenkins_configuration">The library definition in the global Jenkins configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In the Jenkinsfile for the shared library, we&#8217;ll want to be able to
+ use the 'library' step, rather than the '@Library' annotation, and
+ we&#8217;ll want to be able to specify a Git branch or GitHub pull request.
+This will require making some changes to the definition in the global
+ configuration. Specifically, we&#8217;ll want the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Uncheck 'Load Implicitly' (beware that this could affect existing jobs)</p>
+</li>
+<li>
+<p>Check 'Allow default version to be overridden'</p>
+</li>
+<li>
+<p>In the GitHub configuration, add behaviours like in the image below
+('Discover Branches', 'Discover pull requests from origin',
+'Discover pull requests from forks'):</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="/images/jenkins-config-library.png" alt="Configuring a GitHub-hosted shared library in Jenkins">
+</div>
+<div class="title">Figure 1. Configuring a GitHub-hosted shared library in Jenkins</div>
+</div>
+<div class="paragraph">
+<p>The first two choices here ('Load Implicitly' and 'Allow default
+ version to be overridden') will allow us to use the library step to
+ choose a different version of this library than the default.
+In this case, we&#8217;ll have a CI job for the shared library defined in a
+ Jenkinsfile in the repo, which will get triggered on a GitHub pull
+ request.
+The version of the shared library we want to use in the CI job, is the
+ version from that same pull request&#8201;&#8212;&#8201;this is what the additional
+ behaviours in the GitHub section allow us to specify!</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_the_jenkinsfile_in_the_library_repository">The Jenkinsfile in the library repository</h2>
+<div class="sectionbody">
+<div class="literalblock">
+<div class="content">
+<pre>node {
     // Load your library!
     def pipelineLibrary = library("my-pipeline-library@${env.BRANCH_NAME}")
 
@@ -125,39 +170,83 @@
         String myResult = sayHello('Joe')
         assert myResult == 'Hello Joe!'
     }
-}</pre> 
-   </div> 
-  </div> 
-  <div class="paragraph"> 
-   <p>To explain the above a little:</p> 
-  </div> 
-  <div class="ulist"> 
-   <ul> 
-    <li> <p>Since we’re using the 'GitHub Branch Source' plugin to create jobs for the branches and pull requests for the projects in our organization, this Pipeline could be run from a pull request, or from a regular branch. Wherever it’s from, we want to use the library from that same ref, and that’s what we determine and store in the String 'gitref'.</p> </li> 
-    <li> <p>Holding a variable reference to it will allow us to instantiate classes from the library, such as the Utils class in the above example.</p> </li> 
-    <li> <p>We can use 'global variables' such as 'sayHello' above.</p> </li> 
-    <li> <p>Using the Groovy <a href="http://groovy-lang.org/semantics.html#_power_assertion">'assert' keyword</a>, we can test classes and global variables directly in the Pipeline!</p> </li> 
-    <li> <p>If your shared library is in a public repository, you might want to protect this job from people who just want to use it to get your Jenkins instance to do their bidding. See <a href="blog/jenkins-pipeline-trust.html">my previous post about adding a 'trust' stage to your Jenkinsfile</a>.</p> </li> 
-   </ul> 
-  </div> 
- </div> 
-</div> 
-<div class="sect1"> 
- <h2 id="_pre_merge_testing_against_other_jobs">Pre-merge testing against other jobs</h2> 
- <div class="sectionbody"> 
-  <div class="paragraph"> 
-   <p>By default, the library version that you’ve specified in the global configuration will be what’s loaded in your pipeline. If that’s a branch (convenient), then once you merge your changes back to the branch, those changes will apply to future pipeline executions. Wouldn’t it be great to be able to try it out in affected pipeline jobs one by one, rather than breaking them all at once?</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>If it’s possible to test those other pipelines without having to worry about their side effects, or some rigid process around them, then you can — no need to merge your change first and risk breaking many pipelines!</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>Rembember the GitHub repository configuration we defined for the library in the shared configuration? You can make use of that in the other Pipeline jobs by specifying the pull request (or other branch) when loading your library there too. When we’re manually testing them out like this, we know the ref we want to use, so we can use that directly in the @Library annotation, if that’s how the Pipeline’s load it.</p> 
-  </div> 
-  <div class="paragraph"> 
-   <p>To test out a custom version of the shared library in another Pipeline that similarly gets loaded from a Git repository using the "GitHub Branch Source" plugin or something similar, you could create a dummy pull request to that repository, which just changes the version of the library to that of your library pull request. Otherwise, you could use the 'Replay' functionality in the Pipeline job in Jenkins to modify the Pipeline for your once-off execution.</p> 
-  </div> 
- </div> 
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To explain the above a little:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Since we&#8217;re using the 'GitHub Branch Source' plugin to create jobs
+for the branches and pull requests for the projects in our
+organization, this Pipeline could be run from a pull request, or
+from a regular branch. Wherever it&#8217;s from, we want to use the
+library from that same ref, and that&#8217;s what we determine and store
+in the String 'gitref'.</p>
+</li>
+<li>
+<p>Holding a variable reference to it will allow us to instantiate
+classes from the library, such as the Utils class in the above
+example.</p>
+</li>
+<li>
+<p>We can use 'global variables' such as 'sayHello' above.</p>
+</li>
+<li>
+<p>Using the Groovy
+<a href="http://groovy-lang.org/semantics.html#_power_assertion">'assert'
+keyword</a>, we can test classes and global variables directly in the
+Pipeline!</p>
+</li>
+<li>
+<p>If your shared library is in a public repository, you might want to
+protect this job from people who just want to use it to get your
+Jenkins instance to do their bidding. See
+<a href="blog/jenkins-pipeline-trust.html">my previous post about adding
+a 'trust' stage to your Jenkinsfile</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_pre_merge_testing_against_other_jobs">Pre-merge testing against other jobs</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>By default, the library version that you&#8217;ve specified in the global
+ configuration will be what&#8217;s loaded in your pipeline.
+If that&#8217;s a branch (convenient), then once you merge your changes back
+ to the branch, those changes will apply to future pipeline executions.
+Wouldn&#8217;t it be great to be able to try it out in affected pipeline
+ jobs one by one, rather than breaking them all at once?</p>
+</div>
+<div class="paragraph">
+<p>If it&#8217;s possible to test those other pipelines without having to worry
+ about their side effects, or some rigid process around them, then you
+ can&#8201;&#8212;&#8201;no need to merge your change first and risk breaking many
+ pipelines!</p>
+</div>
+<div class="paragraph">
+<p>Rembember the GitHub repository configuration we defined for the
+ library in the shared configuration?
+You can make use of that in the other Pipeline jobs by specifying the
+ pull request (or other branch) when loading your library there too.
+When we&#8217;re manually testing them out like this, we know the ref we
+ want to use, so we can use that directly in the @Library annotation,
+ if that&#8217;s how the Pipeline&#8217;s load it.</p>
+</div>
+<div class="paragraph">
+<p>To test out a custom version of the shared library in another Pipeline
+ that similarly gets loaded from a Git repository using the "GitHub
+ Branch Source" plugin or something similar, you could create a dummy
+ pull request to that repository, which just changes the version of
+ the library to that of your library pull request.
+Otherwise, you could use the 'Replay' functionality in the Pipeline
+ job in Jenkins to modify the Pipeline for your once-off execution.</p>
+</div>
+</div>
 </div></p>
 
 	<hr>
@@ -182,7 +271,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

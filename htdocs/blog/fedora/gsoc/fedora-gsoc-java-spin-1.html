@@ -63,23 +63,54 @@
 
 	<p><em>27 May 2012</em></p>
 
-	<p><div class="paragraph"> 
- <p>Google Summer of Code 2012 started last Monday, so this post is the first in a series of weekly updates that I will be posting here.</p> 
-</div> 
-<div class="paragraph"> 
- <p>As I missed out on most of the earlier ‘get familiar with everything phase’ (university exams, and then a viral infection), I’ve been doing my best to get on track this week. At the suggestion of my great mentor Marek, I’ve created a <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">wiki page</a> on the fedora wiki to track progress of what is done and what is yet to do. For the moment, the focus is on packaging JBoss Tools. As expected, this will require additional dependencies to be packaged, and the dependencies may have their own dependencies that need to be packaged. What we know so far is listed on the wiki page.</p> 
-</div> 
-<div class="paragraph"> 
- <p>The first thing I did then, was to create an initial spec file for what will be the eclipse-jbosstools package. Each plugin requires the parent and target platform to be built, so I managed to get that much done at least. It required some patching because of some dependencies that we don’t yet have in fedora, but it builds, so that’s good. As it was my first time creating a spec file, I got some feedback from Marek on it, and there were a few things to fix!</p> 
-</div> 
-<div class="paragraph"> 
- <p>Next I tried to build the ‘common’ component, which I think will be a subpackage of eclipse-jbosstools, eclipse-jbosstools-common. This is the first major hurdle, as it needs eclipse-wtp-jeetools, which needs eclipse-wtp-webservices. Since Friday, I’ve been trying to build these, and I think I’m very close to getting eclipse-wtp-webservices working (just getting some compile errors now). The biggest problem here I think is that in Fedora 17, we’ve got Eclipse 4.2 which isn’t released yet. Anyway, hopefully tomorrow I can get some help with fixing that, get it packaged, and get it in for review.</p> 
-</div> 
-<div class="paragraph"> 
- <p>This week I’ve learned to use some new tools and gotten more experience with tools I didn’t have much with; including eclipse-pdebuild, maven, and even svn and cvs . I also learned a lot about rpm spec files, mainly from downloading srpms, and seeing how other people have done stuff. I’ve also gotten quite frustrated a few times: A couple of times I spent time trying to figure out dependencies for different parts of the eclipse-wtp stuff that we need, then taking a wrong turn somewhere, and spending ages going into a dependency hole that wasn’t even necessary. Taking a break solved the problem a few times, I guess by forcing me to take a step back and see my mistake when I get back to it. Another frustration I’ve had is slow connection speeds when downloading some stuff from svn and cvs, but hopefully I won’t have that problem too often!</p> 
-</div> 
-<div class="paragraph"> 
- <p>That’s all for this week, hopefully I’ll have even more to share next week!</p> 
+	<p><div class="paragraph">
+<p>Google Summer of Code 2012 started last Monday, so this post is the first in a
+series of weekly updates that I will be posting here.</p>
+</div>
+<div class="paragraph">
+<p>As I missed out on most of the earlier ‘get familiar with everything phase’
+(university exams, and then a viral infection), I’ve been doing my best to get
+on track this week. At the suggestion of my great mentor Marek, I’ve created a
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">wiki page</a> on the fedora wiki
+to track progress of what is done and what is yet to do. For the moment, the
+focus is on packaging JBoss Tools. As expected, this will require additional
+dependencies to be packaged, and the dependencies may have their own
+dependencies that need to be packaged. What we know so far is listed on the wiki
+page.</p>
+</div>
+<div class="paragraph">
+<p>The first thing I did then, was to create an initial spec file for what will be
+the eclipse-jbosstools package. Each plugin requires the parent and target
+platform to be built, so I managed to get that much done at least. It required
+some patching because of some dependencies that we don’t yet have in fedora, but
+it builds, so that’s good. As it was my first time creating a spec file, I got
+some feedback from Marek on it, and there were a few things to fix!</p>
+</div>
+<div class="paragraph">
+<p>Next I tried to build the ‘common’ component, which I think will be a subpackage
+of eclipse-jbosstools, eclipse-jbosstools-common. This is the first major
+hurdle, as it needs eclipse-wtp-jeetools, which needs eclipse-wtp-webservices.
+Since Friday, I’ve been trying to build these, and I think I’m very close to
+getting eclipse-wtp-webservices working (just getting some compile errors now).
+The biggest problem here I think is that in Fedora 17, we’ve got Eclipse 4.2
+which isn’t released yet. Anyway, hopefully tomorrow I can get some help with
+fixing that, get it packaged, and get it in for review.</p>
+</div>
+<div class="paragraph">
+<p>This week I’ve learned to use some new tools and gotten more experience with
+tools I didn’t have much with; including eclipse-pdebuild, maven, and even svn
+and cvs . I also learned a lot about rpm spec files, mainly from downloading
+srpms, and seeing how other people have done stuff. I’ve also gotten quite
+frustrated a few times: A couple of times I spent time trying to figure out
+dependencies for different parts of the eclipse-wtp stuff that we need, then
+taking a wrong turn somewhere, and spending ages going into a dependency hole
+that wasn’t even necessary. Taking a break solved the problem a few times, I
+guess by forcing me to take a step back and see my mistake when I get back to
+it. Another frustration I’ve had is slow connection speeds when downloading some
+stuff from svn and cvs, but hopefully I won’t have that problem too often!</p>
+</div>
+<div class="paragraph">
+<p>That’s all for this week, hopefully I’ll have even more to share next week!</p>
 </div></p>
 
 	<hr>
@@ -104,7 +135,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

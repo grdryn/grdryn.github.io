@@ -63,35 +63,67 @@
 
 	<p><em>23 July 2012</em></p>
 
-	<p><div class="paragraph"> 
- <p>This is the ninth weekly installment of my GSOC blog series. More info on the progress of the Fedora JBoss Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
-</div> 
-<div class="paragraph"> 
- <div class="title">
-  This week’s positive points:
- </div> 
- <p>We have what I would like to call a temporary fix for the jboss-reflect issue that I talked about last week. The problem was that the latest version forked another library and bundled it’s own subset of that. Our temporary fix is that we’ve now got an older version that doesn’t have any offensive stuff in it, and works fine for what we need it for. Thanks to Marek Goldmann and Mikolaj Izdebski for their help with this! Huge thanks also to Rob Stryker who is working upstream to remove the dependency on this! :)</p> 
-</div> 
-<div class="paragraph"> 
- <p>eclipse-wtp-jsf is packaged and awaiting review. This is great because it allows two more parts of JBoss Tools to be built: WS Tools and CDI Tools. I think eclipse-wtp-jsf may also be my first package that didn’t need any patching to be built for Fedora! This probably isn’t newsworthy, but I found it quite odd, considering some of the heavy patchwork that was needed for some of the other wtp packages.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Along with WS and CDI from JBoss Tools, the Freemarker IDE module is also building. This probably could have been included at an earlier stage, but it just clicked with me this week why it wasn’t able to import the necessary stuff that it needs from the freemarker jar that’s included in Fedora already.</p> 
-</div> 
-<div class="paragraph"> 
- <p>I <em>think</em> the deltacloud module will also work, now that I have the deltacloud-client-java package created and waiting for review. I’ve only just created that package though, and I’m currently downloading the new 3.3.1.Final release of JBoss Tools so I don’t want to do any more local builds tonight until I can use that (since building JBoss Tools takes a while!). Also, have I complained before about the poor connection I get to anonsvn.jboss.org? It takes me hours to download a tag of JBoss Tools. :-/</p> 
-</div> 
-<div class="paragraph"> 
- <div class="title">
-  This week’s not-so-positive points:
- </div> 
- <p>I was hoping to get the spin submitted for wrangling with the spins sig by now, but that hasn’t happened yet. There are a couple of packages that still need to be reviewed before I can even submit the amount of JBoss Tools that I included in the iso that I released for the last milestone two weeks ago (in other words, not including the modules that I’ve mentioned above). If you’re reading this, then you’ve got far too much time on your hands already: <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin#Current_progress">go review a package from the list!</a> :)</p> 
-</div> 
-<div class="paragraph"> 
- <p>I got a little bit closer to getting m2e-core to build, but I’m running into some problems that I don’t understand. I think they are related to tycho, but it’s probably something that I’m screwing up somewhere. I think I probably spent too long on this, and eventually gave up on it. I think focus needs to be on getting the spin kickstart file in for review now, as it needs to be submitted at least two weeks before F18 Alpha freeze if we want any chance of having it as an official spin for F18.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Hmm, that was a little shorter and to the point, compared to my last few posts on the subject!</p> 
+	<p><div class="paragraph">
+<p>This is the ninth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<div class="title">This week’s positive points:</div>
+<p>We have what I would like to call a temporary fix for the jboss-reflect issue
+that I talked about last week. The problem was that the latest version forked
+another library and bundled it’s own subset of that. Our temporary fix is that
+we’ve now got an older version that doesn’t have any offensive stuff in it, and
+works fine for what we need it for. Thanks to Marek Goldmann and Mikolaj
+Izdebski for their help with this! Huge thanks also to Rob Stryker who is
+working upstream to remove the dependency on this! :)</p>
+</div>
+<div class="paragraph">
+<p>eclipse-wtp-jsf is packaged and awaiting review. This is great because it allows
+two more parts of JBoss Tools to be built: WS Tools and CDI Tools. I think
+eclipse-wtp-jsf may also be my first package that didn’t need any patching to be
+built for Fedora! This probably isn’t newsworthy, but I found it quite odd,
+considering some of the heavy patchwork that was needed for some of the other
+wtp packages.</p>
+</div>
+<div class="paragraph">
+<p>Along with WS and CDI from JBoss Tools, the Freemarker IDE module is also
+building. This probably could have been included at an earlier stage, but it
+just clicked with me this week why it wasn’t able to import the necessary stuff
+that it needs from the freemarker jar that’s included in Fedora already.</p>
+</div>
+<div class="paragraph">
+<p>I <em>think</em> the deltacloud module will also work, now that I have the
+deltacloud-client-java package created and waiting for review. I’ve only just
+created that package though, and I’m currently downloading the new 3.3.1.Final
+release of JBoss Tools so I don’t want to do any more local builds tonight until
+I can use that (since building JBoss Tools takes a while!). Also, have I
+complained before about the poor connection I get to anonsvn.jboss.org? It takes
+me hours to download a tag of JBoss Tools. :-/</p>
+</div>
+<div class="paragraph">
+<div class="title">This week’s not-so-positive points:</div>
+<p>I was hoping to get the spin submitted for wrangling with the spins sig by now,
+but that hasn’t happened yet. There are a couple of packages that still need to
+be reviewed before I can even submit the amount of JBoss Tools that I included
+in the iso that I released for the last milestone two weeks ago (in other words,
+not including the modules that I’ve mentioned above). If you’re reading this,
+then you’ve got far too much time on your hands already:
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin#Current_progress">go review a
+package from the list!</a> :)</p>
+</div>
+<div class="paragraph">
+<p>I got a little bit closer to getting m2e-core to build, but I’m running into
+some problems that I don’t understand. I think they are related to tycho, but
+it’s probably something that I’m screwing up somewhere. I think I probably spent
+too long on this, and eventually gave up on it. I think focus needs to be on
+getting the spin kickstart file in for review now, as it needs to be submitted
+at least two weeks before F18 Alpha freeze if we want any chance of having it as
+an official spin for F18.</p>
+</div>
+<div class="paragraph">
+<p>Hmm, that was a little shorter and to the point, compared to my last few posts
+on the subject!</p>
 </div></p>
 
 	<hr>
@@ -116,7 +148,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

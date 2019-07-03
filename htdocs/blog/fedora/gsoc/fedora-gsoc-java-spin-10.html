@@ -63,23 +63,52 @@
 
 	<p><em>30 July 2012</em></p>
 
-	<p><div class="paragraph"> 
- <p>This is the tenth weekly installment of my GSOC blog series. More info on the progress of the Fedora JBoss Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
-</div> 
-<div class="paragraph"> 
- <p>I mentioned last week that I had a few packages that needed reviewing before the JBoss Tools package could be reviewed: all of those got reviewed by some of the experts from the Fedora Java SIG. For most, there were a couple of things that needed to be changed, but this isn’t a bad thing, since it’s the part of the process that I learn the most from!</p> 
-</div> 
-<div class="paragraph"> 
- <p>After I got the latest release of JBoss Tools downloaded, I tested building from that. Luckily, there was very little that needed changing! Once all of the newly reviewed packages made their way into rawhide, I tried doing a koji scratch build, which failed miserably. I eventually found what the source of that problem was: it seems that the eclipse-jbosstools package will be architecture dependent (i.e. there will be a slightly different set of rpms i386 and x86_64. The error message that was being displayed was something like ‘Unable to determine SWT fragment’ or something like that. I had completely forgotten that I had put something in the parent POM file many weeks ago to get stuff to build with rpmbuild. Currently there are slightly different things being done, depending on the architecture.</p> 
-</div> 
-<div class="paragraph"> 
- <p>By the time that I was ready to submit the updated/working srpm for review, I had moved to my parents house to take care of the house and dog (Sorry internet: dogs &gt; cats) while they are away for a few days. Apart from the inconvenience of getting here and setting myself up again, there’s only really one big disadvantage of being here: a painfully slow net connection! For this reason, I had to cut down the size of the tarball inside the srpm to allow me to upload it. Reducing it from \~460MB to ~77MB made it a little easier – only taking around 45mins to upload, rather than several hours!</p> 
-</div> 
-<div class="paragraph"> 
- <p>I hope to get this package reviewed tomorrow (Monday) so that I can finally submit the spin for review. I did a little more work on the kickstart file for the spin this week also, and I’m very close to getting the Application Server to be managed by JBoss Tools by default in the live spin. More work on that tomorrow, then submit it for review!</p> 
-</div> 
-<div class="paragraph"> 
- <p>The name of the spin has also been brought up in discussion this week. It is to be decided whether it will be submitted as Fedora JBoss Spin or Fedora Java Spin. More on this in the next post I’m sure!</p> 
+	<p><div class="paragraph">
+<p>This is the tenth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>I mentioned last week that I had a few packages that needed reviewing before the
+JBoss Tools package could be reviewed: all of those got reviewed by some of the
+experts from the Fedora Java SIG. For most, there were a couple of things that
+needed to be changed, but this isn’t a bad thing, since it’s the part of the
+process that I learn the most from!</p>
+</div>
+<div class="paragraph">
+<p>After I got the latest release of JBoss Tools downloaded, I tested building from
+that. Luckily, there was very little that needed changing! Once all of the newly
+reviewed packages made their way into rawhide, I tried doing a koji scratch
+build, which failed miserably. I eventually found what the source of that
+problem was: it seems that the eclipse-jbosstools package will be architecture
+dependent (i.e. there will be a slightly different set of rpms i386 and x86_64.
+The error message that was being displayed was something like ‘Unable to
+determine SWT fragment’ or something like that. I had completely forgotten that
+I had put something in the parent POM file many weeks ago to get stuff to build
+with rpmbuild. Currently there are slightly different things being done,
+depending on the architecture.</p>
+</div>
+<div class="paragraph">
+<p>By the time that I was ready to submit the updated/working srpm for review, I
+had moved to my parents house to take care of the house and dog (Sorry internet:
+dogs &gt; cats) while they are away for a few days. Apart from the inconvenience of
+getting here and setting myself up again, there’s only really one big
+disadvantage of being here: a painfully slow net connection! For this reason, I
+had to cut down the size of the tarball inside the srpm to allow me to upload
+it. Reducing it from \~460MB to ~77MB made it a little easier – only taking
+around 45mins to upload, rather than several hours!</p>
+</div>
+<div class="paragraph">
+<p>I hope to get this package reviewed tomorrow (Monday) so that I can finally
+submit the spin for review. I did a little more work on the kickstart file for
+the spin this week also, and I’m very close to getting the Application Server to
+be managed by JBoss Tools by default in the live spin. More work on that
+tomorrow, then submit it for review!</p>
+</div>
+<div class="paragraph">
+<p>The name of the spin has also been brought up in discussion this week. It is to
+be decided whether it will be submitted as Fedora JBoss Spin or Fedora Java
+Spin. More on this in the next post I’m sure!</p>
 </div></p>
 
 	<hr>
@@ -104,7 +133,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

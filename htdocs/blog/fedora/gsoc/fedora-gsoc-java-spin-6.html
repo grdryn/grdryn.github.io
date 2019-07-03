@@ -63,32 +63,95 @@
 
 	<p><em>02 July 2012</em></p>
 
-	<p><div class="paragraph"> 
- <p>This is the sixth weekly installment of my GSOC blog series. More info on the progress of the Fedora JBoss Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
-</div> 
-<div class="paragraph"> 
- <p>The first thing that I did this week was to find out if the extra features that I had proposed to be added to the eclipse-wtp-sourceediting package would be okay, given that they created a cyclic dependency. As I had expected, it was a big no-no! We discussed for a while in #fedora-java on freenode, what the best way to package features from the Eclipse Webtools project for Fedora, given that the structure of the Webtools CVS repositories doesn’t make much sense sometimes. Currently the wtp packages in fedora are separated into what one would think are subprojects: the next layer of sub-directories. Some alternative ways that were suggested were to have one package per feature, (or per core/UI feature pair, where those exist); or have one super webtools package, with everything subpackaged. None (including the current method) seem perfect.</p> 
-</div> 
-<div class="paragraph"> 
- <p>I separated the problematic feature out into its own package. The feature was org.eclipse.jst.web_core.feature, and I already knew that the org.eclipse.jst.web_ui.feature would be needed further down the line, so I included that in the package also, and called it eclipse-wtp-jst-web.</p> 
-</div> 
-<div class="paragraph"> 
- <p>The next thing that needed to be addressed this week was the bundling of unpackaged jars in the JBoss Tools ‘archives’ module. I got to work building those, starting with jboss-common-logging-spi. I got that built, packaged, requested review; and then I learned that it was not to be packaged, because it was obseleted by jboss-logging. Great. I spent a while trying to figure out where it was needed, and trying to see if the jboss-logging package would work as a drop-in replacement. I eventually figured out that it wasn’t needed by that particular plugin at all, but rather another one of the bundled jars. There were a few like thise, and one that depended on those was jboss-xml-binding.jar. The bundled version of this was old, so I had a look at the most up-to-date version, and found that I could use that with jboss-logging. Problem solved. Well, one of them at least!</p> 
-</div> 
-<div class="paragraph"> 
- <p>Marek, my magnificent mentor (adjectve chosen because of it’s alliteration with both Marek and mentor) was busy applying patches for me, and at long last, eclipse-wtp-webservices and eclipse-wtp-jeetools were buildable in F17, so I went through the motions to get them included.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Back to our fundly bundly jarry jars that are blocking JBoss Tools Archives. The remaining one was TrueZip. Upon investigation into this, I found that the bundled version (6.6) is obselete, and the current stable version (7.5.5) works quite differently. Hmm. I decided to go onto everyone’s favourite IRC channel, <code>#fedora-java</code>, and ask what the best course of action would be. I honestly didn’t want to package the old obselete version, but I also didn’t know if I could easily fit the new version in easily. My question was already being answered, or at least the concept was being discussed indirectly, when I hopped on to ask. I decided based on the conversation that was being held, that the only way forward would be with the up-to-date version of truezip, no matter how difficult it might be to get it to work with JBoss Tools. The last two F’s in the ‘Freedom, Friends, Features, First’ moniker, are very relevant in this situation!</p> 
-</div> 
-<div class="paragraph"> 
- <p>I got to work with the packaging of that, and it turns out that it’s the largest spec I’ve written by far, currently standing at 432 lines. I ran into a few problems here and there, some of them were just me being stupid (this causes lots of problems always), the rest seemed quite soveable, just requiring a few patches here and there. TrueZip looks like a really useful idea, and it seems to be under heavy development for the last while, so that’s a plus! I found it a lot easier to package than the Eclipse stuff that I’d been working on for so long now, but it still took a while, because of the modular way in which it’s structured. Then again, maybe I found it easier because I’d learned so much by going through all that Eclipse stuff. I contacted <a href="http://schlichtherle.de/">Christian Schlichtherle</a>, the lead developer for TrueZip, and he seemed quite enthusiastic about having it packaged in Fedora!</p> 
-</div> 
-<div class="paragraph"> 
- <p>There’s a useful (although a little incomplete) page on the TrueZip site, on how to migrate from TrueZip 6 to TrueZip 7; so I’ve started following that and I’ve patched up the JBoss Tools stuff to work with version 7. The problem now is that I don’t know how to get Maven to find it, so I’m not sure if it works fully. I’m sure it’s an easy fix, and the wizards of the Fedora Java SIG will point me in the right direction. Unfotunately #fedora-java changes dramatically at the weekend: a hive of activity during the week, but a ghost town at the weekends!</p> 
-</div> 
-<div class="paragraph"> 
- <p>This time next week, I hope to have the next iteration of the actual JBoss Spin available, hopefully it will finally have the JBoss Tools AS functionality (working with the packaged jboss-as). I realise that I’m way behind where I’d proposed that the Spin would be at this stage, but in hindsight I think my original expectations were a little unrealistic (for me at least)! It will be done, mo matter how long it will take!</p> 
+	<p><div class="paragraph">
+<p>This is the sixth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>The first thing that I did this week was to find out if the extra features that
+I had proposed to be added to the eclipse-wtp-sourceediting package would be
+okay, given that they created a cyclic dependency. As I had expected, it was a
+big no-no! We discussed for a while in #fedora-java on freenode, what the best
+way to package features from the Eclipse Webtools project for Fedora, given that
+the structure of the Webtools CVS repositories doesn’t make much sense
+sometimes. Currently the wtp packages in fedora are separated into what one
+would think are subprojects: the next layer of sub-directories. Some alternative
+ways that were suggested were to have one package per feature, (or per core/UI
+feature pair, where those exist); or have one super webtools package, with
+everything subpackaged. None (including the current method) seem perfect.</p>
+</div>
+<div class="paragraph">
+<p>I separated the problematic feature out into its own package. The feature was
+org.eclipse.jst.web_core.feature, and I already knew that the
+org.eclipse.jst.web_ui.feature would be needed further down the line, so I
+included that in the package also, and called it eclipse-wtp-jst-web.</p>
+</div>
+<div class="paragraph">
+<p>The next thing that needed to be addressed this week was the bundling of
+unpackaged jars in the JBoss Tools ‘archives’ module. I got to work building
+those, starting with jboss-common-logging-spi. I got that built, packaged,
+requested review; and then I learned that it was not to be packaged, because it
+was obseleted by jboss-logging. Great. I spent a while trying to figure out
+where it was needed, and trying to see if the jboss-logging package would work
+as a drop-in replacement. I eventually figured out that it wasn’t needed by that
+particular plugin at all, but rather another one of the bundled jars. There were
+a few like thise, and one that depended on those was jboss-xml-binding.jar. The
+bundled version of this was old, so I had a look at the most up-to-date version,
+and found that I could use that with jboss-logging. Problem solved. Well, one of
+them at least!</p>
+</div>
+<div class="paragraph">
+<p>Marek, my magnificent mentor (adjectve chosen because of it’s alliteration with
+both Marek and mentor) was busy applying patches for me, and at long last,
+eclipse-wtp-webservices and eclipse-wtp-jeetools were buildable in F17, so I
+went through the motions to get them included.</p>
+</div>
+<div class="paragraph">
+<p>Back to our fundly bundly jarry jars that are blocking JBoss Tools Archives. The
+remaining one was TrueZip. Upon investigation into this, I found that the
+bundled version (6.6) is obselete, and the current stable version (7.5.5) works
+quite differently. Hmm. I decided to go onto everyone’s favourite IRC channel,
+<code>#fedora-java</code>, and ask what the best course of action would be. I honestly
+didn’t want to package the old obselete version, but I also didn’t know if I
+could easily fit the new version in easily. My question was already being
+answered, or at least the concept was being discussed indirectly, when I hopped
+on to ask. I decided based on the conversation that was being held, that the
+only way forward would be with the up-to-date version of truezip, no matter how
+difficult it might be to get it to work with JBoss Tools. The last two F’s in
+the ‘Freedom, Friends, Features, First’ moniker, are very relevant in this
+situation!</p>
+</div>
+<div class="paragraph">
+<p>I got to work with the packaging of that, and it turns out that it’s the largest
+spec I’ve written by far, currently standing at 432 lines. I ran into a few
+problems here and there, some of them were just me being stupid (this causes
+lots of problems always), the rest seemed quite soveable, just requiring a few
+patches here and there. TrueZip looks like a really useful idea, and it seems to
+be under heavy development for the last while, so that’s a plus! I found it a
+lot easier to package than the Eclipse stuff that I’d been working on for so
+long now, but it still took a while, because of the modular way in which it’s
+structured. Then again, maybe I found it easier because I’d learned so much by
+going through all that Eclipse stuff. I contacted
+<a href="http://schlichtherle.de/">Christian Schlichtherle</a>, the lead developer for
+TrueZip, and he seemed quite enthusiastic about having it packaged in Fedora!</p>
+</div>
+<div class="paragraph">
+<p>There’s a useful (although a little incomplete) page on the TrueZip site, on how
+to migrate from TrueZip 6 to TrueZip 7; so I’ve started following that and I’ve
+patched up the JBoss Tools stuff to work with version 7. The problem now is that
+I don’t know how to get Maven to find it, so I’m not sure if it works fully. I’m
+sure it’s an easy fix, and the wizards of the Fedora Java SIG will point me in
+the right direction. Unfotunately #fedora-java changes dramatically at the
+weekend: a hive of activity during the week, but a ghost town at the weekends!</p>
+</div>
+<div class="paragraph">
+<p>This time next week, I hope to have the next iteration of the actual JBoss Spin
+available, hopefully it will finally have the JBoss Tools AS functionality
+(working with the packaged jboss-as). I realise that I’m way behind where I’d
+proposed that the Spin would be at this stage, but in hindsight I think my
+original expectations were a little unrealistic (for me at least)! It will be
+done, mo matter how long it will take!</p>
 </div></p>
 
 	<hr>
@@ -113,7 +176,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

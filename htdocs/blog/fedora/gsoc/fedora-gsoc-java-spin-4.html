@@ -63,29 +63,70 @@
 
 	<p><em>18 June 2012</em></p>
 
-	<p><div class="paragraph"> 
- <p>This is the fourth weekly installment of my GSOC blog series. More info on the progress of the Fedora JBoss Spin can be found on the <a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p> 
-</div> 
-<div class="paragraph"> 
- <p>This week I don’t have a detailed day-by-day breakdown of when I did everything, mainly because I can’t remember all of that!</p> 
-</div> 
-<div class="paragraph"> 
- <p>As I mentioned last week, I finished by getting a subset of eclipse-wtp-jeetools working, but I was having trouble with one plugin of the org.eclipse.jst.enterprise_core.feature. At the time I wasn’t sure if I would need it immediately, but I didn’t want to submit for review until checking to see if it could be fixed. I sent a message to the java-devel mailing list to see if anyone could explain the problem. As I dug deeper back into jbosstools, I realised that I would need a lot more from both eclipse-wtp-webservices and eclipse-wtp-jeetools! Even though all of this webtools stuff may not be needed by Eclipse for the AS tools subset of jbosstools; to build the AS tools, other parts of jbosstools need to be built. It’s a similar process for almost all of the jbosstools: first build the target platform and the parent, the build the common component, then build any other components that your component depends upon (such as archives, tests, jmx, and usage; in the case of the AS component). This means that all of the heavier dependencies that are being packaged now, although they aren’t all necessarily going to be used by the AS component directly, they will hopefully pay of in the end, allowing us to package more of the other components more easily after.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Although I’d had a review request ready for eclipse-wtp-webservices for a while at this stage, it still relied on a few other bugs that I’ve mentioned before, being fixed. I had submitted patches for those, but then I forgot to follow up and make sure they were looked at. With the help of Stanislav Ochotnicky, Aleksandar Kurtakov and Mikolaj Izdebski, these got sorted out, and Mikolaj then helped me again by doing the review request. Thanks guys!</p> 
-</div> 
-<div class="paragraph"> 
- <p>After I got eclipse-wtp-webservices into rawhide, I started looking back at that problematic eclipse-wtp-jeetools plugin that I mentioned above. It drove me to despair for quite a while, as there were no obvious tell-tale signs like before. It turns out that it was a problem with the OSGI manifest again! Even though eclipse-pdebuild seemed satisfied with the versions of the particular versions of the bundles that were being provided by the eclipse-wtp-webservices, they were failing silently, until the compiler couldn’t import them.</p> 
-</div> 
-<div class="paragraph"> 
- <p>Once I figured that out, I tried to see if I could get more of the other features to build, starting with org.eclipse.jst.enterprise_ui.feature, since I would need it for the jbosstools common ui feature. This however would require the org.eclipse.wst.ws_ui.feature from webservices, so I got working on that first. At the moment, that’s now in the eclipse-wtp-webservices that’s in rawhide, and eclipse-wtp-jeetools will be ready for review tomorrow! :)</p> 
-</div> 
-<div class="paragraph"> 
- <p>Next will be eclipse-wtp-dali, which I’ve also got a draft specfile for, but it needs some work yet!</p> 
-</div> 
-<div class="paragraph"> 
- <p>Also, I wrote an additional blog post during the week, on <a href="http://blog.grdryn.me"> how to create the Fedora JBoss Spin</a> from the kickstart file that I created last week. I probably should have created the disk image and hosted it online somewhere, but unfortunately I don’t always have access to an internet connection where I can upload such a large file and still do other stuff at the same time! For the next milestone release, I’ll aim to get an image up!</p> 
+	<p><div class="paragraph">
+<p>This is the fourth weekly installment of my GSOC blog series. More info on the
+progress of the Fedora JBoss Spin can be found on the
+<a href="https://fedoraproject.org/wiki/Fedora-JBoss-Spin">Fedora wiki</a>.</p>
+</div>
+<div class="paragraph">
+<p>This week I don’t have a detailed day-by-day breakdown of when I did everything,
+mainly because I can’t remember all of that!</p>
+</div>
+<div class="paragraph">
+<p>As I mentioned last week, I finished by getting a subset of eclipse-wtp-jeetools
+working, but I was having trouble with one plugin of the
+org.eclipse.jst.enterprise_core.feature. At the time I wasn’t sure if I would
+need it immediately, but I didn’t want to submit for review until checking to
+see if it could be fixed. I sent a message to the java-devel mailing list to see
+if anyone could explain the problem. As I dug deeper back into jbosstools, I
+realised that I would need a lot more from both eclipse-wtp-webservices and
+eclipse-wtp-jeetools! Even though all of this webtools stuff may not be needed
+by Eclipse for the AS tools subset of jbosstools; to build the AS tools, other
+parts of jbosstools need to be built. It’s a similar process for almost all of
+the jbosstools: first build the target platform and the parent, the build the
+common component, then build any other components that your component depends
+upon (such as archives, tests, jmx, and usage; in the case of the AS component).
+This means that all of the heavier dependencies that are being packaged now,
+although they aren’t all necessarily going to be used by the AS component
+directly, they will hopefully pay of in the end, allowing us to package more of
+the other components more easily after.</p>
+</div>
+<div class="paragraph">
+<p>Although I’d had a review request ready for eclipse-wtp-webservices for a while
+at this stage, it still relied on a few other bugs that I’ve mentioned before,
+being fixed. I had submitted patches for those, but then I forgot to follow up
+and make sure they were looked at. With the help of Stanislav Ochotnicky,
+Aleksandar Kurtakov and Mikolaj Izdebski, these got sorted out, and Mikolaj then
+helped me again by doing the review request. Thanks guys!</p>
+</div>
+<div class="paragraph">
+<p>After I got eclipse-wtp-webservices into rawhide, I started looking back at that
+problematic eclipse-wtp-jeetools plugin that I mentioned above. It drove me to
+despair for quite a while, as there were no obvious tell-tale signs like before.
+It turns out that it was a problem with the OSGI manifest again! Even though
+eclipse-pdebuild seemed satisfied with the versions of the particular versions
+of the bundles that were being provided by the eclipse-wtp-webservices, they
+were failing silently, until the compiler couldn’t import them.</p>
+</div>
+<div class="paragraph">
+<p>Once I figured that out, I tried to see if I could get more of the other
+features to build, starting with org.eclipse.jst.enterprise_ui.feature, since I
+would need it for the jbosstools common ui feature. This however would require
+the org.eclipse.wst.ws_ui.feature from webservices, so I got working on that
+first. At the moment, that’s now in the eclipse-wtp-webservices that’s in
+rawhide, and eclipse-wtp-jeetools will be ready for review tomorrow! :)</p>
+</div>
+<div class="paragraph">
+<p>Next will be eclipse-wtp-dali, which I’ve also got a draft specfile for, but it
+needs some work yet!</p>
+</div>
+<div class="paragraph">
+<p>Also, I wrote an additional blog post during the week, on <a href="http://blog.grdryn.me">
+how to create the Fedora JBoss Spin</a> from the kickstart file that I created last
+week. I probably should have created the disk image and hosted it online
+somewhere, but unfortunately I don’t always have access to an internet
+connection where I can upload such a large file and still do other stuff at the
+same time! For the next milestone release, I’ll aim to get an image up!</p>
 </div></p>
 
 	<hr>
@@ -110,7 +151,7 @@
     
     <div id="footer">
       <div class="container">
-        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.0</a></p>
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
       </div>
     </div>
     

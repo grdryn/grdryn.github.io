@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>blog.grdryn.me</description>
     <language>en-gb</language>
-    <pubDate>Wed, 3 Jul 2019 18:51:57 +0000</pubDate>
-    <lastBuildDate>Wed, 3 Jul 2019 18:51:57 +0000</lastBuildDate>
+    <pubDate>Wed, 3 Jul 2019 18:53:45 +0000</pubDate>
+    <lastBuildDate>Wed, 3 Jul 2019 18:53:45 +0000</lastBuildDate>
 
     <item>
       <title>Trusting Jenkins Pipelines in public repositories</title>

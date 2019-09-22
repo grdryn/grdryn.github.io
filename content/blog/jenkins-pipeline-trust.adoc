@@ -1,4 +1,5 @@
 = Trusting Jenkins Pipelines in public repositories
+Gerard Ryan
 2018-03-11
 :jbake-type: post
 :jbake-tags: jenkins

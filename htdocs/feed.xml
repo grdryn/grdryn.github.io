@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>blog.grdryn.me</description>
     <language>en-gb</language>
-    <pubDate>Sun, 22 Sep 2019 16:20:23 +0000</pubDate>
-    <lastBuildDate>Sun, 22 Sep 2019 16:20:23 +0000</lastBuildDate>
+    <pubDate>Sun, 1 Dec 2019 00:42:16 +0000</pubDate>
+    <lastBuildDate>Sun, 1 Dec 2019 00:42:16 +0000</lastBuildDate>
 
     <item>
       <title>Testing Jenkins Pipeline shared libraries</title>
@@ -349,7 +349,7 @@ Additionally, if you find any issues or have any improvements,
     <item>
       <title>My Podcast list in 2016 🎧</title>
       <link>https://blog.grdryn.me/blog/r/podcast-list-2016.html</link>
-      <pubDate>Sat, 9 Jul 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 9 Jul 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/podcast-list-2016.html</guid>
       <description>
           &lt;div id=&quot;preamble&quot;&gt;
@@ -858,7 +858,7 @@ but one can see how malice could easily be introduced.&lt;/p&gt;
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 13 (Final)</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</link>
-      <pubDate>Mon, 20 Aug 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1053,7 +1053,7 @@ that are given to successful students are usually great and I really want one
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 12</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</link>
-      <pubDate>Mon, 13 Aug 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1121,7 +1121,7 @@ tomorrow is another day!&lt;/p&gt;
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 11</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</link>
-      <pubDate>Mon, 6 Aug 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 6 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1191,7 +1191,7 @@ right!&lt;/p&gt;
     <item>
       <title>Fedora JBoss(?) Spin - GSOC 2012 update 10</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</link>
-      <pubDate>Mon, 30 Jul 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 30 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1246,7 +1246,7 @@ Spin. More on this in the next post I’m sure!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 9</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</link>
-      <pubDate>Mon, 23 Jul 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 23 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1316,7 +1316,7 @@ on the subject!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 8</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</link>
-      <pubDate>Mon, 16 Jul 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 16 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1425,7 +1425,7 @@ and frolicks…same bat time, same bat channel!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 7</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</link>
-      <pubDate>Mon, 9 Jul 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 9 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1615,7 +1615,7 @@ took quite a while to upload!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 6</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</link>
-      <pubDate>Mon, 2 Jul 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 2 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1713,7 +1713,7 @@ done, mo matter how long it will take!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 5</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</link>
-      <pubDate>Mon, 25 Jun 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 25 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1793,7 +1793,7 @@ it’s late, and I’ve already wasted enough energy today thinking about them!&
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 4</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</link>
-      <pubDate>Mon, 18 Jun 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 18 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1866,7 +1866,7 @@ same time! For the next milestone release, I’ll aim to get an image up!&lt;/p&
     <item>
       <title>Creating the Fedora JBoss Spin (GSOC 2012)</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</link>
-      <pubDate>Thu, 14 Jun 2012 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -1927,7 +1927,7 @@ on a USB stick and live boot from that!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 3</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</link>
-      <pubDate>Mon, 11 Jun 2012 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 11 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -2008,7 +2008,7 @@ to build.&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 2</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</link>
-      <pubDate>Sun, 3 Jun 2012 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 3 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -2130,7 +2130,7 @@ much else yet though!&lt;/p&gt;
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 1</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</link>
-      <pubDate>Sun, 27 May 2012 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 27 May 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -2187,7 +2187,7 @@ stuff from svn and cvs, but hopefully I won’t have that problem too often!&lt;
     <item>
       <title>Google Summer of Code 2012 - Fedora JBoss Spin</title>
       <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</link>
-      <pubDate>Tue, 24 Apr 2012 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 24 Apr 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;
@@ -2211,7 +2211,7 @@ available on the wiki&lt;/a&gt;. I’ll update here with any interesting progres
     <item>
       <title>What ARE YOU looking for?</title>
       <link>https://blog.grdryn.me/blog/r/nuig-grammar.html</link>
-      <pubDate>Tue, 27 Mar 2012 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 27 Mar 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/nuig-grammar.html</guid>
       <description>
           &lt;div class=&quot;imageblock&quot;&gt;
@@ -2260,7 +2260,7 @@ It’s listed in the ‘Common F16 Bugs’ here:&lt;/p&gt;
     <item>
       <title>Add applications to autostart on login, in GNOME 3</title>
       <link>https://blog.grdryn.me/blog/fedora/gnome3-add-apps-to-startup.html</link>
-      <pubDate>Sat, 14 May 2011 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 14 May 2011 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gnome3-add-apps-to-startup.html</guid>
       <description>
           &lt;div class=&quot;paragraph&quot;&gt;

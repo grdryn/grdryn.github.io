@@ -11,6 +11,7 @@ serve:
 	jbake --server . htdocs/
 
 .make_bake: $(shell find content/ assets/ -type f | grep -v ' ')
+	rm -rf htdocs/*
 	jbake --bake . htdocs/
 	touch .make_bake
 

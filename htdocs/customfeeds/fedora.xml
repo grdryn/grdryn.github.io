@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Sat, 29 Feb 2020 20:23:36 +0000</pubDate>
-    <lastBuildDate>Sat, 29 Feb 2020 20:23:36 +0000</lastBuildDate>
+    <pubDate>Tue, 31 Mar 2020 21:21:06 +0100</pubDate>
+    <lastBuildDate>Tue, 31 Mar 2020 21:21:06 +0100</lastBuildDate>
 
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>

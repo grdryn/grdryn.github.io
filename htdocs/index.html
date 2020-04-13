@@ -76,6 +76,113 @@
 	<div class="page-header">
 		<h1>Gerard Ryan's Blog</h1>
 	</div>
+  			<a href="blog/flatpak-emacs-with-gpg-agent.html"><h1>Using gpg-agent with Emacs flatpak</h1></a>
+  			<p>13 April 2020</p>
+  			<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>TL;DR: Enable socket-activated gpg-agent &amp;&amp; add an override to the
+Emacs flatpak for <code>--filesystem=xdg-run/gnupg:ro</code>.</p>
+</div>
+<div class="paragraph">
+<p>When I first installed Fedora Silverblue a couple of releases ago, one
+of the first flatpaks I installed was (obviously) Emacs. Unfortunately
+I switched back to the layered package pretty quickly, because any
+time I tried to do anything that involved GPG (including signing Git
+commits, tags, etc), I ran into trouble. I didn&#8217;t have the time to
+dive into the depths of flatpak at the time, but because I&#8217;m on
+lockdown for a long weekend, I do now!</p>
+</div>
+<div class="paragraph">
+<p>The first thing that I learned when searching around the web (hoping
+that someone had posted something that I could just paste into a
+terminal), was that making use of gpg-agent from within a flatpak is
+not a solved problem. There are a couple of open issues against some
+specific flatpaks where people, and there are more general issues like
+<a href="https://github.com/flatpak/xdg-desktop-portal/issues/178">this proposal
+to add a portal</a>, and
+<a href="https://github.com/flatpak/flatpak/issues/2301">this issue to add a
+socket option</a>.</p>
+</div>
+<div class="paragraph">
+<p>I initially went down the path of trying to copy what some other
+flatpaks do: I built a custom Emacs flatpak with <code>pinentry</code> installed,
+&amp; changed the default command to be a script that would start a local
+gpg-agent inside the flatpak sandbox instance, then run emacs, and
+kill that local gpg-agent before exiting. I even opened
+<a href="https://github.com/flathub/org.gnu.emacs/pull/25">a pull-request to
+propose this be added to the main emacs flatpak</a>!</p>
+</div>
+<div class="paragraph">
+<p>Thankfully, after banging my head on several flatpak and gpg-shaped
+walls, I found what I think is a simpler way! Firstly, the magic
+override to give the flatpak sandbox enough permission seems to be the
+following (thanks to
+<a href="https://github.com/flathub/org.mozilla.Thunderbird">the Thunderbird
+flatpak README</a> for the tip):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, while testing with that I found that if there isn&#8217;t a running
+gpg-agent, gpg inside the flatpak sandbox will have a bad time, and
+give an error like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[gryan@localhost ~]$ flatpak run --user --command=sh org.gnu.emacs
+[📦 org.gnu.emacs ~]$ gpg --decrypt .authinfo.gpg
+gpg: can't connect to the agent: IPC connect call failed
+gpg: encrypted with 4096-bit RSA key, ID 123D53E57C1D8F89, created 2019-04-05
+      "Gerard Ryan &lt;redacted@example.com&gt;"
+gpg: decryption failed: No secret key</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enabling and starting socket-activated gpg-agent for the user via
+systemd magically made it happy again. The systemd units for this
+aren&#8217;t installed into a usable location by default, but instead come
+shipped as examples in the gnupg2 RPM; so we need to make them
+available to systemd &amp; enable &amp; start the socket:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
+systemctl --user enable gpg-agent.socket
+systemctl --user start gpg-agent.socket</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s it! Everything should work as expected now.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bonus_emacs_content">Bonus Emacs content!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With the above, if gpg-agent needs your passphrase from Emacs, you&#8217;ll
+get the usual GNOME 3 system prompt. If you&#8217;d prefer to be prompted in
+a more Emacs-native way, you can do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add <code>allow-emacs-pinentry</code> to <code>~/.gnupg/gpg-agent.conf</code></p>
+</li>
+<li>
+<p>Install the <code>pinentry</code> package in Emacs</p>
+</li>
+<li>
+<p>Add <code>(pinentry-start)</code> to your Emacs configuration</p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
   			<a href="blog/jenkins-pipeline-library-testing.html"><h1>Testing Jenkins Pipeline shared libraries</h1></a>
   			<p>25 March 2018</p>
   			<p><div id="preamble">

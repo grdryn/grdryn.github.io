@@ -6,9 +6,122 @@
     <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Tue, 31 Mar 2020 21:21:06 +0100</pubDate>
-    <lastBuildDate>Tue, 31 Mar 2020 21:21:06 +0100</lastBuildDate>
+    <pubDate>Tue, 14 Apr 2020 00:02:35 +0100</pubDate>
+    <lastBuildDate>Tue, 14 Apr 2020 00:02:35 +0100</lastBuildDate>
 
+    <item>
+      <title>Using gpg-agent with Emacs flatpak</title>
+      <link>https://blog.grdryn.me/blog/flatpak-emacs-with-gpg-agent.html</link>
+      <pubDate>Mon, 13 Apr 2020 00:00:00 +0100</pubDate>
+      <guid isPermaLink="false">blog/flatpak-emacs-with-gpg-agent.html</guid>
+      <description>
+          &lt;div id=&quot;preamble&quot;&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;TL;DR: Enable socket-activated gpg-agent &amp;amp;&amp;amp; add an override to the
+Emacs flatpak for &lt;code&gt;--filesystem=xdg-run/gnupg:ro&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;When I first installed Fedora Silverblue a couple of releases ago, one
+of the first flatpaks I installed was (obviously) Emacs. Unfortunately
+I switched back to the layered package pretty quickly, because any
+time I tried to do anything that involved GPG (including signing Git
+commits, tags, etc), I ran into trouble. I didn&amp;#8217;t have the time to
+dive into the depths of flatpak at the time, but because I&amp;#8217;m on
+lockdown for a long weekend, I do now!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;The first thing that I learned when searching around the web (hoping
+that someone had posted something that I could just paste into a
+terminal), was that making use of gpg-agent from within a flatpak is
+not a solved problem. There are a couple of open issues against some
+specific flatpaks where people, and there are more general issues like
+&lt;a href=&quot;https://github.com/flatpak/xdg-desktop-portal/issues/178&quot;&gt;this proposal
+to add a portal&lt;/a&gt;, and
+&lt;a href=&quot;https://github.com/flatpak/flatpak/issues/2301&quot;&gt;this issue to add a
+socket option&lt;/a&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;I initially went down the path of trying to copy what some other
+flatpaks do: I built a custom Emacs flatpak with &lt;code&gt;pinentry&lt;/code&gt; installed,
+&amp;amp; changed the default command to be a script that would start a local
+gpg-agent inside the flatpak sandbox instance, then run emacs, and
+kill that local gpg-agent before exiting. I even opened
+&lt;a href=&quot;https://github.com/flathub/org.gnu.emacs/pull/25&quot;&gt;a pull-request to
+propose this be added to the main emacs flatpak&lt;/a&gt;!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Thankfully, after banging my head on several flatpak and gpg-shaped
+walls, I found what I think is a simpler way! Firstly, the magic
+override to give the flatpak sandbox enough permission seems to be the
+following (thanks to
+&lt;a href=&quot;https://github.com/flathub/org.mozilla.Thunderbird&quot;&gt;the Thunderbird
+flatpak README&lt;/a&gt; for the tip):&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Next, while testing with that I found that if there isn&amp;#8217;t a running
+gpg-agent, gpg inside the flatpak sandbox will have a bad time, and
+give an error like the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;[gryan@localhost ~]$ flatpak run --user --command=sh org.gnu.emacs
+[📦 org.gnu.emacs ~]$ gpg --decrypt .authinfo.gpg
+gpg: can&apos;t connect to the agent: IPC connect call failed
+gpg: encrypted with 4096-bit RSA key, ID 123D53E57C1D8F89, created 2019-04-05
+      &quot;Gerard Ryan &amp;lt;redacted@example.com&amp;gt;&quot;
+gpg: decryption failed: No secret key&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Enabling and starting socket-activated gpg-agent for the user via
+systemd magically made it happy again. The systemd units for this
+aren&amp;#8217;t installed into a usable location by default, but instead come
+shipped as examples in the gnupg2 RPM; so we need to make them
+available to systemd &amp;amp; enable &amp;amp; start the socket:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;listingblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
+systemctl --user enable gpg-agent.socket
+systemctl --user start gpg-agent.socket&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;That&amp;#8217;s it! Everything should work as expected now.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_bonus_emacs_content&quot;&gt;Bonus Emacs content!&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;With the above, if gpg-agent needs your passphrase from Emacs, you&amp;#8217;ll
+get the usual GNOME 3 system prompt. If you&amp;#8217;d prefer to be prompted in
+a more Emacs-native way, you can do the following:&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Add &lt;code&gt;allow-emacs-pinentry&lt;/code&gt; to &lt;code&gt;~/.gnupg/gpg-agent.conf&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Install the &lt;code&gt;pinentry&lt;/code&gt; package in Emacs&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Add &lt;code&gt;(pinentry-start)&lt;/code&gt; to your Emacs configuration&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+      </description>
+    </item>
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>
       <link>https://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>

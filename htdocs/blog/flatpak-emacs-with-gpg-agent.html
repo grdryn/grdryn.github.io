@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Using gpg-agent with Emacs flatpak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <meta name="keywords" content="" />
+    <meta name="generator" content"JBake" />
+
+    <!-- Le styles -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/css/asciidoctor.css" rel="stylesheet" />
+    <link href="/css/base.css" rel="stylesheet" />
+    <link href="/css/bootstrap-responsive.min.css" rel="stylesheet" />
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">-->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/feed.xml" title="Gerard Ryan's blog (All)" />
+    <link rel="alternate" type="application/atom+xml" href="https://blog.grdryn.me/customfeeds/fedora.xml" title="Gerard Ryan's blog (Fedora-related)" />
+
+    <link rel="webmention" href="https://webmention.herokuapp.com/api/webmention" />
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+      var _paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+          var u="//blog.grdryn.me/matomo/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+  </head>
+  <body>
+    <div id="wrap">
+	
+	<!-- Fixed navbar -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="brand" href="/">blog.grdryn.me</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li><a href="/about.html">About</a></li>
+                <li><a href="https://twitter.com/grdryn" rel="me">Twitter</a></li>
+                <li><a href="https://github.com/grdryn" rel="me">Github</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+      <div class="container">
+	
+	<div class="page-header">
+		<h1>Using gpg-agent with Emacs flatpak</h1>
+	</div>
+
+	<p><em>13 April 2020</em></p>
+
+	<p><div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>TL;DR: Enable socket-activated gpg-agent &amp;&amp; add an override to the
+Emacs flatpak for <code>--filesystem=xdg-run/gnupg:ro</code>.</p>
+</div>
+<div class="paragraph">
+<p>When I first installed Fedora Silverblue a couple of releases ago, one
+of the first flatpaks I installed was (obviously) Emacs. Unfortunately
+I switched back to the layered package pretty quickly, because any
+time I tried to do anything that involved GPG (including signing Git
+commits, tags, etc), I ran into trouble. I didn&#8217;t have the time to
+dive into the depths of flatpak at the time, but because I&#8217;m on
+lockdown for a long weekend, I do now!</p>
+</div>
+<div class="paragraph">
+<p>The first thing that I learned when searching around the web (hoping
+that someone had posted something that I could just paste into a
+terminal), was that making use of gpg-agent from within a flatpak is
+not a solved problem. There are a couple of open issues against some
+specific flatpaks where people, and there are more general issues like
+<a href="https://github.com/flatpak/xdg-desktop-portal/issues/178">this proposal
+to add a portal</a>, and
+<a href="https://github.com/flatpak/flatpak/issues/2301">this issue to add a
+socket option</a>.</p>
+</div>
+<div class="paragraph">
+<p>I initially went down the path of trying to copy what some other
+flatpaks do: I built a custom Emacs flatpak with <code>pinentry</code> installed,
+&amp; changed the default command to be a script that would start a local
+gpg-agent inside the flatpak sandbox instance, then run emacs, and
+kill that local gpg-agent before exiting. I even opened
+<a href="https://github.com/flathub/org.gnu.emacs/pull/25">a pull-request to
+propose this be added to the main emacs flatpak</a>!</p>
+</div>
+<div class="paragraph">
+<p>Thankfully, after banging my head on several flatpak and gpg-shaped
+walls, I found what I think is a simpler way! Firstly, the magic
+override to give the flatpak sandbox enough permission seems to be the
+following (thanks to
+<a href="https://github.com/flathub/org.mozilla.Thunderbird">the Thunderbird
+flatpak README</a> for the tip):</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Next, while testing with that I found that if there isn&#8217;t a running
+gpg-agent, gpg inside the flatpak sandbox will have a bad time, and
+give an error like the following:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>[gryan@localhost ~]$ flatpak run --user --command=sh org.gnu.emacs
+[📦 org.gnu.emacs ~]$ gpg --decrypt .authinfo.gpg
+gpg: can't connect to the agent: IPC connect call failed
+gpg: encrypted with 4096-bit RSA key, ID 123D53E57C1D8F89, created 2019-04-05
+      "Gerard Ryan &lt;redacted@example.com&gt;"
+gpg: decryption failed: No secret key</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Enabling and starting socket-activated gpg-agent for the user via
+systemd magically made it happy again. The systemd units for this
+aren&#8217;t installed into a usable location by default, but instead come
+shipped as examples in the gnupg2 RPM; so we need to make them
+available to systemd &amp; enable &amp; start the socket:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="prettyprint highlight"><code class="language-bash" data-lang="bash">sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
+systemctl --user enable gpg-agent.socket
+systemctl --user start gpg-agent.socket</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>That&#8217;s it! Everything should work as expected now.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_bonus_emacs_content">Bonus Emacs content!</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>With the above, if gpg-agent needs your passphrase from Emacs, you&#8217;ll
+get the usual GNOME 3 system prompt. If you&#8217;d prefer to be prompted in
+a more Emacs-native way, you can do the following:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Add <code>allow-emacs-pinentry</code> to <code>~/.gnupg/gpg-agent.conf</code></p>
+</li>
+<li>
+<p>Install the <code>pinentry</code> package in Emacs</p>
+</li>
+<li>
+<p>Add <code>(pinentry-start)</code> to your Emacs configuration</p>
+</li>
+</ul>
+</div>
+</div>
+</div></p>
+
+	<hr>
+
+        <div class="responses">
+                <h3>Responses</h3>
+                <script id="webmention-hosted">
+                        (function () {
+                                var sn = document.createElement("script"), s = document.getElementsByTagName("script")[0], url;
+                                url = document.querySelectorAll ? document.querySelectorAll("link[rel~=canonical]") : false;
+                                url = url && url[0] ? url[0].href : false;
+                                sn.type = "text/javascript"; sn.async = true;
+                                sn.src = "https://webmention.herokuapp.com/api/embed?url=" + encodeURIComponent(url || window.location);
+                                s.parentNode.insertBefore(sn, s);
+                        }());
+                </script>
+        </div>
+
+		</div>
+		<div id="push"></div>
+    </div>
+    
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">&copy; 2018 | Mixed with <a href="http://twitter.github.com/bootstrap/">Bootstrap v2.3.1</a> | Baked with <a href="http://jbake.org">JBake v2.6.4</a></p>
+      </div>
+    </div>
+    
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/js/jquery-1.9.1.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/run_prettify.js"></script>
+    
+  </body>
+</html>

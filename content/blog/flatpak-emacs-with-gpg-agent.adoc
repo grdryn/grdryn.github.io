@@ -1,0 +1,86 @@
+= Using gpg-agent with Emacs flatpak
+Gerard Ryan
+2020-04-13
+:jbake-type: post
+:jbake-tags: linux, fedora, flatpak, emacs
+:jbake-status: published
+:imagesdir: /images
+
+TL;DR: Enable socket-activated gpg-agent && add an override to the
+Emacs flatpak for `--filesystem=xdg-run/gnupg:ro`.
+
+When I first installed Fedora Silverblue a couple of releases ago, one
+of the first flatpaks I installed was (obviously) Emacs. Unfortunately
+I switched back to the layered package pretty quickly, because any
+time I tried to do anything that involved GPG (including signing Git
+commits, tags, etc), I ran into trouble. I didn't have the time to
+dive into the depths of flatpak at the time, but because I'm on
+lockdown for a long weekend, I do now!
+
+The first thing that I learned when searching around the web (hoping
+that someone had posted something that I could just paste into a
+terminal), was that making use of gpg-agent from within a flatpak is
+not a solved problem. There are a couple of open issues against some
+specific flatpaks where people, and there are more general issues like
+https://github.com/flatpak/xdg-desktop-portal/issues/178[this proposal
+to add a portal], and
+https://github.com/flatpak/flatpak/issues/2301[this issue to add a
+socket option].
+
+I initially went down the path of trying to copy what some other
+flatpaks do: I built a custom Emacs flatpak with `pinentry` installed,
+& changed the default command to be a script that would start a local
+gpg-agent inside the flatpak sandbox instance, then run emacs, and
+kill that local gpg-agent before exiting. I even opened
+https://github.com/flathub/org.gnu.emacs/pull/25[a pull-request to
+propose this be added to the main emacs flatpak]!
+
+Thankfully, after banging my head on several flatpak and gpg-shaped
+walls, I found what I think is a simpler way! Firstly, the magic
+override to give the flatpak sandbox enough permission seems to be the
+following (thanks to
+https://github.com/flathub/org.mozilla.Thunderbird[the Thunderbird
+flatpak README] for the tip):
+
+[source,bash]
+----
+flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs
+----
+
+Next, while testing with that I found that if there isn't a running
+gpg-agent, gpg inside the flatpak sandbox will have a bad time, and
+give an error like the following:
+
+----
+[gryan@localhost ~]$ flatpak run --user --command=sh org.gnu.emacs
+[📦 org.gnu.emacs ~]$ gpg --decrypt .authinfo.gpg
+gpg: can't connect to the agent: IPC connect call failed
+gpg: encrypted with 4096-bit RSA key, ID 123D53E57C1D8F89, created 2019-04-05
+      "Gerard Ryan <redacted@example.com>"
+gpg: decryption failed: No secret key
+----
+
+Enabling and starting socket-activated gpg-agent for the user via
+systemd magically made it happy again. The systemd units for this
+aren't installed into a usable location by default, but instead come
+shipped as examples in the gnupg2 RPM; so we need to make them
+available to systemd & enable & start the socket:
+
+[source,bash]
+----
+sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
+systemctl --user enable gpg-agent.socket
+systemctl --user start gpg-agent.socket
+----
+
+That's it! Everything should work as expected now.
+
+== Bonus Emacs content!
+
+With the above, if gpg-agent needs your passphrase from Emacs, you'll
+get the usual GNOME 3 system prompt. If you'd prefer to be prompted in
+a more Emacs-native way, you can do the following:
+
+* Add `allow-emacs-pinentry` to `~/.gnupg/gpg-agent.conf`
+* Install the `pinentry` package in Emacs
+* Add `(pinentry-start)` to your Emacs configuration

@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Tue, 14 Apr 2020 00:02:35 +0100</pubDate>
-    <lastBuildDate>Tue, 14 Apr 2020 00:02:35 +0100</lastBuildDate>
+    <pubDate>Tue, 14 Apr 2020 09:54:59 +0100</pubDate>
+    <lastBuildDate>Tue, 14 Apr 2020 09:54:59 +0100</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>
@@ -35,7 +35,7 @@ lockdown for a long weekend, I do now!&lt;/p&gt;
 that someone had posted something that I could just paste into a
 terminal), was that making use of gpg-agent from within a flatpak is
 not a solved problem. There are a couple of open issues against some
-specific flatpaks where people, and there are more general issues like
+specific flatpaks, and there are more general issues like
 &lt;a href=&quot;https://github.com/flatpak/xdg-desktop-portal/issues/178&quot;&gt;this proposal
 to add a portal&lt;/a&gt;, and
 &lt;a href=&quot;https://github.com/flatpak/flatpak/issues/2301&quot;&gt;this issue to add a

@@ -1,7 +1,7 @@
 /*!
- * Piwik - free/libre analytics platform
+ * Matomo - free/libre analytics platform
  *
- * @link http://piwik.org
+ * @link https://matomo.org
  * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
 (function () {
@@ -67,7 +67,7 @@
             var params = {
                 idSite: idSite,
                 period: period,
-                date: date,
+                date: decodeURIComponent(date),
                 segment: decodeURIComponent(segment),
                 category: category.id,
                 subcategory: subcategory.id,

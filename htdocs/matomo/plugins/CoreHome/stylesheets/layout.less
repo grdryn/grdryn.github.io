@@ -3,6 +3,14 @@
   margin-bottom: 0;
 }
 
+ul.browser-default {
+  list-style-type: disc;
+  li {
+    margin-left: 20px;
+    list-style-type: disc;
+  }
+}
+
 nav {
   background-color: @theme-color-header-background !important;
 
@@ -48,8 +56,13 @@ nav {
     &:hover {
       background-color: rgba(0,0,0,0.1);
     }
-    .title {
-      color: @theme-color-header-text;
+  }
+
+  ul:not(#mobile-top-menu) {
+    .languageSelection {
+      .title {
+        color: @theme-color-header-text;
+      }
     }
   }
 
@@ -181,7 +194,7 @@ nav {
       }
 
       > li {
-        display: inline-block;
+        display: block;
         width: 100%;
         .border-radius(0px);
         border: 0;
@@ -313,6 +326,21 @@ nav {
       .item .icon-arrow-right:before {
         content: "\e63b";
       }
+    }
+
+    .collapsible {
+      margin: 0;
+      border: 0;
+    }
+
+    .collapsible-header {
+      border-bottom: 0;
+      cursor: pointer!important;
+    }
+
+    .collapsible-body {
+      border-bottom: 0;
+      padding: 0;
     }
   }
 }

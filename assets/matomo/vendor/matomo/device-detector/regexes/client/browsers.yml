@@ -5,6 +5,55 @@
 # @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
 ###############
 
+# Arvin (https://play.google.com/store/apps/details?id=com.browser.arvin.anti.blokir&hl=sv&gl=US)
+- regex: 'Arvin/(\d+[\.\d]+)'
+  name: 'Arvin'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Edge Webview (https://docs.microsoft.com/en-us/microsoft-edge/webview2/)
+- regex: 'Version/.+Chrome/.+EdgW/(\d+[\.\d]+)'
+  name: 'Edge WebView'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+
+# Mandarin (https://mandarin-browser.com/)
+- regex: 'Mandarin Browser/(\d+[\.\d]+)'
+  name: 'Mandarin'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Maelstrom (https://www.bittorrent.com/)
+- regex: 'Torrent/(\d+[\.\d]+)'
+  name: 'Maelstrom'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Helio (https://developer.magicleap.com/en-us/learn/guides/lumin-os-release-notes-summary)
+- regex: 'Helio/(\d+[\.\d]+)'
+  name: 'Helio'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# 7654 Browser (http://7654browser.shzhanmeng.com/)
+- regex: '7654Browser/(\d+[\.\d]+)'
+  name: '7654 Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# Qazweb (http://www.qazweb.com/)
+- regex: 'Qazweb/(\d+[\.\d]+)'
+  name: 'Qazweb'
+  version: '$1'
+  engine:
+    default: 'Gecko'
+
 # deg-degan (https://degdegan.com/)
 - regex: 'Degdegan/(\d+[\.\d]+)'
   name: 'deg-degan'
@@ -287,6 +336,13 @@
   engine:
     default: 'Blink'
 
+# OceanHero (https://oceanhero.today)
+- regex: 'OceanHero/([\.\d]+)'
+  name: 'OceanHero'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
 # Smart Lenovo Browser (https://www.lenovo.com.cn/)
 - regex: 'Chrome/.+ SLBrowser/(?:(\d+[\.\d]+))?'
   name: 'Smart Lenovo Browser'
@@ -489,6 +545,8 @@
 - regex: 'AlohaLite(?:/(\d+[\.\d]+))?'
   name: 'Aloha Browser Lite'
   version: '$1'
+  engine:
+    default: 'Blink'
 
 # Tao Browser (https://browser.taobao.com/)
 - regex: 'TaoBrowser(?:/(\d+[\.\d]+))?'
@@ -776,6 +834,11 @@
     default: 'Gecko'
 
 #AlohaBrowser
+- regex: 'Chrome/.+ AlohaBrowser(?:/(\d+[\.\d]+))?'
+  name: 'Aloha Browser'
+  version: '$1'
+  engine:
+    default: 'Blink'
 - regex: 'AlohaBrowser(?:/(\d+[\.\d]+))?'
   name: 'Aloha Browser'
   version: '$1'
@@ -1145,6 +1208,11 @@
   version: '$1'
   engine:
     default: 'Blink'
+- regex: 'Opera%20Touch/(\d+[\.\d]+)? CFNetwork/.+Darwin/.+(?!.*x86_64)'
+  name: 'Opera Touch'
+  version: '$1'
+  engine:
+    default: 'WebKit'
 - regex: 'OPT/(\d+[\.\d]+)'
   name: 'Opera Touch'
   version: '$1'
@@ -1292,6 +1360,11 @@
     default: 'Blink'
 
 #Midori
+- regex: 'Chrome.+Midori Browser/(\d+[\.\d]+)'
+  name: 'Midori'
+  version: '$1'
+  engine:
+    default: 'Blink'
 - regex: 'Midori(?:/(\d+[\.\d]+))?'
   name: 'Midori'
   version: '$1'
@@ -1642,6 +1715,21 @@
   engine:
     default: 'WebKit'
 
+- regex: 'OpenFin/(?:(\d+[\.\d]+))'
+  name: 'OpenFin'
+  version: '$1'
+  engine:
+    default: 'Blink'
+
+# SuperBird
+- regex: 'SuperBird(?:/(\d+[\.\d]+))?'
+  name: 'SuperBird'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      28: 'Blink'
+
 # Chrome Webview
 - regex: 'Version/.* Chrome(?:/(\d+[\.\d]+))?'
   name: 'Chrome Webview'
@@ -1700,6 +1788,13 @@
 - regex: '(?:Tizen|SLP) Browser(?:/(\d+[\.\d]+))?'
   name: 'Tizen Browser'
   version: '$1'
+- regex: 'Tizen (?:\d+[\.\d]+).+ Version/(\d+[\.\d]+) (?:TV|Mobile)'
+  name: 'Tizen Browser'
+  version: '$1'
+  engine:
+    default: 'WebKit'
+    versions:
+      '4': 'Blink'
 
 #Palm Blazer
 - regex: 'Blazer(?:/(\d+[\.\d]+))?'
@@ -2048,11 +2143,6 @@
 #Sunrise
 - regex: 'Sunrise(?:Browser)?(?:/(\d+[\.\d]+))?'
   name: 'Sunrise'
-  version: '$1'
-
-#SuperBird
-- regex: 'SuperBird(?:/(\d+[\.\d]+))?'
-  name: 'SuperBird'
   version: '$1'
 
 #Vision Mobile Browser

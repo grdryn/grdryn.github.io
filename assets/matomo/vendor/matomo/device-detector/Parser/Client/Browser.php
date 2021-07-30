@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
@@ -39,6 +41,7 @@ class Browser extends AbstractClientParser
         '2B' => '2345 Browser',
         '36' => '360 Phone Browser',
         '3B' => '360 Browser',
+        '7B' => '7654 Browser',
         'AA' => 'Avant Browser',
         'AB' => 'ABrowse',
         'AF' => 'ANT Fresco',
@@ -54,6 +57,7 @@ class Browser extends AbstractClientParser
         'AX' => 'Arctic Fox',
         'AV' => 'Amiga Voyager',
         'AW' => 'Amiga Aweb',
+        'AI' => 'Arvin',
         'A0' => 'Atom',
         'AT' => 'Atomic Web Browser',
         'AS' => 'Avast Secure Browser',
@@ -123,6 +127,7 @@ class Browser extends AbstractClientParser
         'DI' => 'Dillo',
         'DD' => 'DuckDuckGo Privacy Browser',
         'EC' => 'Ecosia',
+        'EW' => 'Edge WebView',
         'EI' => 'Epic',
         'EL' => 'Elinks',
         'EB' => 'Element Browser',
@@ -156,6 +161,7 @@ class Browser extends AbstractClientParser
         'GO' => 'GOG Galaxy',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
         'HU' => 'Huawei Browser',
@@ -199,6 +205,7 @@ class Browser extends AbstractClientParser
         'LS' => 'Lunascape',
         'LN' => 'Lunascape Lite',
         'LX' => 'Lynx',
+        'MD' => 'Mandarin',
         'M1' => 'mCent',
         'MB' => 'MicroB',
         'MC' => 'NCSA Mosaic',
@@ -212,6 +219,7 @@ class Browser extends AbstractClientParser
         'MN' => 'Minimo',
         'MT' => 'Mint Browser',
         'MX' => 'Maxthon',
+        'MA' => 'Maelstrom',
         'NM' => 'MxNitro',
         'MY' => 'Mypal',
         'MR' => 'Monument Browser',
@@ -232,6 +240,7 @@ class Browser extends AbstractClientParser
         'O1' => 'Opera Mini iOS',
         'OB' => 'Obigo',
         'O2' => 'Odin',
+        'H2' => 'OceanHero',
         'OD' => 'Odyssey Web Browser',
         'OF' => 'Off By One',
         'HH' => 'OhHai Browser',
@@ -250,6 +259,7 @@ class Browser extends AbstractClientParser
         'O0' => 'Origin In-Game Overlay',
         'OY' => 'Origyn Web Browser',
         'OV' => 'Openwave Mobile Browser',
+        'O3' => 'OpenFin',
         'OW' => 'OmniWeb',
         'OT' => 'Otter Browser',
         'PL' => 'Palm Blazer',
@@ -270,6 +280,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'PS' => 'Microsoft Edge',
+        'QA' => 'Qazweb',
         'Q2' => 'QQ Browser Lite',
         'Q1' => 'QQ Browser Mini',
         'QQ' => 'QQ Browser',
@@ -381,13 +392,15 @@ class Browser extends AbstractClientParser
             'YJ', 'LL', 'TU', 'XV', 'C2', 'QU', 'YN', 'JB', 'MR',
             'S6', '7S', 'NM', 'PB', 'UR', 'NR', 'SG', 'S8', 'C3',
             'SS', 'O2', 'SV', 'TR', 'CW', 'GI', 'VE', 'AC', 'FS',
-            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG',
+            'CG', 'DR', 'C4', 'HS', 'DA', 'C5', 'C6', 'DG', 'HE',
+            'H2', 'MA', 'MD', 'O3', 'EW', 'AI',
         ],
         'Firefox'            => [
             'FF', 'FE', 'FM', 'SX', 'FB', 'PX', 'MB', 'EI', 'WF',
             'CU', 'TF', 'QM', 'FR', 'I4', 'GZ', 'MO', 'F1', 'BI',
             'MN', 'BH', 'TO', 'OS', 'MY', 'FY', 'AX', 'C0', 'LH',
             'S5', 'ZV', 'IW', 'PI', 'BN', 'OA', 'LY', 'IF', 'BF',
+            'QA',
         ],
         'Internet Explorer'  => ['IE', 'IM', 'PS', 'CZ', 'BZ'],
         'Konqueror'          => ['KO'],
@@ -406,11 +419,11 @@ class Browser extends AbstractClientParser
      */
     protected static $mobileOnlyBrowsers = [
         '36', 'OC', 'PU', 'SK', 'MF', 'OI', 'OM', 'DD', 'DB',
-        'ST', 'BL', 'IV', 'FM', 'C1', 'AL', 'SA', 'SB', 'FR',
+        'ST', 'BL', 'IV', 'FM', 'C1', 'C4', 'SA', 'SB', 'FR',
         'WP', 'HA', 'NX', 'HU', 'VV', 'RE', 'CB', 'MZ', 'UM',
         'FK', 'FX', 'WI', 'MN', 'M1', 'AH', 'SU', 'EU', 'EZ',
         'UT', 'DT', 'S0', 'QU', 'YN', 'JB', 'GH', 'PI', 'SG',
-        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'C4',
+        'KD', 'PE', 'UH', 'S7', 'CW', 'OZ', 'GI', 'VE', 'AI',
     ];
 
     /**

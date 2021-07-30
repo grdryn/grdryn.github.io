@@ -16,6 +16,7 @@
         "Apply": "Uygula",
         "ArchivingInlineHelp": "Orta ve yüksek yoğunluklu web siteleri için Matomo arşivlemesinin web tarayıcı üzerinden tetiklenme seçeneğinin kapatılması öneriilir. Bunun yerine saatlik olarak Matomo raporlarını oluşturacak zamanlanmış bir görevin tanımlanması önerilir.",
         "ArchivingTriggerDescription": "Daha büyük Matomo kurulumları için raporları otomatik olarak işleyen bir %1$szamanlanmış görev%2$s oluşturulması önerilir.",
+        "ArchivingTriggerSegment": "Özel dilimlerin kullanılması arşivlerin işlenmesini tetikler.",
         "AuthenticationMethodSmtp": "SMTP kimlik doğrulama yöntemi",
         "AverageOrderValue": "Ortalama Sipariş Değeri",
         "AveragePrice": "Ortalama Fiyat",
@@ -210,6 +211,8 @@
         "ExceptionWidgetNotFound": "İstenen gereç bulunamadı.",
         "ExceptionReportNotEnabled": "İstenilen rapor etkinleştirilmemiş. Bu durum raporu oluşturan uygulama ekinin devre dışı bırakılmış olması ya da bu rapora erişme izninizin olmamasından kaynaklanıyor olabilir.",
         "ExceptionWidgetNotEnabled": "İstenilen gereç etkinleştirilmemiş. Bu durum gereci oluşturan uygulama ekinin devre dışı bırakılmış olması ya da bu gerece erişme izninizin olmamasından kaynaklanıyor olabilir.",
+        "ExceptionNotSupportedBrowserTitle": "Web tarayıcınız desteklenmiyor.",
+        "ExceptionNotSupportedBrowserText": "Güvenlik açıkları nedeniyle web tarayıcınız desteklenmiyor. Lütfen daha yeni bir sürüm kullanın.",
         "ExpandDataTableFooter": "Raporun görünümünü ya da ayarlarını değiştirin",
         "Export": "Dışa Aktar",
         "ExportAsImage": "Görsel Olarak Dışa Aktar",
@@ -487,6 +490,7 @@
         "WarningFileIntegrityNoMd5file": "md5_file() işlevi bulunamadığı için dosya bütünlüğü denetimi yapılamadı.",
         "WarningPasswordStored": "%1$sUyarı:%2$s Bu parola yapılandırma dosyasında saklanacağından bu dosyaya erişilebilen herkes tarafından görülebilir.",
         "WarningDebugOnDemandEnabled": "%1$s izleyici kipi etkinleştirilmiş. Güvenlik nedeniyle bu kip yalnız kısa bir süre için etkinleştirilmelidir. Devre dışı bırakmak için %4$s içindeki %2$s seçeneğini %3$s olarak ayarlayın",
+        "WarningDevelopmentModeOnButNotGitInstalled": "Şu anda Matomo uygulamasını geliştirme kipinde kullanıyorsunuz. Ancak bu kip git üzerinden yüklenmemiş. Matomo uygulamasını üretim ortamında geliştirme kipinde kullanmanız önerilmez.",
         "Website": "Web Sitesi",
         "Weekly": "Haftalık",
         "WeeklyReport": "haftalık",
@@ -521,7 +525,8 @@
         "Custom": "Özel",
         "PreviousPeriod": "Önceki Dönem",
         "PreviousYear": "Önceki Yıl",
-        "ViewAccessRequired": "Kullanılan kimlik doğrulama kodunun (token_auth) erişim izinleri, API dışı bir istek adresinde kullanılmak için çok fazla. Lütfen yalnız görüntüleme erişimi olan bir kullanıcı için uygulamaya özel bir parola kullanın."
+        "ViewAccessRequired": "Kullanılan kimlik doğrulama kodunun (token_auth) erişim izinleri, API dışı bir istek adresinde kullanılmak için çok fazla. Lütfen yalnız görüntüleme erişimi olan bir kullanıcı için uygulamaya özel bir parola kullanın.",
+        "Reasons": "Nedenler"
     },
     "Mobile": {
         "AboutPiwikMobile": "Matomo Mobil Hakkında",

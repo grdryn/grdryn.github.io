@@ -57,6 +57,11 @@ password =
 dbname =
 port = 3306
 
+; If you are using Amazon Aurora you can enable aurora_read_only_read_committed to prevent purge lag which happens
+; when internal garbage collection is blocked by long-running archiving queries. The setting will be only applied
+; if you are using Amazon Aurora and have configured a reader database.
+aurora_readonly_read_committed =
+
 [database_tests]
 host = localhost
 username = "@USERNAME@"
@@ -87,7 +92,7 @@ port =
 enable_logging = 0
 
 [log]
-; possible values for log: screen, database, file
+; possible values for log: screen, database, file, errorlog, syslog
 log_writers[] = screen
 
 ; log level, everything logged w/ this level or one of greater severity
@@ -100,9 +105,15 @@ log_level = WARN
 ; this allows you to log more information to one backend vs another.
 ; log_level_screen =
 ; log_level_file =
+; log_level_errorlog =
+; log_level_syslog =
 
 ; if configured to log in a file, log entries will be made to this file
 logger_file_path = tmp/logs/matomo.log
+
+; if configured to log to syslog, mark them with this identifier string.
+; This acts as an easy-to-find tag in the syslog.
+logger_syslog_ident = 'matomo'
 
 [Cache]
 ; available backends are 'file', 'array', 'null', 'redis', 'chained'
@@ -156,6 +167,12 @@ archiving_profile = 0
 
 ; if set to an absolute path, core:archive profiling information will be logged to specified file
 archive_profiling_log =
+
+; if set to 1, use of a php profiler will be enabled. the profiler will not be activated unless its installation
+; can be detected and the correct query and CLI parameters are supplied to toggle it.
+; Note: this setting is not dependent on development mode, since it is often required to run the profiler with
+; all optimizations and caches enabled.
+enable_php_profiler = 0
 
 [DebugTests]
 ; When set to 1, standalone plugins (those with their own git repositories)
@@ -286,6 +303,7 @@ allow_adding_segments_for_all_websites = 1
 ;                              "segment_last_edit_time" (start date of archiving will be the earliest last edit date found,
 ;                                                        if none is found, the created date is used)
 ;                              "segment_creation_time" (start date of archiving will be the creation date of the segment)
+;                              editLastN where N is an integer (eg "editLast10" to archive for 10 days before the segment last edit date)
 ;                              lastN where N is an integer (eg "last10" to archive for 10 days before the segment creation date)
 process_new_segments_from = "beginning_of_time"
 
@@ -351,7 +369,7 @@ enable_browser_archiving_triggering = 1
 ; or make sure the date ranges users' want to see will be processed somehow.
 archiving_range_force_on_browser_request = 1
 
-; By default Matomo will automatically archive all date ranges any user has chosen in his account settings.
+; By default Matomo will automatically archive all date ranges any user has chosen in their account settings.
 ; This is limited to the available options last7, previous7, last30 and previous30.
 ; If you need any other period, or want to ensure one of those is always archived, you can define them here
 archiving_custom_ranges[] =
@@ -393,6 +411,25 @@ disable_checks_usernames_attributes = 0
 ; Matomo will use the configured hash algorithm where possible.
 ; For legacy data, fallback or non-security scenarios, we use md5.
 hash_algorithm = whirlpool
+
+; set the algorithm used by password_hash()
+; "default" for the algorithm used by the PHP version or one of ["bcrypt", "argon2i", "argon2id"]
+; "argon2id" requires at least PHP 7.3.0
+; for all argon2 algorithms, additional parameters can be changed below
+; any changes are applied to the stored hash on the next login of a user
+; see https://www.php.net/manual/en/function.password-hash.php and https://wiki.php.net/rfc/argon2_password_hash
+; for more information
+password_hash_algorithm = default
+
+; The number of CPU threads used for calculating the hash
+password_hash_argon2_threads = default
+
+; The amount of memory (in KB) used for calculating the hash
+; a minimum of 8 times the number of threads
+password_hash_argon2_memory_cost = default
+
+; The number of iterations for calculating the hash
+password_hash_argon2_time_cost = default
 
 ; If set to 1, Matomo will automatically redirect all http:// requests to https://
 ; If SSL / https is not correctly configured on the server, this will break Matomo
@@ -455,6 +492,10 @@ login_allowlist_apply_to_reporting_api_requests = 1
 ; By default when user logs out they are redirected to Matomo "homepage" usually the Login form.
 ; Uncomment the next line to set a URL to redirect the user to after they log out of Matomo.
 ; login_logout_url = http://...
+
+; By default the logme functionality to automatically log in users using url params is disabled
+; You can enable that by setting this to "1". See https://matomo.org/faq/how-to/faq_30/ for more details
+login_allow_logme = 0
 
 ; Set to 1 to disable the framebuster on standard Non-widgets pages (a click-jacking countermeasure).
 ; Default is 0 (i.e., bust frames on all non Widget pages such as Login, API, Widgets, Email reports, etc.).
@@ -605,6 +646,11 @@ multi_server_environment = 0
 ; Set to 1 if you're using a proxy which is rewriting the URI.
 ; By enabling this flag the header HTTP_X_FORWARDED_URI will be considered for the current script name.
 proxy_uri_header = 0
+
+; If set to 1 we use the last IP in the list of proxy IPs when determining the client IP. Using the last IP can be more
+; secure when using proxy headers in combination with a load balancer. By default the first IP is read according to RFC7239
+; which is required when the client sends the IP through a proxy header as well as the load balancer.
+proxy_ip_read_last_in_list = 0
 
 ; Whether to enable trusted host checking. This can be disabled if you're running Matomo
 ; on several URLs and do not wish to constantly edit the trusted host list.
@@ -767,7 +813,10 @@ enable_tracking_failures_notification = 1
 
 ; Controls how many months in the past reports are re-archived for plugins that support
 ; doing this (such as CustomReports). Set to 0 to disable the feature. Default is 6.
-rearchive_reports_in_past_last_n_months = last6
+rearchive_reports_in_past_last_n_months = 6
+
+; If set to 1, when rearchiving reports in the past we do not rearchive segment data with those reports. Default is 0.
+rearchive_reports_in_past_exclude_segments = 0
 
 [Tracker]
 

@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '4.4.0',
-        'version' => '4.4.0.0',
+        'pretty_version' => '4.4.1',
+        'version' => '4.4.1.0',
         'type' => 'application',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '5dde905b1a8fd3d51a1d0a67fe05719607742fef',
+        'reference' => 'f57a5313f7923c60e55c2b101351bccaae287330',
         'name' => 'matomo/matomo',
         'dev' => false,
     ),
@@ -92,12 +92,12 @@
             'dev_requirement' => false,
         ),
         'matomo/matomo' => array(
-            'pretty_version' => '4.4.0',
-            'version' => '4.4.0.0',
+            'pretty_version' => '4.4.1',
+            'version' => '4.4.1.0',
             'type' => 'application',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '5dde905b1a8fd3d51a1d0a67fe05719607742fef',
+            'reference' => 'f57a5313f7923c60e55c2b101351bccaae287330',
             'dev_requirement' => false,
         ),
         'matomo/matomo-php-tracker' => array(

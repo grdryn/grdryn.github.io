@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06
+class ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254
 {
     public static $files = array (
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
@@ -1273,6 +1273,7 @@ class ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateReport' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateReport.php',
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateScheduledTask' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateScheduledTask.php',
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateSettings' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateSettings.php',
+        'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateSystemCheck' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateSystemCheck.php',
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateTest' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateTest.php',
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateUpdate' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateUpdate.php',
         'Piwik\\Plugins\\CoreConsole\\Commands\\GenerateVisualizationPlugin' => __DIR__ . '/../..' . '/plugins/CoreConsole/Commands/GenerateVisualizationPlugin.php',
@@ -1743,6 +1744,7 @@ class ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06
         'Piwik\\Plugins\\ExamplePlugin\\API' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/API.php',
         'Piwik\\Plugins\\ExamplePlugin\\Archiver' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/Archiver.php',
         'Piwik\\Plugins\\ExamplePlugin\\Controller' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/Controller.php',
+        'Piwik\\Plugins\\ExamplePlugin\\Diagnostic\\ExampleCheck' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/Diagnostic/ExampleCheck.php',
         'Piwik\\Plugins\\ExamplePlugin\\ExamplePlugin' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/ExamplePlugin.php',
         'Piwik\\Plugins\\ExamplePlugin\\Menu' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/Menu.php',
         'Piwik\\Plugins\\ExamplePlugin\\Tasks' => __DIR__ . '/../..' . '/plugins/ExamplePlugin/Tasks.php',
@@ -2666,6 +2668,7 @@ class ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06
         'Piwik\\Plugins\\UserCountry\\VisitorDetails' => __DIR__ . '/../..' . '/plugins/UserCountry/VisitorDetails.php',
         'Piwik\\Plugins\\UserCountry\\VisitorGeolocator' => __DIR__ . '/../..' . '/plugins/UserCountry/VisitorGeolocator.php',
         'Piwik\\Plugins\\UserCountry\\tests\\Fixtures\\ManySitesManyVisitsWithGeoIp' => __DIR__ . '/../..' . '/plugins/UserCountry/tests/Fixtures/ManySitesManyVisitsWithGeoIp.php',
+        'Piwik\\Plugins\\UserCountry\\tests\\Integration\\LocationProviderTest' => __DIR__ . '/../..' . '/plugins/UserCountry/tests/Integration/LocationProviderTest.php',
         'Piwik\\Plugins\\UserCountry\\tests\\Integration\\VisitorGeolocatorTest' => __DIR__ . '/../..' . '/plugins/UserCountry/tests/Integration/VisitorGeolocatorTest.php',
         'Piwik\\Plugins\\UserCountry\\tests\\System\\ApiTest' => __DIR__ . '/../..' . '/plugins/UserCountry/tests/System/ApiTest.php',
         'Piwik\\Plugins\\UserCountry\\tests\\System\\AttributeHistoricalDataWithLocationsTest' => __DIR__ . '/../..' . '/plugins/UserCountry/tests/System/AttributeHistoricalDataWithLocationsTest.php',
@@ -3349,11 +3352,11 @@ class ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit9911a69f5e00ba0fb6465cdf9c4daf06::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit5dd2cf7fa59276392f187ff8e70d6254::$classMap;
 
         }, null, ClassLoader::class);
     }

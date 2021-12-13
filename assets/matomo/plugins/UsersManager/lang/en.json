@@ -123,6 +123,7 @@
         "AtLeastView": "At least view",
         "ManageUsers": "Manage Users",
         "ManageUsersDesc": "Create new users or update the existing users. You can then set their permissions here too.",
+        "ManageUsersAdminDesc": "Create new users or update the existing users. You can then set their permissions here too. Please note that you are logged in as an administrator. This means you only see and manage users that have access to the specific websites where you have \"admin\" permissions. Only a user with super user access can see and manage all users across all websites.",
         "NoAccessWarning": "This user has not been granted access to a website. When they login, they will see an error message. To prevent this, add access to a website below.",
         "BulkActions": "Bulk Actions",
         "SetPermission": "Set Permission",
@@ -183,7 +184,7 @@
         "PasswordChangeNotificationSubject": "Your Matomo account's password has just been changed",
         "PasswordChangedEmail": "Your password has just been changed. The change was initiated from the following device: %1$s (IP address = %2$s).",
         "NewsletterSignupTitle": "Newsletter Signup",
-        "NewsletterSignupMessage": "Subscribe to our newsletter to receive regular information about Matomo. You can unsubscribe from it any time. This service uses MadMimi. Learn more about it on our %1$sPrivacy Policy page%2$s.",
+        "NewsletterSignupMessage": "Subscribe to our newsletter to receive regular information about Matomo. You can unsubscribe from it any time. This service uses MadMimi. Learn more about it on %1$sMatomo's Privacy Policy page%2$s.",
         "NewsletterSignupFailureMessage": "Whoops, something went wrong. We weren't able to sign you up for the newsletter.",
         "NewsletterSignupSuccessMessage": "Super, you're all signed up! We'll be in touch soon.",
         "FirstWebsitePermission": "First website permission"

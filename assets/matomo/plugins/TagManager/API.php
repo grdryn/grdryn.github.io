@@ -13,7 +13,6 @@ use Piwik\Common;
 use Piwik\Container\StaticContainer;
 use Piwik\Date;
 use Piwik\Piwik;
-use Piwik\Site;
 use Piwik\Plugins\TagManager\API\Export;
 use Piwik\Plugins\TagManager\API\Import;
 use Piwik\Plugins\TagManager\API\PreviewCookie;
@@ -121,6 +120,8 @@ class API extends \Piwik\Plugin\API
      * @var VariablesDao
      */
     private $variablesDao;
+
+    private $enableGeneratePreview = true;
 
     public function __construct(Tag $tags, Trigger $triggers, Variable $variables, Container $containers, TagsProvider $tagsProvider, TriggersProvider $triggersProvider, VariablesProvider $variablesProvider, ContextProvider $contextProvider, AccessValidator $validator, Environment $environment, Comparison $comparisons, Export $export, Import $import, VariablesDao $variablesDao)
     {
@@ -1010,7 +1011,12 @@ class API extends \Piwik\Plugin\API
             $idContainerVersion = $this->getContainerDraftVersion($idSite, $idContainer);
         }
 
-        return $this->containers->createContainerVersion($idSite, $idContainer, $idContainerVersion, $name, $description);
+        $this->enableGeneratePreview = false;
+        $container = $this->containers->createContainerVersion($idSite, $idContainer, $idContainerVersion, $name, $description);
+        // not needed to create a preview release as no actual change to container was made. Make it faster as the createContainerVersion
+        // uses "import" logic which would create a new preview release or check for recursions on every created tag/trigger/...
+        $this->enableGeneratePreview = true;
+        return $container;
     }
 
     /**
@@ -1284,11 +1290,17 @@ class API extends \Piwik\Plugin\API
         }
 
         $this->containers->checkContainerVersionExists($idSite, $idContainer, $idContainerVersion);
+        $this->enableGeneratePreview = false;
         $this->import->importContainerVersion($exportedContainerVersion, $idSite, $idContainer, $idContainerVersion);
+        $this->enableGeneratePreview = true;
+        $this->updateContainerPreviewRelease($idSite, $idContainer);
     }
 
     private function updateContainerPreviewRelease($idSite, $idContainer)
     {
+        if (!$this->enableGeneratePreview) {
+            return;
+        }
         if ($this->containers->hasPreviewRelease($idSite, $idContainer)) {
             $this->containers->generateContainer($idSite, $idContainer);
         } else {

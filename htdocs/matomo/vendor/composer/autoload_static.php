@@ -4,12 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
+class ComposerStaticInit312b95b52227cf425b95289844f52979
 {
     public static $files = array (
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
         '8ac259e46781d60665439a97846a4a66' => __DIR__ . '/..' . '/lox/xhprof/xhprof_lib/utils/xhprof_lib.php',
         'e30869f87cf76d235b75bb956c7ba9ed' => __DIR__ . '/..' . '/lox/xhprof/xhprof_lib/utils/xhprof_runs.php',
@@ -834,6 +834,8 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Category\\Category' => __DIR__ . '/../..' . '/core/Category/Category.php',
         'Piwik\\Category\\CategoryList' => __DIR__ . '/../..' . '/core/Category/CategoryList.php',
         'Piwik\\Category\\Subcategory' => __DIR__ . '/../..' . '/core/Category/Subcategory.php',
+        'Piwik\\Changes\\Model' => __DIR__ . '/../..' . '/core/Changes/Model.php',
+        'Piwik\\Changes\\UserChanges' => __DIR__ . '/../..' . '/core/Changes/UserChanges.php',
         'Piwik\\CliMulti' => __DIR__ . '/../..' . '/core/CliMulti.php',
         'Piwik\\CliMulti\\CliPhp' => __DIR__ . '/../..' . '/core/CliMulti/CliPhp.php',
         'Piwik\\CliMulti\\Output' => __DIR__ . '/../..' . '/core/CliMulti/Output.php',
@@ -862,6 +864,7 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Config' => __DIR__ . '/../..' . '/core/Config.php',
         'Piwik\\Config\\Cache' => __DIR__ . '/../..' . '/core/Config/Cache.php',
         'Piwik\\Config\\ConfigNotFoundException' => __DIR__ . '/../..' . '/core/Config/ConfigNotFoundException.php',
+        'Piwik\\Config\\GeneralConfig' => __DIR__ . '/../..' . '/core/Config/GeneralConfig.php',
         'Piwik\\Config\\IniFileChain' => __DIR__ . '/../..' . '/core/Config/IniFileChain.php',
         'Piwik\\Console' => __DIR__ . '/../..' . '/core/Console.php',
         'Piwik\\Container\\ContainerDoesNotExistException' => __DIR__ . '/../..' . '/core/Container/ContainerDoesNotExistException.php',
@@ -1355,6 +1358,7 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Plugins\\CoreHome\\Widgets\\GetPromoVideo' => __DIR__ . '/../..' . '/plugins/CoreHome/Widgets/GetPromoVideo.php',
         'Piwik\\Plugins\\CoreHome\\Widgets\\GetSystemSummary' => __DIR__ . '/../..' . '/plugins/CoreHome/Widgets/GetSystemSummary.php',
         'Piwik\\Plugins\\CoreHome\\Widgets\\QuickLinks' => __DIR__ . '/../..' . '/plugins/CoreHome/Widgets/QuickLinks.php',
+        'Piwik\\Plugins\\CoreHome\\tests\\Integration\\ChangesTest' => __DIR__ . '/../..' . '/plugins/CoreHome/tests/Integration/ChangesTest.php',
         'Piwik\\Plugins\\CoreHome\\tests\\Integration\\Column\\UserIdTest' => __DIR__ . '/../..' . '/plugins/CoreHome/tests/Integration/Column/UserIdTest.php',
         'Piwik\\Plugins\\CoreHome\\tests\\Integration\\Column\\VisitLastActionTimeTest' => __DIR__ . '/../..' . '/plugins/CoreHome/tests/Integration/Column/VisitLastActionTimeTest.php',
         'Piwik\\Plugins\\CoreHome\\tests\\Integration\\CoreHomeTest' => __DIR__ . '/../..' . '/plugins/CoreHome/tests/Integration/CoreHomeTest.php',
@@ -1954,6 +1958,7 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Plugins\\Login\\Auth' => __DIR__ . '/../..' . '/plugins/Login/Auth.php',
         'Piwik\\Plugins\\Login\\Commands\\UnblockBlockedIps' => __DIR__ . '/../..' . '/plugins/Login/Commands/UnblockBlockedIps.php',
         'Piwik\\Plugins\\Login\\Controller' => __DIR__ . '/../..' . '/plugins/Login/Controller.php',
+        'Piwik\\Plugins\\Login\\Emails\\PasswordResetEmail' => __DIR__ . '/../..' . '/plugins/Login/Emails/PasswordResetEmail.php',
         'Piwik\\Plugins\\Login\\Emails\\SuspiciousLoginAttemptsInLastHourEmail' => __DIR__ . '/../..' . '/plugins/Login/Emails/SuspiciousLoginAttemptsInLastHourEmail.php',
         'Piwik\\Plugins\\Login\\FormLogin' => __DIR__ . '/../..' . '/plugins/Login/FormLogin.php',
         'Piwik\\Plugins\\Login\\FormResetPassword' => __DIR__ . '/../..' . '/plugins/Login/FormResetPassword.php',
@@ -2575,6 +2580,7 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Plugins\\Transitions\\Controller' => __DIR__ . '/../..' . '/plugins/Transitions/Controller.php',
         'Piwik\\Plugins\\Transitions\\Transitions' => __DIR__ . '/../..' . '/plugins/Transitions/Transitions.php',
         'Piwik\\Plugins\\Transitions\\Widgets\\GetTransitions' => __DIR__ . '/../..' . '/plugins/Transitions/Widgets/GetTransitions.php',
+        'Piwik\\Plugins\\Transitions\\tests\\Integration\\TransitionsMaxAllowedPeriodTest' => __DIR__ . '/../..' . '/plugins/Transitions/tests/Integration/TransitionsMaxAllowedPeriodTest.php',
         'Piwik\\Plugins\\Transitions\\tests\\System\\TransitionsTest' => __DIR__ . '/../..' . '/plugins/Transitions/tests/System/TransitionsTest.php',
         'Piwik\\Plugins\\TwoFactorAuth\\API' => __DIR__ . '/../..' . '/plugins/TwoFactorAuth/API.php',
         'Piwik\\Plugins\\TwoFactorAuth\\Commands\\Disable2FAForUser' => __DIR__ . '/../..' . '/plugins/TwoFactorAuth/Commands/Disable2FAForUser.php',
@@ -2664,6 +2670,7 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
         'Piwik\\Plugins\\UserLanguage\\tests\\System\\GetLanguageSystemTest' => __DIR__ . '/../..' . '/plugins/UserLanguage/tests/System/GetLanguageSystemTest.php',
         'Piwik\\Plugins\\UsersManager\\API' => __DIR__ . '/../..' . '/plugins/UsersManager/API.php',
         'Piwik\\Plugins\\UsersManager\\Controller' => __DIR__ . '/../..' . '/plugins/UsersManager/Controller.php',
+        'Piwik\\Plugins\\UsersManager\\Emails\\UserInfoChangedEmail' => __DIR__ . '/../..' . '/plugins/UsersManager/Emails/UserInfoChangedEmail.php',
         'Piwik\\Plugins\\UsersManager\\LastSeenTimeLogger' => __DIR__ . '/../..' . '/plugins/UsersManager/LastSeenTimeLogger.php',
         'Piwik\\Plugins\\UsersManager\\Menu' => __DIR__ . '/../..' . '/plugins/UsersManager/Menu.php',
         'Piwik\\Plugins\\UsersManager\\Model' => __DIR__ . '/../..' . '/plugins/UsersManager/Model.php',
@@ -3320,11 +3327,11 @@ class ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit1b2ddfdac6b40a64bde64f73f9f46857::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit312b95b52227cf425b95289844f52979::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit312b95b52227cf425b95289844f52979::$classMap;
 
         }, null, ClassLoader::class);
     }

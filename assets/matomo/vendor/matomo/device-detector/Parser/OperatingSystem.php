@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -9,6 +7,8 @@ declare(strict_types=1);
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
+declare(strict_types=1);
 
 namespace DeviceDetector\Parser;
 
@@ -77,6 +77,7 @@ class OperatingSystem extends AbstractParser
         'JME' => 'Java ME',
         'KOS' => 'KaiOS',
         'KNO' => 'Knoppix',
+        'KTV' => 'KreaTV',
         'KBT' => 'Kubuntu',
         'LIN' => 'GNU/Linux',
         'LBT' => 'Lubuntu',
@@ -100,6 +101,7 @@ class OperatingSystem extends AbstractParser
         'T64' => 'OSF1',
         'OBS' => 'OpenBSD',
         'OWR' => 'OpenWrt',
+        'OTV' => 'Opera TV',
         'ORD' => 'Ordissimo',
         'PCL' => 'PCLinuxOS',
         'PSP' => 'PlayStation Portable',
@@ -166,7 +168,7 @@ class OperatingSystem extends AbstractParser
             'LIN', 'ARL', 'DEB', 'KNO', 'MIN', 'UBT', 'KBT', 'XBT', 'LBT', 'FED',
             'RHT', 'VLN', 'MDR', 'GNT', 'SAB', 'SLW', 'SSE', 'CES', 'BTR', 'SAF',
             'ORD', 'TOS', 'RSO', 'DEE', 'FRE', 'MAG', 'FEN', 'CAI', 'PCL', 'HAS',
-            'LOS', 'DVK', 'ROK', 'OWR',
+            'LOS', 'DVK', 'ROK', 'OWR', 'OTV', 'KTV',
         ],
         'Mac'                   => ['MAC'],
         'Mobile Gaming Console' => ['PSP', 'NDS', 'XBX'],

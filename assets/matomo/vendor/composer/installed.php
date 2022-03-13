@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '4.7.1',
-        'version' => '4.7.1.0',
+        'pretty_version' => '4.8.0',
+        'version' => '4.8.0.0',
         'type' => 'application',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '4f1edc24869edefd37b0a78f2bda81708834f7f6',
+        'reference' => 'f2f6c3d1e7fe00cceb86feaa184049737f3ba45e',
         'name' => 'matomo/matomo',
         'dev' => false,
     ),
@@ -76,12 +76,12 @@
             'dev_requirement' => false,
         ),
         'matomo/device-detector' => array(
-            'pretty_version' => '5.0.3',
-            'version' => '5.0.3.0',
+            'pretty_version' => '5.0.4',
+            'version' => '5.0.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../matomo/device-detector',
             'aliases' => array(),
-            'reference' => '42c06b9031048b90f7bc6c9d530dbe135bc3e381',
+            'reference' => '99ea1953fc7f23f785e593ce1499a00586645530',
             'dev_requirement' => false,
         ),
         'matomo/doctrine-cache-fork' => array(
@@ -103,12 +103,12 @@
             'dev_requirement' => false,
         ),
         'matomo/matomo' => array(
-            'pretty_version' => '4.7.1',
-            'version' => '4.7.1.0',
+            'pretty_version' => '4.8.0',
+            'version' => '4.8.0.0',
             'type' => 'application',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '4f1edc24869edefd37b0a78f2bda81708834f7f6',
+            'reference' => 'f2f6c3d1e7fe00cceb86feaa184049737f3ba45e',
             'dev_requirement' => false,
         ),
         'matomo/matomo-php-tracker' => array(
@@ -190,12 +190,12 @@
             'dev_requirement' => false,
         ),
         'opis/closure' => array(
-            'pretty_version' => '3.6.2',
-            'version' => '3.6.2.0',
+            'pretty_version' => '3.6.3',
+            'version' => '3.6.3.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../opis/closure',
             'aliases' => array(),
-            'reference' => '06e2ebd25f2869e54a306dda991f7db58066f7f6',
+            'reference' => '3d81e4309d2a927abbe66df935f4bb60082805ad',
             'dev_requirement' => false,
         ),
         'pear/archive_tar' => array(
@@ -262,18 +262,18 @@
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(
-            'pretty_version' => 'v6.5.3',
-            'version' => '6.5.3.0',
+            'pretty_version' => 'v6.5.4',
+            'version' => '6.5.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
-            'reference' => 'baeb7cde6b60b1286912690ab0693c7789a31e71',
+            'reference' => 'c0d9f7dd3c2aa247ca44791e9209233829d82285',
             'dev_requirement' => false,
         ),
         'piwik/device-detector' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => '5.0.3',
+                0 => '5.0.4',
             ),
         ),
         'piwik/referrer-spam-blacklist' => array(
@@ -442,12 +442,12 @@
             'dev_requirement' => false,
         ),
         'twig/twig' => array(
-            'pretty_version' => 'v3.3.7',
-            'version' => '3.3.7.0',
+            'pretty_version' => 'v3.3.8',
+            'version' => '3.3.8.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../twig/twig',
             'aliases' => array(),
-            'reference' => '8f168c6ffa3ce76d1786b3cd52275424a3fc675b',
+            'reference' => '972d8604a92b7054828b539f2febb0211dd5945c',
             'dev_requirement' => false,
         ),
         'wikimedia/less.php' => array(

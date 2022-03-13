@@ -54,9 +54,12 @@ class MatomoConfigurationVariable extends BaseVariable
 
         $matomoUrl = $this->makeSetting('matomoUrl', $url, FieldConfig::TYPE_STRING, function (FieldConfig $field) {
             $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoUrlTitle');
-            $field->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+            $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
             $field->description = Piwik::translate('TagManager_MatomoConfigurationMatomoUrlDescription');
             $field->validators[] = new NotEmpty();
+            $field->transform = function ($value) {
+                return trim($value);
+            };
         });
 
         $trackerCodeGenerator = new TrackerCodeGenerator();
@@ -67,11 +70,12 @@ class MatomoConfigurationVariable extends BaseVariable
             $matomoUrl,
             $this->makeSetting('idSite', $idSite, FieldConfig::TYPE_STRING, function (FieldConfig $field) use ($matomoUrl, $url) {
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoIDSiteTitle');
-                $field->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 $field->description = Piwik::translate('TagManager_MatomoConfigurationMatomoIDSiteDescription');;
                 $field->validators[] = new NotEmpty();
                 $field->validators[] = new CharacterLength(0, 500);
                 $field->validate = function ($value) use ($matomoUrl, $url) {
+                    $value = trim($value);
                     if (is_numeric($value)) {
                         if ($matomoUrl->getValue() === $url) {
                             new Site($value);// we validate idSite when it points to this url
@@ -82,6 +86,9 @@ class MatomoConfigurationVariable extends BaseVariable
                     if ($posBracket === false || strpos($value, '}}', $posBracket) === false) {
                         throw new \Exception(Piwik::translate('TagManager_MatomoConfigurationMatomoIDSiteException'));
                     }
+                };
+                $field->transform = function ($value) {
+                    return trim($value);
                 };
             }),
             $this->makeSetting('enableLinkTracking', true, FieldConfig::TYPE_BOOL, function (FieldConfig $field) {
@@ -136,12 +143,18 @@ class MatomoConfigurationVariable extends BaseVariable
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoCookieDomainTitle');
                 $field->inlineHelp = Piwik::translate('TagManager_MatomoConfigurationMatomoCookieDomainInlineHelp', array('<br><strong>', '</strong>'));
                 $field->validators[] = new CharacterLength(0, 500);
-                $field->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
+                $field->transform = function ($value) {
+                    return trim($value);
+                };
             }),
             $this->makeSetting('cookiePath', '', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoCookiePathTitle');
                 $field->description = Piwik::translate('TagManager_MatomoConfigurationMatomoCookiePathDescription');
                 $field->validators[] = new CharacterLength(0, 500);
+                $field->transform = function ($value) {
+                    return trim($value);
+                };
             }),
             $this->makeSetting('cookieSameSite', 'Lax', FieldConfig::TYPE_STRING, function (FieldConfig $field) {
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoCookieSameSiteTitle');
@@ -181,7 +194,7 @@ class MatomoConfigurationVariable extends BaseVariable
 
                 $field->uiControl = FieldConfig::UI_CONTROL_MULTI_TUPLE;
                 $field1 = new FieldConfig\MultiPair('Domain', 'domain', FieldConfig::UI_CONTROL_TEXT);
-                $field1->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field1->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 $field->uiControlAttributes['field1'] = $field1->toArray();
             }),
 
@@ -193,7 +206,7 @@ class MatomoConfigurationVariable extends BaseVariable
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoUserIdTitle');
                 $field->description = Piwik::translate('TagManager_MatomoConfigurationMatomoUserIdDescription');
                 $field->validators[] = new CharacterLength(0, 500);
-                $field->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
             }),
             $this->makeSetting('customDimensions', array(), FieldConfig::TYPE_ARRAY, function (FieldConfig $field) {
                 $field->title = Piwik::translate('TagManager_MatomoConfigurationMatomoCustomDimensionsTitle');
@@ -223,9 +236,9 @@ class MatomoConfigurationVariable extends BaseVariable
 
                 $field->uiControl = FieldConfig::UI_CONTROL_MULTI_TUPLE;
                 $field1 = new FieldConfig\MultiPair('Index', 'index', FieldConfig::UI_CONTROL_TEXT);
-                $field1->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field1->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 $field2 = new FieldConfig\MultiPair('Value', 'value', FieldConfig::UI_CONTROL_TEXT);
-                $field2->customUiControlTemplateFile = self::FIELD_TEMPLATE_VARIABLE;
+                $field2->customFieldComponent = self::FIELD_VARIABLE_COMPONENT;
                 $field->uiControlAttributes['field1'] = $field1->toArray();
                 $field->uiControlAttributes['field2'] = $field2->toArray();
             }),

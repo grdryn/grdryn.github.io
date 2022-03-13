@@ -9,7 +9,6 @@
     :form-field="field"
     :model-value="modelValue"
     @update:model-value="onChange($event)"
-    :component="component"
   />
 </template>
 
@@ -34,7 +33,8 @@ export default defineComponent({
     description: String,
     introduction: String,
     title: String,
-    inlineHelp: String,
+    inlineHelp: [String, Object],
+    inlineHelpBind: Object,
     disabled: Boolean,
     uiControlAttributes: {
       type: Object,
@@ -57,6 +57,7 @@ export default defineComponent({
     min: Number,
     max: Number,
     component: null,
+    templateFile: String,
   },
   emits: ['update:modelValue'],
   components: {
@@ -85,7 +86,10 @@ export default defineComponent({
         description: this.description,
         introduction: this.introduction,
         inlineHelp: this.inlineHelp,
+        inlineHelpBind: this.inlineHelpBind,
         title: this.title,
+        component: this.component,
+        templateFile: this.templateFile, // BC for angularjs code that uses <Field> indirectly
         uiControlAttributes: {
           ...this.uiControlAttributes,
           disabled: this.disabled,

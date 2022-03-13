@@ -68,11 +68,6 @@ class Controller extends ControllerAdmin
         parent::__construct();
     }
 
-    static function orderByName($a, $b)
-    {
-        return strcmp($a['name'], $b['name']);
-    }
-
     /**
      * The "Manage Users and Permissions" Admin UI screen
      */
@@ -110,7 +105,7 @@ class Controller extends ControllerAdmin
             ['key' => 'superuser', 'value' => Piwik::translate('Installation_SuperUser'), 'disabled' => true],
         ];
         $view->filterAccessLevels = [
-            ['key' => '', 'value' => Piwik::translate('UsersManager_ShowAll')],
+            ['key' => '', 'value' => ''], // show all
             ['key' => 'noaccess', 'value' => Piwik::translate('UsersManager_PrivNone')],
             ['key' => 'some', 'value' => Piwik::translate('UsersManager_AtLeastView')],
             ['key' => 'view', 'value' => Piwik::translate('UsersManager_PrivView')],

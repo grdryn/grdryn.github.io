@@ -54,7 +54,13 @@
           class="inline-help"
           ref="inlineHelp"
           v-if="formField.inlineHelp"
-        />
+        >
+          <component
+            v-if="inlineHelpComponent"
+            :is="inlineHelpComponent"
+            v-bind="inlineHelpBind"
+          />
+        </span>
         <span v-show="showDefaultValue">
           <br />
           {{ translate('General_Default') }}:
@@ -72,7 +78,9 @@ import {
   ref,
   watch,
   Component,
+  markRaw,
 } from 'vue';
+import { useExternalPluginComponent } from 'CoreHome';
 import FieldCheckbox from './FieldCheckbox.vue';
 import FieldCheckboxArray from './FieldCheckboxArray.vue';
 import FieldExpandableSelect, {
@@ -93,6 +101,7 @@ import FieldTextArray from './FieldTextArray.vue';
 import FieldTextarea from './FieldTextarea.vue';
 import FieldTextareaArray from './FieldTextareaArray.vue';
 import { processCheckboxAndRadioAvailableValues } from './utilities';
+import FieldAngularJsTemplate from './FieldAngularJsTemplate.vue';
 
 const TEXT_CONTROLS = ['password', 'url', 'search', 'email'];
 const CONTROLS_SUPPORTING_ARRAY = ['textarea', 'checkbox', 'text'];
@@ -125,14 +134,21 @@ const CONTROL_TO_AVAILABLE_OPTION_PROCESSOR: Record<string, ProcessAvailableOpti
   FieldExpandableSelect: getExpandableSelectAvailableOptions,
 };
 
+interface ComponentReference {
+  plugin: string;
+  name: string;
+}
+
 interface FormField {
   availableValues: Record<string, unknown>;
   type: string;
   uiControlAttributes?: Record<string, unknown>;
   defaultValue: unknown;
   uiControl: string;
-  component: Component;
+  component: Component | ComponentReference;
   inlineHelp?: string;
+  inlineHelpBind?: unknown;
+  templateFile?: string;
 }
 
 interface OptionLike {
@@ -172,7 +188,10 @@ export default defineComponent({
     const setInlineHelp = (newVal?: string|HTMLElement|JQuery) => {
       let toAppend: HTMLElement|JQuery|string;
 
-      if (!newVal || !inlineHelpNode.value) {
+      if (!newVal
+        || !inlineHelpNode.value
+        || typeof (newVal as unknown as Record<string, unknown>).render === 'function'
+      ) {
         return;
       }
 
@@ -200,11 +219,40 @@ export default defineComponent({
     };
   },
   computed: {
+    inlineHelpComponent() {
+      const formField = this.formField as FormField;
+
+      const inlineHelpRecord = formField.inlineHelp as unknown as Record<string, unknown>;
+      if (inlineHelpRecord && typeof inlineHelpRecord.render === 'function') {
+        return formField.inlineHelp as Component;
+      }
+      return undefined;
+    },
+    inlineHelpBind() {
+      return this.inlineHelpComponent ? this.formField.inlineHelpBind : undefined;
+    },
     childComponent(): string|Component {
       const formField = this.formField as FormField;
 
       if (formField.component) {
-        return formField.component;
+        let component = formField.component as Component;
+
+        if ((formField.component as ComponentReference).plugin) {
+          const { plugin, name } = formField.component as ComponentReference;
+          if (!plugin || !name) {
+            throw new Error('Invalid component property given to piwik-field directive, must be '
+              + '{plugin: \'...\',name: \'...\'}');
+          }
+
+          component = useExternalPluginComponent(plugin, name);
+        }
+
+        return markRaw(component);
+      }
+
+      // backwards compatibility w/ settings that use templateFile property
+      if (formField.templateFile) {
+        return markRaw(FieldAngularJsTemplate);
       }
 
       const { uiControl } = formField;
@@ -236,9 +284,14 @@ export default defineComponent({
         && this.formField.uiControl !== 'checkbox'
         && this.formField.uiControl !== 'radio';
     },
+    /**
+     * @deprecated here for angularjs BC support. shouldn't be used directly, instead use
+     *             GroupedSetting.vue.
+     */
     showField() {
       if (!this.formField
         || !this.formField.condition
+        || !(this.formField.condition instanceof Function)
       ) {
         return true;
       }

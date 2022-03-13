@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit312b95b52227cf425b95289844f52979
+class ComposerStaticInit435bfe676dca7f1309310550dc639447
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -2082,6 +2082,7 @@ class ComposerStaticInit312b95b52227cf425b95289844f52979
         'Piwik\\Plugins\\Overlay\\API' => __DIR__ . '/../..' . '/plugins/Overlay/API.php',
         'Piwik\\Plugins\\Overlay\\Controller' => __DIR__ . '/../..' . '/plugins/Overlay/Controller.php',
         'Piwik\\Plugins\\Overlay\\Overlay' => __DIR__ . '/../..' . '/plugins/Overlay/Overlay.php',
+        'Piwik\\Plugins\\Overlay\\tests\\Unit\\OverlayTest' => __DIR__ . '/../..' . '/plugins/Overlay/tests/Unit/OverlayTest.php',
         'Piwik\\Plugins\\PagePerformance\\API' => __DIR__ . '/../..' . '/plugins/PagePerformance/API.php',
         'Piwik\\Plugins\\PagePerformance\\Archiver' => __DIR__ . '/../..' . '/plugins/PagePerformance/Archiver.php',
         'Piwik\\Plugins\\PagePerformance\\Categories\\PerformanceSubcategory' => __DIR__ . '/../..' . '/plugins/PagePerformance/Categories/PerformanceSubcategory.php',
@@ -2630,6 +2631,7 @@ class ComposerStaticInit312b95b52227cf425b95289844f52979
         'Piwik\\Plugins\\UserCountry\\Diagnostic\\GeolocationDiagnostic' => __DIR__ . '/../..' . '/plugins/UserCountry/Diagnostic/GeolocationDiagnostic.php',
         'Piwik\\Plugins\\UserCountry\\LocationProvider' => __DIR__ . '/../..' . '/plugins/UserCountry/LocationProvider.php',
         'Piwik\\Plugins\\UserCountry\\LocationProvider\\DefaultProvider' => __DIR__ . '/../..' . '/plugins/UserCountry/LocationProvider/DefaultProvider.php',
+        'Piwik\\Plugins\\UserCountry\\LocationProvider\\DisabledProvider' => __DIR__ . '/../..' . '/plugins/UserCountry/LocationProvider/DisabledProvider.php',
         'Piwik\\Plugins\\UserCountry\\Menu' => __DIR__ . '/../..' . '/plugins/UserCountry/Menu.php',
         'Piwik\\Plugins\\UserCountry\\ProfileSummary\\LocationSummary' => __DIR__ . '/../..' . '/plugins/UserCountry/ProfileSummary/LocationSummary.php',
         'Piwik\\Plugins\\UserCountry\\Reports\\Base' => __DIR__ . '/../..' . '/plugins/UserCountry/Reports/Base.php',
@@ -2752,6 +2754,7 @@ class ComposerStaticInit312b95b52227cf425b95289844f52979
         'Piwik\\ReportRenderer\\Tsv' => __DIR__ . '/../..' . '/core/ReportRenderer/Tsv.php',
         'Piwik\\Report\\ReportWidgetConfig' => __DIR__ . '/../..' . '/core/Report/ReportWidgetConfig.php',
         'Piwik\\Report\\ReportWidgetFactory' => __DIR__ . '/../..' . '/core/Report/ReportWidgetFactory.php',
+        'Piwik\\Scheduler\\RetryableException' => __DIR__ . '/../..' . '/core/Scheduler/RetryableException.php',
         'Piwik\\Scheduler\\Schedule\\Daily' => __DIR__ . '/../..' . '/core/Scheduler/Schedule/Daily.php',
         'Piwik\\Scheduler\\Schedule\\Hourly' => __DIR__ . '/../..' . '/core/Scheduler/Schedule/Hourly.php',
         'Piwik\\Scheduler\\Schedule\\Monthly' => __DIR__ . '/../..' . '/core/Scheduler/Schedule/Monthly.php',
@@ -3327,11 +3330,11 @@ class ComposerStaticInit312b95b52227cf425b95289844f52979
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit312b95b52227cf425b95289844f52979::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit312b95b52227cf425b95289844f52979::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit312b95b52227cf425b95289844f52979::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInit435bfe676dca7f1309310550dc639447::$classMap;
 
         }, null, ClassLoader::class);
     }

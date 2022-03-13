@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * Device Detector - The Universal Device Detection library for parsing User Agents
  *
@@ -9,6 +7,8 @@ declare(strict_types=1);
  *
  * @license http://www.gnu.org/licenses/lgpl.html LGPL v3 or later
  */
+
+declare(strict_types=1);
 
 namespace DeviceDetector\Parser\Client;
 
@@ -162,11 +162,13 @@ class Browser extends AbstractClientParser
         'GI' => 'GinxDroid Browser',
         'GB' => 'Glass Browser',
         'GE' => 'Google Earth',
+        'GP' => 'Google Earth Pro',
         'GO' => 'GOG Galaxy',
         'GR' => 'GoBrowser',
         'HB' => 'Harman Browser',
         'HS' => 'HasBrowser',
         'HA' => 'Hawk Turbo Browser',
+        'HQ' => 'Hawk Quick Browser',
         'HE' => 'Helio',
         'HO' => 'hola! Browser',
         'HJ' => 'HotJava',
@@ -291,6 +293,7 @@ class Browser extends AbstractClientParser
         'LY' => 'PolyBrowser',
         'PI' => 'PrivacyWall',
         'PC' => 'PSI Secure Browser',
+        'RW' => 'Reqwireless WebViewer',
         'PS' => 'Microsoft Edge',
         'QA' => 'Qazweb',
         'Q2' => 'QQ Browser Lite',
@@ -310,6 +313,7 @@ class Browser extends AbstractClientParser
         'SC' => 'SEMC-Browser',
         'SE' => 'Sogou Explorer',
         'SF' => 'Safari',
+        'PV' => 'Safari Technology Preview',
         'S5' => 'Safe Exam Browser',
         'SW' => 'SalamWeb',
         'S9' => 'Secure Browser',
@@ -319,6 +323,7 @@ class Browser extends AbstractClientParser
         'SY' => 'Sizzy',
         'SK' => 'Skyfire',
         'SS' => 'Seraphic Sraf',
+        'KK' => 'SiteKiosk',
         'SL' => 'Sleipnir',
         'S6' => 'Slimjet',
         'S7' => 'SP Browser',
@@ -412,7 +417,7 @@ class Browser extends AbstractClientParser
             'TB', 'TG', 'TR', 'TS', 'TU', 'TV', 'UB', 'UR', 'VE',
             'VG', 'VI', 'VM', 'WP', 'WH', 'XV', 'YJ', 'YN', 'FH',
             'B1', 'BO', 'HB', 'PC', 'LA', 'LT', 'PD', 'HR', 'HU',
-            'HP', 'IO', 'TP', 'CJ',
+            'HP', 'IO', 'TP', 'CJ', 'HQ',
         ],
         'Firefox'            => [
             'AX', 'BI', 'BF', 'BH', 'BN', 'C0', 'CU', 'EI', 'F1',
@@ -427,7 +432,7 @@ class Browser extends AbstractClientParser
         'NetSurf'            => ['NE'],
         'Nokia Browser'      => ['DO', 'NB', 'NO', 'NV'],
         'Opera'              => ['O1', 'OG', 'OH', 'OI', 'OM', 'ON', 'OO', 'OP', 'OX'],
-        'Safari'             => ['MF', 'S7', 'SF', 'SO'],
+        'Safari'             => ['MF', 'S7', 'SF', 'SO', 'PV'],
         'Sailfish Browser'   => ['SA'],
     ];
 
@@ -443,7 +448,7 @@ class Browser extends AbstractClientParser
         'MN', 'MZ', 'NX', 'OC', 'OI', 'OM', 'OZ', 'PU', 'PI',
         'PE', 'QU', 'RE', 'S0', 'S7', 'SA', 'SB', 'SG', 'SK',
         'ST', 'SU', 'T1', 'UH', 'UM', 'UT', 'VE', 'VV', 'WI',
-        'WP', 'YN', 'IO', 'IS',
+        'WP', 'YN', 'IO', 'IS', 'HQ', 'RW',
     ];
 
     /**

@@ -8,6 +8,12 @@
 import { IScope } from 'angular';
 import { DeepReadonly } from 'vue';
 
+export interface InstallInstructions {
+  description: string;
+  embedCode: string;
+  helpUrl: string;
+}
+
 // variable types
 export interface LookupTableEntry {
   match_value: string;
@@ -206,9 +212,21 @@ export interface Release {
   version_name: string;
 }
 
+export interface Release {
+  environment: string;
+  idcontainer: string;
+  idcontainerrelease: number;
+  idcontainerversion: number;
+  idsite: number;
+  release_date: string;
+  release_date_pretty: string;
+  release_login: string;
+  status: string;
+}
+
 export interface Version {
-  created_date: string;
-  created_date_pretty: string;
+  created_date?: string;
+  created_date_pretty?: string;
   description: string;
   environments: string[];
   idcontainer: string;
@@ -217,8 +235,15 @@ export interface Version {
   name: string;
   revision: number;
   status: string;
-  updated_date: string;
-  updated_date_pretty: string;
+  updated_date?: string;
+  updated_date_pretty?: string;
+  releases: Release[];
+}
+
+export interface ExportedVersion extends Version {
+  tags: Tag[];
+  triggers: Trigger[];
+  variables: Variable[];
 }
 
 export interface Container {
@@ -257,6 +282,12 @@ interface TagManagerHelper {
     idTag: number,
     callback: (trigger: Trigger) => void,
   ): void;
+
+  importVersion($scope: IScope|null, idContainer: string): void;
+
+  enablePreviewMode(idContainer: string, idContainerVersion: number): void;
+
+  showInstallCode(idContainer: string): void;
 }
 
 declare global {

@@ -68,7 +68,7 @@ class DeviceDetector
     /**
      * Current version number of DeviceDetector
      */
-    public const VERSION = '5.0.4';
+    public const VERSION = '5.0.5';
 
     /**
      * Constant used as value for unknown browser / os
@@ -949,6 +949,13 @@ class DeviceDetector
          * All devices running Opera TV Store are assumed to be a tv
          */
         if ($this->matchUserAgent('Opera TV Store| OMI/')) {
+            $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
+        }
+
+        /**
+         * All devices that contain Andr0id in string are assumed to be a tv
+         */
+        if ($this->matchUserAgent('Andr0id|Android TV')) {
             $this->device = AbstractDeviceParser::DEVICE_TYPE_TV;
         }
 

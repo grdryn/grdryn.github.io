@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => '4.8.0',
-        'version' => '4.8.0.0',
+        'pretty_version' => '4.9.0',
+        'version' => '4.9.0.0',
         'type' => 'application',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'f2f6c3d1e7fe00cceb86feaa184049737f3ba45e',
+        'reference' => '9766116a222eed57a99c3a723bbbb03f4c651168',
         'name' => 'matomo/matomo',
         'dev' => false,
     ),
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'davaxi/sparkline' => array(
-            'pretty_version' => '2.1.0',
-            'version' => '2.1.0.0',
+            'pretty_version' => '2.2.0',
+            'version' => '2.2.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../davaxi/sparkline',
             'aliases' => array(),
-            'reference' => 'dc73091cdda1d4218a99794e91a3232917620ed5',
+            'reference' => '7b1a978ec8c4d5f9eb9aa7b1af2efbc0130c6484',
             'dev_requirement' => false,
         ),
         'geoip2/geoip2' => array(
@@ -76,12 +76,12 @@
             'dev_requirement' => false,
         ),
         'matomo/device-detector' => array(
-            'pretty_version' => '5.0.4',
-            'version' => '5.0.4.0',
+            'pretty_version' => '5.0.5',
+            'version' => '5.0.5.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../matomo/device-detector',
             'aliases' => array(),
-            'reference' => '99ea1953fc7f23f785e593ce1499a00586645530',
+            'reference' => 'cd1283126b4cf5081fdc0381b5b5e7849333cfa4',
             'dev_requirement' => false,
         ),
         'matomo/doctrine-cache-fork' => array(
@@ -103,12 +103,12 @@
             'dev_requirement' => false,
         ),
         'matomo/matomo' => array(
-            'pretty_version' => '4.8.0',
-            'version' => '4.8.0.0',
+            'pretty_version' => '4.9.0',
+            'version' => '4.9.0.0',
             'type' => 'application',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'f2f6c3d1e7fe00cceb86feaa184049737f3ba45e',
+            'reference' => '9766116a222eed57a99c3a723bbbb03f4c651168',
             'dev_requirement' => false,
         ),
         'matomo/matomo-php-tracker' => array(
@@ -136,12 +136,14 @@
             ),
         ),
         'matomo/referrer-spam-list' => array(
-            'pretty_version' => '4.0.0',
-            'version' => '4.0.0.0',
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
             'type' => 'library',
             'install_path' => __DIR__ . '/../matomo/referrer-spam-list',
-            'aliases' => array(),
-            'reference' => 'afe4c1ea107ee7a8915a0d5eb0031cf0366608a8',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'reference' => '980999af6f2f42c715066ef6b8ea289d34ae88ee',
             'dev_requirement' => false,
         ),
         'matomo/searchengine-and-social-list' => array(
@@ -172,12 +174,12 @@
             'dev_requirement' => false,
         ),
         'monolog/monolog' => array(
-            'pretty_version' => '1.26.1',
-            'version' => '1.26.1.0',
+            'pretty_version' => '1.27.0',
+            'version' => '1.27.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../monolog/monolog',
             'aliases' => array(),
-            'reference' => 'c6b00f05152ae2c9b04a448f99c7590beb6042f5',
+            'reference' => '52ebd235c1f7e0d5e1b16464b695a28335f8e44a',
             'dev_requirement' => false,
         ),
         'mustangostang/spyc' => array(
@@ -262,18 +264,18 @@
             'dev_requirement' => false,
         ),
         'phpmailer/phpmailer' => array(
-            'pretty_version' => 'v6.5.4',
-            'version' => '6.5.4.0',
+            'pretty_version' => 'v6.6.0',
+            'version' => '6.6.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../phpmailer/phpmailer',
             'aliases' => array(),
-            'reference' => 'c0d9f7dd3c2aa247ca44791e9209233829d82285',
+            'reference' => 'e43bac82edc26ca04b36143a48bde1c051cfd5b1',
             'dev_requirement' => false,
         ),
         'piwik/device-detector' => array(
             'dev_requirement' => false,
             'replaced' => array(
-                0 => '5.0.4',
+                0 => '5.0.5',
             ),
         ),
         'piwik/referrer-spam-blacklist' => array(
@@ -352,8 +354,8 @@
             'dev_requirement' => false,
         ),
         'symfony/polyfill-ctype' => array(
-            'pretty_version' => 'v1.24.0',
-            'version' => '1.24.0.0',
+            'pretty_version' => 'v1.25.0',
+            'version' => '1.25.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-ctype',
             'aliases' => array(),
@@ -361,8 +363,8 @@
             'dev_requirement' => false,
         ),
         'symfony/polyfill-iconv' => array(
-            'pretty_version' => 'v1.24.0',
-            'version' => '1.24.0.0',
+            'pretty_version' => 'v1.25.0',
+            'version' => '1.25.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-iconv',
             'aliases' => array(),
@@ -370,8 +372,8 @@
             'dev_requirement' => false,
         ),
         'symfony/polyfill-mbstring' => array(
-            'pretty_version' => 'v1.24.0',
-            'version' => '1.24.0.0',
+            'pretty_version' => 'v1.25.0',
+            'version' => '1.25.0.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../symfony/polyfill-mbstring',
             'aliases' => array(),

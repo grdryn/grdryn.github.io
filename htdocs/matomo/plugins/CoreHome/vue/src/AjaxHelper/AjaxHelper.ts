@@ -12,7 +12,7 @@ import jqXHR = JQuery.jqXHR;
 import MatomoUrl from '../MatomoUrl/MatomoUrl';
 import Matomo from '../Matomo/Matomo';
 
-interface AjaxOptions {
+export interface AjaxOptions {
   withTokenInUrl?: boolean;
   postParams?: QueryParameters;
   headers?: Record<string, string>;
@@ -20,6 +20,7 @@ interface AjaxOptions {
   createErrorNotification?: boolean;
   abortController?: AbortController;
   returnResponseObject?: boolean;
+  errorElement?: HTMLElement|JQuery|JQLite|string;
 }
 
 interface ErrorResponse {
@@ -185,6 +186,9 @@ export default class AjaxHelper<T = any> { // eslint-disable-line
     if (options.withTokenInUrl) {
       helper.withTokenInUrl();
     }
+    if (options.errorElement) {
+      helper.setErrorElement(options.errorElement);
+    }
     helper.setFormat(options.format || 'json');
     if (Array.isArray(params)) {
       helper.setBulkRequests(...(params as QueryParameters[]));
@@ -264,11 +268,15 @@ export default class AjaxHelper<T = any> { // eslint-disable-line
 
     const arrayParams = ['compareSegments', 'comparePeriods', 'compareDates'];
     Object.keys(params).forEach((key) => {
-      const value = params[key];
+      let value = params[key];
       if (arrayParams.indexOf(key) !== -1
         && !value
       ) {
         return;
+      }
+
+      if (typeof value === 'boolean') {
+        value = value ? 1 : 0;
       }
 
       if (type.toLowerCase() === 'get') {

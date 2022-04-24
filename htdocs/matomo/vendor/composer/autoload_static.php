@@ -4,13 +4,13 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit435bfe676dca7f1309310550dc639447
+class ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd
 {
     public static $files = array (
-        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '8ac259e46781d60665439a97846a4a66' => __DIR__ . '/..' . '/lox/xhprof/xhprof_lib/utils/xhprof_lib.php',
         'e30869f87cf76d235b75bb956c7ba9ed' => __DIR__ . '/..' . '/lox/xhprof/xhprof_lib/utils/xhprof_runs.php',
         'b33e3d135e5d9e47d845c576147bda89' => __DIR__ . '/..' . '/php-di/php-di/src/functions.php',
@@ -755,6 +755,7 @@ class ComposerStaticInit435bfe676dca7f1309310550dc639447
         'PEAR_Exception' => __DIR__ . '/..' . '/pear/pear_exception/PEAR/Exception.php',
         'PHPMailer\\PHPMailer\\Exception' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/Exception.php',
         'PHPMailer\\PHPMailer\\OAuth' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuth.php',
+        'PHPMailer\\PHPMailer\\OAuthTokenProvider' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/OAuthTokenProvider.php',
         'PHPMailer\\PHPMailer\\PHPMailer' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/PHPMailer.php',
         'PHPMailer\\PHPMailer\\POP3' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/POP3.php',
         'PHPMailer\\PHPMailer\\SMTP' => __DIR__ . '/..' . '/phpmailer/phpmailer/src/SMTP.php',
@@ -816,7 +817,9 @@ class ComposerStaticInit435bfe676dca7f1309310550dc639447
         'Piwik\\AssetManager\\UIAssetCatalog' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetCatalog.php',
         'Piwik\\AssetManager\\UIAssetCatalogSorter' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetCatalogSorter.php',
         'Piwik\\AssetManager\\UIAssetFetcher' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher.php',
+        'Piwik\\AssetManager\\UIAssetFetcher\\Chunk' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher/Chunk.php',
         'Piwik\\AssetManager\\UIAssetFetcher\\JScriptUIAssetFetcher' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher/JScriptUIAssetFetcher.php',
+        'Piwik\\AssetManager\\UIAssetFetcher\\PluginUmdAssetFetcher' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher/PluginUmdAssetFetcher.php',
         'Piwik\\AssetManager\\UIAssetFetcher\\StaticUIAssetFetcher' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher/StaticUIAssetFetcher.php',
         'Piwik\\AssetManager\\UIAssetFetcher\\StylesheetUIAssetFetcher' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetFetcher/StylesheetUIAssetFetcher.php',
         'Piwik\\AssetManager\\UIAssetMerger' => __DIR__ . '/../..' . '/core/AssetManager/UIAssetMerger.php',
@@ -1166,6 +1169,7 @@ class ComposerStaticInit435bfe676dca7f1309310550dc639447
         'Piwik\\Plugins\\Actions\\Segment' => __DIR__ . '/../..' . '/plugins/Actions/Segment.php',
         'Piwik\\Plugins\\Actions\\Tracker\\ActionsRequestProcessor' => __DIR__ . '/../..' . '/plugins/Actions/Tracker/ActionsRequestProcessor.php',
         'Piwik\\Plugins\\Actions\\VisitorDetails' => __DIR__ . '/../..' . '/plugins/Actions/VisitorDetails.php',
+        'Piwik\\Plugins\\Actions\\tests\\System\\ApiInvalidParameterTypeTest' => __DIR__ . '/../..' . '/plugins/Actions/tests/System/ApiInvalidParameterTypeTest.php',
         'Piwik\\Plugins\\Actions\\tests\\System\\ApiTest' => __DIR__ . '/../..' . '/plugins/Actions/tests/System/ApiTest.php',
         'Piwik\\Plugins\\Annotations\\API' => __DIR__ . '/../..' . '/plugins/Annotations/API.php',
         'Piwik\\Plugins\\Annotations\\AnnotationList' => __DIR__ . '/../..' . '/plugins/Annotations/AnnotationList.php',
@@ -3330,11 +3334,11 @@ class ComposerStaticInit435bfe676dca7f1309310550dc639447
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit435bfe676dca7f1309310550dc639447::$fallbackDirsPsr0;
-            $loader->classMap = ComposerStaticInit435bfe676dca7f1309310550dc639447::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd::$fallbackDirsPsr0;
+            $loader->classMap = ComposerStaticInitd58ecdf4b12fb62b169fd73b9ddc1dfd::$classMap;
 
         }, null, ClassLoader::class);
     }

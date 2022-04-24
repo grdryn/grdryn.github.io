@@ -244,7 +244,10 @@ class TagManager extends \Piwik\Plugin
         return StaticContainer::get('Piwik\Plugins\TagManager\Model\Container');
     }
 
-    public function regenerateReleasedContainers()
+    /**
+     * @param bool $onlyWithPreviewRelease if true only regenerates containers if there is a preview release.
+     */
+    public function regenerateReleasedContainers($onlyWithPreviewRelease = false)
     {
         $pluginManager = Plugin\Manager::getInstance();
         if (!$pluginManager->isPluginInstalled('TagManager')) {
@@ -265,7 +268,7 @@ class TagManager extends \Piwik\Plugin
             return;
         }
 
-        Access::doAsSuperUser(function () {
+        Access::doAsSuperUser(function () use ($onlyWithPreviewRelease) {
             // we need to run as super user because after a core update the user might not be an admin etc
             // (and admin is needed for debug action)
             $containerModel = StaticContainer::get('Piwik\Plugins\TagManager\Model\Container');
@@ -273,8 +276,12 @@ class TagManager extends \Piwik\Plugin
                 $containers = $containerModel->getActiveContainersInfo();
                 foreach ($containers as $container) {
                     try {
-                        Context::changeIdSite($container['idsite'], function () use ($containerModel, $container) {
-                            $containerModel->generateContainer($container['idsite'], $container['idcontainer']);
+                        Context::changeIdSite($container['idsite'], function () use ($containerModel, $container, $onlyWithPreviewRelease) {
+                            if ($onlyWithPreviewRelease) {
+                                $containerModel->generateContainerIfHasPreviewRelease($container['idsite'], $container['idcontainer']);
+                            } else {
+                                $containerModel->generateContainer($container['idsite'], $container['idcontainer']);
+                            }
                         });
                     } catch (UnexpectedWebsiteFoundException $e) {
                         // website was removed, ignore
@@ -542,46 +549,14 @@ class TagManager extends \Piwik\Plugin
         $stylesheets[] = "plugins/TagManager/vue/src/Tag/TagEdit.less";
         $stylesheets[] = "plugins/TagManager/vue/src/VariableSelectType/VariableSelectType.less";
         $stylesheets[] = "plugins/TagManager/vue/src/Field/FieldVariableTemplate.less";
-        $stylesheets[] = "plugins/TagManager/angularjs/containerSelector/container-selector.less";
-        $stylesheets[] = "plugins/TagManager/angularjs/manageVersion/edit.directive.less";
+        $stylesheets[] = "plugins/TagManager/vue/src/ContainerSelector/ContainerSelector.less";
+        $stylesheets[] = "plugins/TagManager/vue/src/Version/VersionEdit.less";
     }
 
     public function getJsFiles(&$jsFiles)
     {
         $jsFiles[] = "plugins/TagManager/libs/jquery-timepicker/jquery.timepicker.min.js";
-
         $jsFiles[] = "plugins/TagManager/javascripts/tagmanagerHelper.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/model.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/list.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/list.directive.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/edit.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/edit.directive.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/manage.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageContainer/manage.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/model.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/diff.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/list.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/list.directive.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/edit.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/edit.directive.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/manage.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageVersion/manage.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/manageInstallCode/manage-install-tag-code.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/manageInstallCode/manage-install-tag-code.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/containerDashboard/container-dashboard.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/containerDashboard/container-dashboard.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/containerSelector/container-selector.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/containerSelector/container-selector.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/tagmanagerTrackingCode/tagmanager.controller.js";
-        $jsFiles[] = "plugins/TagManager/angularjs/tagmanagerTrackingCode/tagmanager.directive.js";
-
-        $jsFiles[] = "plugins/TagManager/angularjs/debugging/debugging.controller.js";
     }
 
     private function hasMeasurableTypeWebsite($idSite)

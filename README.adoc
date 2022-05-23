@@ -1,0 +1,19 @@
+= grdryn's blog
+
+== Connecting to instance console over SSH
+
+Sometimes files don't get deleted as expected when updating components such as Matomo.
+Do the following to get access to be able to clean up:
+
+. Enable temporary console for the site in Gandi
+. Ensure the following is added to `+~/.ssh/config+`:
+
+----
+Host blog_console
+    User <user from console>
+    HostName <hostname from console>
+    HostKeyAlgorithms +ssh-rsa
+    PubkeyAcceptedKeyTypes +ssh-rsa
+----
+
+. Connect with `+ssh blog_console+`

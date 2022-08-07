@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Wed, 25 May 2022 19:35:57 +0100</pubDate>
-    <lastBuildDate>Wed, 25 May 2022 19:35:57 +0100</lastBuildDate>
+    <pubDate>Sun, 7 Aug 2022 18:05:54 +0100</pubDate>
+    <lastBuildDate>Sun, 7 Aug 2022 18:05:54 +0100</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>

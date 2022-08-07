@@ -4,6 +4,25 @@ This is the Developer Changelog for Matomo platform developers. All changes in o
 
 The Product Changelog at **[matomo.org/changelog](https://matomo.org/changelog)** lets you see more details about any Matomo release, such as the list of new guides and FAQs, security fixes, and links to all closed issues. 
 
+## Matomo 4.11.0
+
+### Breaking Changes
+
+* The user management UI no longer allows direct creation of a new user (with a password). Instead an invitation can be sent via email. Directly creating a new user is still possible using the API.
+
+### New config.ini.php settings
+* A general config setting `force_matomo_http_request` defaulting to 0. If the Matomo instance can't make requests to matomo.org via HTTPS this can be set to 1 to force matomo marketplace and matomo api requests to use HTTP instead of HTTPS.
+
+#### New PHP events
+
+* Added new event `UsersManager.inviteUser.end`, which is triggered after a new user has been invited
+* Added new event `UsersManager.inviteUser.resendInvite`, which is triggered after the invitation to a user has been resent
+* Added new event `UsersManager.inviteUser.accepted`, which is triggered after an invitation has been accepted
+* Added new event `UsersManager.inviteUser.declined`, which is triggered after an invitation has been declined
+
+* The existing event `UsersManager.addUser.end` will only be triggered when a user is added using the API.
+
+
 ## Matomo 4.10.0
 
 ### Breaking Changes

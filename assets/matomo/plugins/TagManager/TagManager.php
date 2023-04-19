@@ -35,6 +35,7 @@ use Piwik\Site;
 use Piwik\View;
 use Piwik\Context;
 use Psr\Log\LoggerInterface;
+use Piwik\SettingsPiwik;
 
 class TagManager extends \Piwik\Plugin
 {
@@ -47,7 +48,7 @@ class TagManager extends \Piwik\Plugin
             'AssetManager.getJavaScriptFiles' => 'getJsFiles',
             'Translate.getClientSideTranslationKeys' => 'getClientSideTranslationKeys',
             'CoreUpdater.update.end' => 'onPluginActivateOrInstall',
-            'PluginManager.pluginActivated' => 'onPluginActivateOrInstall',
+            'PluginManager.pluginActivated' => 'onPluginActivated',
             'PluginManager.pluginInstalled' => 'onPluginActivateOrInstall',
             'PluginManager.pluginDeactivated' => 'onPluginActivateOrInstall',
             'PluginManager.pluginUninstalled' => 'onPluginActivateOrInstall',
@@ -196,6 +197,47 @@ class TagManager extends \Piwik\Plugin
             } catch (\Exception $e) {
                 Log::warning('Failed to regenerate containers: ' . $e->getMessage());
             }
+        }
+    }
+
+    public function onPluginActivated($pluginName = '')
+    {
+        if ($pluginName === 'TagManager') {
+            //Need to manually set this since values inc config.php is not loaded
+            $pluginDirectory = Plugin\Manager::getPluginDirectory('TagManager');
+            $configPhp = include $pluginDirectory . '/config/config.php';
+            foreach ($configPhp as $key => $val) {
+                if (!StaticContainer::getContainer()->has($key)) {
+                    StaticContainer::getContainer()->set($key, $val);
+                }
+            }
+
+            $idSite = 1;
+
+            try {
+                Site::getSite($idSite);
+            } catch (UnexpectedWebsiteFoundException $e) {
+                return; // site not exists
+            }
+            $containerModel = StaticContainer::get('Piwik\Plugins\TagManager\Model\Container');
+            if ($containerModel->getContainers($idSite)) {
+                // already has a container
+                return;
+            }
+
+            if (!SettingsPiwik::getPiwikUrl()) {
+                // fixes URL in matomo container variable is empty and cannot be detected
+                SettingsPiwik::overwritePiwikUrl('https://' . SettingsPiwik::getPiwikInstanceId());
+            }
+
+            try {
+                StaticContainer::getContainer()->get('Piwik\Plugins\TagManager\Context\Storage\StorageInterface'); //this will throw an error on cloud, so we need to catch this and avoid the exception stack trace
+                Request::processRequest('TagManager.createDefaultContainerForSite', ['idSite' => $idSite], []);
+            } catch (\Exception $e) {
+                //Do nothing here, it fails on cloud always
+            }
+        } else {
+            $this->onPluginActivateOrInstall($pluginName);
         }
     }
 

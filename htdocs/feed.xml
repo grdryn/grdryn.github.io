@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>blog.grdryn.me</description>
     <language>en-gb</language>
-    <pubDate>Fri, 7 Jul 2023 18:34:43 +0100</pubDate>
-    <lastBuildDate>Fri, 7 Jul 2023 18:34:43 +0100</lastBuildDate>
+    <pubDate>Thu, 3 Aug 2023 19:22:37 +0100</pubDate>
+    <lastBuildDate>Thu, 3 Aug 2023 19:22:37 +0100</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>

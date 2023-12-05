@@ -6,8 +6,8 @@
     <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Thu, 3 Aug 2023 19:22:37 +0100</pubDate>
-    <lastBuildDate>Thu, 3 Aug 2023 19:22:37 +0100</lastBuildDate>
+    <pubDate>Tue, 5 Dec 2023 09:58:39 +0000</pubDate>
+    <lastBuildDate>Tue, 5 Dec 2023 09:58:39 +0000</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>
@@ -60,7 +60,7 @@ flatpak README&lt;/a&gt; for the tip):&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;bash&quot;&gt;flatpak override --user --filesystem=xdg-run/gnupg:ro org.gnu.emacs&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
@@ -87,7 +87,7 @@ available to systemd &amp;amp; enable &amp;amp; start the socket:&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;listingblock&quot;&gt;
 &lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
+&lt;pre class=&quot;prettyprint highlight&quot;&gt;&lt;code data-lang=&quot;bash&quot;&gt;sudo ln -s /usr/share/doc/gnupg2/examples/systemd-user/gpg-agent.s* /etc/systemd/user/
 systemctl --user enable gpg-agent.socket
 systemctl --user start gpg-agent.socket&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;

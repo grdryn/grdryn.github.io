@@ -12,9 +12,11 @@ use Piwik\Access;
 use Piwik\API\Request;
 use Piwik\Common;
 use Piwik\Nonce;
+use Piwik\Period\PeriodValidator;
 use Piwik\Piwik;
 use Piwik\Plugins\ImageGraph\ImageGraph;
 use Piwik\Plugins\LanguagesManager\LanguagesManager;
+use Piwik\Plugins\SegmentEditor\SegmentEditor;
 use Piwik\Plugins\SitesManager\API as APISitesManager;
 use Piwik\View;
 
@@ -46,7 +48,11 @@ class Controller extends \Piwik\Plugin\Controller
         $view->displayFormats = ScheduledReports::getDisplayFormats();
 
         $view->paramPeriods = [];
-        foreach (Piwik::$idPeriods as $label => $id) {
+
+        $periodValidator = new PeriodValidator();
+        $allowedPeriods = $periodValidator->getPeriodsAllowedForAPI();
+
+        foreach ($allowedPeriods as $label) {
             if ($label === 'range') {
                 continue;
             }
@@ -111,8 +117,8 @@ class Controller extends \Piwik\Plugin\Controller
             $savedSegmentsById = array(
                 '' => Piwik::translate('SegmentEditor_DefaultAllVisits')
             );
-            $response = Request::processRequest("SegmentEditor.getAll", ['idSite' => $this->idSite], $defaultRequest = []);
-            foreach ($response as $savedSegment) {
+            $allSegments = SegmentEditor::getAllSegmentsForSite($this->idSite);
+            foreach ($allSegments as $savedSegment) {
                 $savedSegmentsById[$savedSegment['idsegment']] = $savedSegment['name'];
             }
             $view->savedSegmentsById = $savedSegmentsById;

@@ -103,7 +103,6 @@
         "GeolocationAnonymizeIpNote": "Note : La géolocalisation aura à peu près les mêmes résultats avec 1 octet rendu anonyme. Avec 2 octets ou plus, elle sera inexacte.",
         "GetPurgeEstimate": "Obtenir l'estimation de la purge",
         "HowDoIAskForConsent": "Comment demander le consentement des utilisateurs ?",
-        "HowDoIAskForConsentIntroduction": "Pour tout savoir sur %1$sla demande de cookies ou le suivi du consentement, consultez notre guide d'intégration.%2$s",
         "Imprint": "Impression",
         "ImprintUrl": "URL d'empreinte",
         "ImprintUrlDescription": "Un lien vers vos pages d' empreinte.",
@@ -144,7 +143,7 @@
         "PseudonymizeUserIdNote2": "Note : remplacer par un pseudonyme n'est pas identique à une anonymisation des données. Dans les termes énoncés par RGPD : un pseudonyme identifiant l'utilisateur compte toujours comme une données personnelle. L'identifiant utilisateur originel pourrait toujours être identifié si certaines informations complémentaires étaient disponibles (auxquelles uniquement Matomo et votre traitement de données ont accès).",
         "PurgeNow": "Purger la base de données maintenant",
         "PurgeNowConfirm": "Vous êtes sur le point de supprimer définitivement les données de votre base de données. Êtes-vous sûr(e) de vouloir continuer ?",
-        "PurgingData": "Purge des données...",
+        "PurgingData": "Purge des données…",
         "RawDataNeverRemoved": "les données brutes des visites et des actions ne sont <strong>jamais</strong> supprimées.",
         "RawDataRemovedAfter": "toutes les données brutes de visites et d'actions sont supprimées après %1$s.",
         "RecommendedForPrivacy": "Recommandé pour le respect de la vie privée",
@@ -186,8 +185,6 @@
         "UsersOptOut": "Désinscription des utilisateurs",
         "VisitsMatchedCriteria": "Ces visites correspondent aux critères sélectionnés.",
         "VisitsSuccessfullyExported": "Les visites ont été exportées avec succès",
-        "WhenConsentIsNeeded1": "Dans le cadre de %1$sla réglementation sur la protection de la vie privée RGPD%2$s, lorsque vous traitez des données personnelles, vous devrez demander dans certain cas le consentement des utilisateurs. Pour savoir si vous avez besoin du consentement, vous devez déterminer si votre base légale pour le traitement des données à caractère personnel est le \"consentement\" ou un \"intérêt légitime\", ou si vous pouvez éviter de collecter des données à caractère personnel. Nous recommandons d'en savoir plus sur %3$sla base légale du RGPD pour Matomo%4$s.",
-        "WhenConsentIsNeeded2": "A noter que si vous avez besoin du consentement des utilisateurs mais que vous ne pouvez pas prouver que vous l'avez eu par le passé, alors nous vous recommandons %1$sd'anonymiser les données brutes de suivi collectées précédemment%2$s.",
         "WhenDoINeedConsent": "Quand dois-je demander le consentement de l'utilisateur ?"
     }
 }

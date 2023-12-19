@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block head %}
+    {% set deferjs = true %}
     {{ parent() }}
 {% endblock %}
 
@@ -45,9 +46,9 @@
         </div>
 
         {% if showImageDiv is defined and imageToShow is defined %}
-            <div class="col l4 hide-on-med-and-down onboardingImage">
-                <img class="responsive-img" src="{{ imageToShow }}">
-            </div>
+        <div class="col l4 hide-on-med-and-down onboardingImage">
+            <img class="responsive-img" src="{{ imageToShow }}">
+        </div>
         {% endif %}
     </section>
 

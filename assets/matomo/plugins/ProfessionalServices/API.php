@@ -12,6 +12,7 @@ namespace Piwik\Plugins\ProfessionalServices;
 
 use Piwik\Piwik;
 use Piwik\Plugins\ProfessionalServices\Widgets\DismissibleWidget;
+use Piwik\Request;
 
 class API extends \Piwik\Plugin\API
 {
@@ -30,13 +31,14 @@ class API extends \Piwik\Plugin\API
      *
      * @internal
      *
-     * @param string $widgetName
      * @return bool
      * @throws \Piwik\NoAccessException
      */
-    public function dismissWidget(string $widgetName): bool
+    public function dismissWidget(): bool
     {
         Piwik::checkUserIsNotAnonymous();
+
+        $widgetName = Request::fromRequest()->getStringParameter('widgetName');
 
         if (!DismissibleWidget::exists($widgetName)) {
             throw new \Exception('Can\'t dismiss unknown widget ' . $widgetName);

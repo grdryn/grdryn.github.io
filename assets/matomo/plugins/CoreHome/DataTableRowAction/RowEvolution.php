@@ -12,6 +12,7 @@ use Exception;
 use Piwik\API\DataTablePostProcessor;
 use Piwik\API\Request;
 use Piwik\Common;
+use Piwik\DataTable\DataTableInterface;
 use Piwik\Date;
 use Piwik\Metrics;
 use Piwik\NumberFormatter;
@@ -146,9 +147,9 @@ class RowEvolution
         $popoverTitle = '';
         if ($this->rowLabel) {
             $icon = $this->rowIcon ? '<img height="16px" src="' . $this->rowIcon . '" alt="">' : '';
-            $rowLabel = str_replace('/', '<wbr>/', str_replace('&', '<wbr>&', Common::fixLbrace($this->rowLabel) ));
+            $rowLabel = str_replace('/', '<wbr>/', str_replace('&', '<wbr>&', $this->rowLabel ));
             $metricsText = sprintf(Piwik::translate('RowEvolution_MetricsFor'), $this->dimension . ': ' . $icon . ' ' . $rowLabel);
-            $popoverTitle = $icon . ' ' . Common::fixLbrace($this->rowLabel);
+            $popoverTitle = $icon . ' ' . $this->rowLabel;
         }
 
         $view->availableMetricsText = $metricsText;
@@ -416,16 +417,17 @@ class RowEvolution
         // By default, use the specified label
         $rowLabel = Common::sanitizeInputValue($report['label']);
 
-        // If the dataTable specifies a label_html, use this instead
         /** @var $dataTableMap \Piwik\DataTable\Map */
         $dataTableMap = $report['reportData'];
 
         // If the dataTable specifies a label_html, use this instead
-        $labelPretty = $dataTableMap->getColumn('label_html');
-        $labelPretty = array_filter($labelPretty, 'strlen');
-        $labelPretty = current($labelPretty);
-        if (!empty($labelPretty)) {
-            return $labelPretty;
+        if ($dataTableMap instanceof DataTableInterface) {
+            $labelPretty = $dataTableMap->getColumn('label_html');
+            $labelPretty = array_filter($labelPretty, 'strlen');
+            $labelPretty = current($labelPretty);
+            if (!empty($labelPretty)) {
+                return $labelPretty;
+            }
         }
         return $rowLabel;
     }

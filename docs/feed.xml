@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gerard Ryan's Blog</title>
-    <link>http://localhost:8820/</link>
-    <atom:link href="http://localhost:8820//feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://blog.grdryn.me</link>
+    <atom:link href="https://blog.grdryn.me/feed.xml" rel="self" type="application/rss+xml" />
     <description>blog.grdryn.me</description>
     <language>en-gb</language>
-    <pubDate>Tue, 8 Oct 2024 01:38:52 +0100</pubDate>
-    <lastBuildDate>Tue, 8 Oct 2024 01:38:52 +0100</lastBuildDate>
+    <pubDate>Tue, 8 Oct 2024 02:00:49 +0100</pubDate>
+    <lastBuildDate>Tue, 8 Oct 2024 02:00:49 +0100</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>
-      <link>http://localhost:8820//blog/flatpak-emacs-with-gpg-agent.html</link>
+      <link>https://blog.grdryn.me/blog/flatpak-emacs-with-gpg-agent.html</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/flatpak-emacs-with-gpg-agent.html</guid>
       <description>
@@ -124,7 +124,7 @@ a more Emacs-native way, you can do the following:&lt;/p&gt;
     </item>
     <item>
       <title>Testing Jenkins Pipeline shared libraries</title>
-      <link>http://localhost:8820//blog/jenkins-pipeline-library-testing.html</link>
+      <link>https://blog.grdryn.me/blog/jenkins-pipeline-library-testing.html</link>
       <pubDate>Sun, 25 Mar 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/jenkins-pipeline-library-testing.html</guid>
       <description>
@@ -317,7 +317,7 @@ Otherwise, you could use the &apos;Replay&apos; functionality in the Pipeline
     </item>
     <item>
       <title>Trusting Jenkins Pipelines in public repositories</title>
-      <link>http://localhost:8820//blog/jenkins-pipeline-trust.html</link>
+      <link>https://blog.grdryn.me/blog/jenkins-pipeline-trust.html</link>
       <pubDate>Sun, 11 Mar 2018 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/jenkins-pipeline-trust.html</guid>
       <description>
@@ -461,7 +461,7 @@ Additionally, if you find any issues or have any improvements,
     </item>
     <item>
       <title>My Podcast list in 2016 🎧</title>
-      <link>http://localhost:8820//blog/r/podcast-list-2016.html</link>
+      <link>https://blog.grdryn.me/blog/r/podcast-list-2016.html</link>
       <pubDate>Sat, 9 Jul 2016 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/podcast-list-2016.html</guid>
       <description>
@@ -801,7 +801,7 @@ The shorter length is nice in my experience; as although topics aren&amp;#8217;t
     </item>
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>
-      <link>http://localhost:8820//blog/fedora/pumpio-clients-for-fedora.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>
       <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/pumpio-clients-for-fedora.html</guid>
       <description>
@@ -926,7 +926,7 @@ made the COPRs&lt;/p&gt;
     </item>
     <item>
       <title>Prank - alias sudo in BASH (or why you should start escaping privilege-escalating commands)</title>
-      <link>http://localhost:8820//blog/fedora/prank-alias-sudo-in-bash.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/prank-alias-sudo-in-bash.html</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/prank-alias-sudo-in-bash.html</guid>
       <description>
@@ -970,7 +970,7 @@ but one can see how malice could easily be introduced.&lt;/p&gt;
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 13 (Final)</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</link>
       <pubDate>Mon, 20 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-13.html</guid>
       <description>
@@ -1165,7 +1165,7 @@ that are given to successful students are usually great and I really want one
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 12</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</link>
       <pubDate>Mon, 13 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-12.html</guid>
       <description>
@@ -1233,7 +1233,7 @@ tomorrow is another day!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora Java Spin - GSOC 2012 update 11</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</link>
       <pubDate>Mon, 6 Aug 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-11.html</guid>
       <description>
@@ -1303,7 +1303,7 @@ right!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss(?) Spin - GSOC 2012 update 10</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</link>
       <pubDate>Mon, 30 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-10.html</guid>
       <description>
@@ -1358,7 +1358,7 @@ Spin. More on this in the next post I’m sure!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 9</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</link>
       <pubDate>Mon, 23 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-9.html</guid>
       <description>
@@ -1428,7 +1428,7 @@ on the subject!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 8</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</link>
       <pubDate>Mon, 16 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-8.html</guid>
       <description>
@@ -1537,7 +1537,7 @@ and frolicks…same bat time, same bat channel!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 7</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</link>
       <pubDate>Mon, 9 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-7.html</guid>
       <description>
@@ -1727,7 +1727,7 @@ took quite a while to upload!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 6</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</link>
       <pubDate>Mon, 2 Jul 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-6.html</guid>
       <description>
@@ -1825,7 +1825,7 @@ done, mo matter how long it will take!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 5</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</link>
       <pubDate>Mon, 25 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-5.html</guid>
       <description>
@@ -1905,7 +1905,7 @@ it’s late, and I’ve already wasted enough energy today thinking about them!&
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 4</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</link>
       <pubDate>Mon, 18 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-4.html</guid>
       <description>
@@ -1978,7 +1978,7 @@ same time! For the next milestone release, I’ll aim to get an image up!&lt;/p&
     </item>
     <item>
       <title>Creating the Fedora JBoss Spin (GSOC 2012)</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</link>
       <pubDate>Thu, 14 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.5.html</guid>
       <description>
@@ -2039,7 +2039,7 @@ on a USB stick and live boot from that!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 3</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</link>
       <pubDate>Mon, 11 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-3.html</guid>
       <description>
@@ -2120,7 +2120,7 @@ to build.&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 2</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</link>
       <pubDate>Sun, 3 Jun 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-2.html</guid>
       <description>
@@ -2242,7 +2242,7 @@ much else yet though!&lt;/p&gt;
     </item>
     <item>
       <title>Fedora JBoss Spin - GSOC 2012 update 1</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</link>
       <pubDate>Sun, 27 May 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-1.html</guid>
       <description>
@@ -2299,7 +2299,7 @@ stuff from svn and cvs, but hopefully I won’t have that problem too often!&lt;
     </item>
     <item>
       <title>Google Summer of Code 2012 - Fedora JBoss Spin</title>
-      <link>http://localhost:8820//blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</link>
       <pubDate>Tue, 24 Apr 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gsoc/fedora-gsoc-java-spin-0.html</guid>
       <description>
@@ -2323,7 +2323,7 @@ available on the wiki&lt;/a&gt;. I’ll update here with any interesting progres
     </item>
     <item>
       <title>What ARE YOU looking for?</title>
-      <link>http://localhost:8820//blog/r/nuig-grammar.html</link>
+      <link>https://blog.grdryn.me/blog/r/nuig-grammar.html</link>
       <pubDate>Tue, 27 Mar 2012 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/r/nuig-grammar.html</guid>
       <description>
@@ -2336,7 +2336,7 @@ available on the wiki&lt;/a&gt;. I’ll update here with any interesting progres
     </item>
     <item>
       <title>Adjust screen brightness on fedora 16 - try this if it’s not working</title>
-      <link>http://localhost:8820//blog/fedora/f16-brightness.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/f16-brightness.html</link>
       <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/f16-brightness.html</guid>
       <description>
@@ -2372,7 +2372,7 @@ It’s listed in the ‘Common F16 Bugs’ here:&lt;/p&gt;
     </item>
     <item>
       <title>Add applications to autostart on login, in GNOME 3</title>
-      <link>http://localhost:8820//blog/fedora/gnome3-add-apps-to-startup.html</link>
+      <link>https://blog.grdryn.me/blog/fedora/gnome3-add-apps-to-startup.html</link>
       <pubDate>Sat, 14 May 2011 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/fedora/gnome3-add-apps-to-startup.html</guid>
       <description>

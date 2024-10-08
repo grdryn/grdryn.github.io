@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts by grdryn related to Fedora</title>
-    <link>https://blog.grdryn.me</link>
-    <atom:link href="https://blog.grdryn.me/customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
+    <link>http://localhost:8820/</link>
+    <atom:link href="http://localhost:8820//customfeeds/fedora.xml" rel="self" type="application/rss+xml" />
     <description>This feed is for Fedora planet</description>
     <language>en-gb</language>
-    <pubDate>Tue, 19 Dec 2023 16:02:59 +0000</pubDate>
-    <lastBuildDate>Tue, 19 Dec 2023 16:02:59 +0000</lastBuildDate>
+    <pubDate>Tue, 8 Oct 2024 01:38:52 +0100</pubDate>
+    <lastBuildDate>Tue, 8 Oct 2024 01:38:52 +0100</lastBuildDate>
 
     <item>
       <title>Using gpg-agent with Emacs flatpak</title>
-      <link>https://blog.grdryn.me/blog/flatpak-emacs-with-gpg-agent.html</link>
+      <link>http://localhost:8820//blog/flatpak-emacs-with-gpg-agent.html</link>
       <pubDate>Mon, 13 Apr 2020 00:00:00 +0100</pubDate>
       <guid isPermaLink="false">blog/flatpak-emacs-with-gpg-agent.html</guid>
       <description>
@@ -124,7 +124,7 @@ a more Emacs-native way, you can do the following:&lt;/p&gt;
     </item>
     <item>
       <title>Two Pump.io client apps for Fedora (COPRs)</title>
-      <link>https://blog.grdryn.me/blog/fedora/pumpio-clients-for-fedora.html</link>
+      <link>http://localhost:8820//blog/fedora/pumpio-clients-for-fedora.html</link>
       <pubDate>Mon, 26 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/pumpio-clients-for-fedora.html</guid>
       <description>
@@ -249,7 +249,7 @@ made the COPRs&lt;/p&gt;
     </item>
     <item>
       <title>Prank - alias sudo in BASH (or why you should start escaping privilege-escalating commands)</title>
-      <link>https://blog.grdryn.me/blog/fedora/prank-alias-sudo-in-bash.html</link>
+      <link>http://localhost:8820//blog/fedora/prank-alias-sudo-in-bash.html</link>
       <pubDate>Sun, 11 Jan 2015 00:00:00 +0000</pubDate>
       <guid isPermaLink="false">blog/fedora/prank-alias-sudo-in-bash.html</guid>
       <description>
